@@ -1,6 +1,7 @@
 :root {
 --background: #2a2a2a;
 --text: ghostwhite;
+--header: #1a1a1c;
 }
 
 html {
@@ -11,14 +12,14 @@ background-color: #2B2B2B !important;
 .css-v758ki-AppMainContainer {
 background: var(--background) !important;
 min-width: auto !important;
-max-width: auto !important;
+max-width: 3000px !important;
 margin: 0px !important;
 padding: 10px 20px !important; 
 }
 
 
 .css-y7r3-AppHeader {
-background: #1a1a1c !important;
+background: var(--header) !important;
 }
 
 .css-1hvrgvd-CollectionTopContainer-card-cardTop {
@@ -26,7 +27,7 @@ width: auto !important;
 padding: 10px 20px !important;
 background: #1a1a1a !important;
 border-radius: 15px !important;
-border: 1px solid #639 !important;
+border: 2px solid #639 !important;
 }
 
 .css-bn4qgs-CollectionTopNewButton-button-default-gray {
@@ -39,9 +40,10 @@ color: var(--text) !important;
 }
 
 .css-5wgw3f-ListCard-card {
-width: auto !important;
+width: 100% !important;
 border-radius: 8px !important;
 border: 2px solid rgb(102, 51, 153) !important;
+background: none;
 }
 
 .css-5wgw3f-ListCard-card:hover {
@@ -50,4 +52,39 @@ background: #1b1b1b;
 
 .css-1mtos59-ListCardTitle {
 color: var(--text) !important;  
+}
+
+.css-1t9i08i-ListCardLink:hover {
+background: none !important;
+}
+
+.css-1gj57a0-SidebarContainer-card {
+background-color: #1a1a1a !important;
+border: 2px solid #639 !important;
+}
+
+
+.css-npvq26-SidebarHeading {
+font-size: 1.5rem !important;
+color: var(--text);
+}
+
+.css-6o0rf-PreviewPaneContainer-ControlPaneContainer {
+background: #1a1a1a !important;
+}
+
+.css-6o0rf-PreviewPaneContainer-ControlPaneContainer, .css-16b5p1f-ToolbarSectionMain-toolbarSection, .css-1acatj1-ToolbarSectionMeta-toolbarSection {
+background: var(--header) !important;
+}
+
+#preview-pane {
+background: var(--background) !important;
+}
+
+.css-1jydmlz-PreviewContainer {
+color: var(--text) !important;
+}
+
+.Resizer.vertical {
+background: #639 !important;
 }
