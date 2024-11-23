@@ -34,6 +34,20 @@ border-radius: 30px !important;
 }
 
 .css-37khcc-CollectionTopHeading-cardTopHeading {
-font-size: 1.3rem) !important;
+font-size: 1.3rem !important;
 color: var(--text) !important;
+}
+
+.css-5wgw3f-ListCard-card {
+width: auto !important;
+border-radius: 8px !important;
+border: 2px solid rgb(102, 51, 153) !important;
+}
+
+.css-5wgw3f-ListCard-card:hover {
+background: #1b1b1b;
+}
+
+.css-1mtos59-ListCardTitle {
+color: var(--text) !important;  
 }
