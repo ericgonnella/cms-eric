@@ -1,14 +1,39 @@
-.nc-root {
-    font-family: "Arial", sans-serif;
-    background-color: #f4f4f9;
-  }
-  
-  .nc-header {
-    background-color: #333;
-    color: white;
-  }
-  
-  .nc-sidebar {
-    background-color: #222;
-    color: white;
-  }
+:root {
+--background: #2a2a2a;
+--text: ghostwhite;
+}
+
+html {
+background-color: #2B2B2B;
+}
+
+
+.css-v758ki-AppMainContainer {
+background: var(--background);
+min-width: auto;
+max-width: auto;
+margin: 0px;
+padding: 10px 20px; 
+}
+
+
+.css-y7r3-AppHeader {
+background: #1a1a1c;
+}
+
+.css-1hvrgvd-CollectionTopContainer-card-cardTop {
+width: auto;
+padding: 10px 20px;
+background: #1a1a1a;
+border-radius: 15px;
+border: 1px solid #639;
+}
+
+.css-bn4qgs-CollectionTopNewButton-button-default-gray {
+border-radius: 30px;
+}
+
+.css-37khcc-CollectionTopHeading-cardTopHeading {
+font-size: 1.3rem;
+color: var(--text);
+}
