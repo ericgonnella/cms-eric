@@ -1,0 +1,2 @@
+# Redirect invite tokens to the admin panel
+/#invite_token=:token /admin/#invite_token=:token 200
