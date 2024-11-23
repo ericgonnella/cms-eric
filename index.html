@@ -95,15 +95,19 @@
   </script>
 
 <script>
-    // Check if the URL contains an invite token
-    const urlParams = new URLSearchParams(window.location.hash);
-    const inviteToken = urlParams.get('invite_token');
-  
-    if (inviteToken) {
-      // Redirect to the /admin page with the invite token
-      window.location.href = `/admin/#invite_token=${inviteToken}`;
+    // Check if the URL contains a hash with an invite token
+    const hash = window.location.hash; // Get the hash part of the URL (e.g., #invite_token=abc123)
+    
+    if (hash && hash.includes("invite_token")) {
+      // Extract the token and redirect to the admin page
+      const token = hash.split("invite_token=")[1];
+      if (token) {
+        // Redirect to the /admin page with the token
+        window.location.href = `/admin/#invite_token=${token}`;
+      }
     }
   </script>
+  
   
 
 </body>
