@@ -15,21 +15,38 @@
   <script>
     // Fetch blog posts dynamically
     async function fetchPosts() {
-      const response = await fetch('/content/blog');
-      const posts = await response.json(); // Adjust this if needed based on your setup
-      const blogList = document.getElementById('blog-list');
+  const blogList = document.getElementById('blog-preview');
+  const posts = [];
 
-      posts.forEach(post => {
-        const article = document.createElement('article');
-        article.innerHTML = `
-          <h2>${post.title}</h2>
-          <p><small>${post.date} by ${post.author}</small></p>
-          <p>${post.body.substring(0, 100)}...</p>
-          <a href="/blog/${post.slug}">Read More</a>
-        `;
-        blogList.appendChild(article);
-      });
-    }
+  // Fetch JSON files dynamically
+  const response = await fetch('/content/blog');
+  const directoryHTML = await response.text(); // Get the directory listing as HTML
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(directoryHTML, 'text/html');
+  const files = Array.from(doc.querySelectorAll('a')).filter(file => file.href.endsWith('.json'));
+
+  // Load each JSON file
+  for (const file of files) {
+    const fileResponse = await fetch(file.href);
+    const post = await fileResponse.json();
+    posts.push(post);
+  }
+
+  // Render blog posts
+  posts.forEach(post => {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <h3>${post.title}</h3>
+      <p><small>${new Date(post.date).toLocaleDateString()} by ${post.author}</small></p>
+      <p>${post.body.substring(0, 100)}...</p>
+      <a href="#">Read More</a>
+    `;
+    blogList.appendChild(article);
+  });
+}
+
+fetchPosts().catch(err => console.error('Error fetching posts:', err));
+
 
     fetchPosts();
   </script>
