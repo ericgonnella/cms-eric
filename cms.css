@@ -54,6 +54,10 @@ background: #1b1b1b;
 color: var(--text) !important;  
 }
 
+.css-1t9i08i-ListCardLink {
+background: #1a1a1a;  
+}
+
 .css-1t9i08i-ListCardLink:hover {
 background: none !important;
 }

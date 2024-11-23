@@ -10,11 +10,13 @@
   <!-- Load Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
+  <!-- Load Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
+    // Enable Netlify Identity debug mode
+    window.netlifyIdentityDebug = true;
 
-window.netlifyIdentityDebug = true;
-
+    // Initialize Netlify Identity
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user) => {
         if (!user) {
@@ -23,18 +25,54 @@ window.netlifyIdentityDebug = true;
           });
         }
       });
+      window.netlifyIdentity.init(); // Ensure Identity is initialized
     }
   </script>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.init();
-  }
-</script>
+  <!-- Load TipTap Editor Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@tiptap/core"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tiptap/starter-kit"></script>
 
+  <script>
+    // Custom TipTap Editor Control for Netlify CMS
+    class TipTapEditorControl extends React.Component {
+      componentDidMount() {
+        const { onChange, value } = this.props;
 
-  
+        // Create TipTap Editor instance
+        this.editor = new window.tiptap.Editor({
+          extensions: [window.tiptap.StarterKit],
+          content: value || '', // Load existing content
+          onUpdate: ({ editor }) => {
+            const jsonContent = editor.getJSON(); // Output as JSON
+            onChange(JSON.stringify(jsonContent)); // Pass JSON to Netlify CMS
+          },
+        });
 
+        // Attach the editor to the container
+        this.editorContainer.appendChild(this.editor.view.dom);
+      }
+
+      componentWillUnmount() {
+        // Destroy the editor when unmounting
+        if (this.editor) {
+          this.editor.destroy();
+        }
+      }
+
+      render() {
+        return (
+          <div
+            ref={(ref) => {
+              this.editorContainer = ref;
+            }}
+          ></div>
+        );
+      }
+    }
+
+    // Register TipTap as a widget in Netlify CMS
+    CMS.registerWidget('tiptap', TipTapEditorControl);
+  </script>
 </body>
 </html>
