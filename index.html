@@ -93,5 +93,18 @@
 
     loadFeaturedBlogs();
   </script>
+
+<script>
+    // Check if the URL contains an invite token
+    const urlParams = new URLSearchParams(window.location.hash);
+    const inviteToken = urlParams.get('invite_token');
+  
+    if (inviteToken) {
+      // Redirect to the /admin page with the invite token
+      window.location.href = `/admin/#invite_token=${inviteToken}`;
+    }
+  </script>
+  
+
 </body>
 </html>
