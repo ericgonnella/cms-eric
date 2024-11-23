@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netlify CMS</title>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</head>
+<body>
+  <script>
+    // Redirect to GitHub authorization if needed
+    if (window.location.search.includes('no-cache')) {
+      window.location.href = '/admin/';
+    }
+  </script>
+</body>
+</html>
