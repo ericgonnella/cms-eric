@@ -4,36 +4,36 @@
 }
 
 html {
-background-color: #2B2B2B;
+background-color: #2B2B2B !important;
 }
 
 
 .css-v758ki-AppMainContainer {
-background: var(--background);
-min-width: auto;
-max-width: auto;
-margin: 0px;
-padding: 10px 20px; 
+background: var(--background) !important;
+min-width: auto !important;
+max-width: auto !important;
+margin: 0px !important;
+padding: 10px 20px !important; 
 }
 
 
 .css-y7r3-AppHeader {
-background: #1a1a1c;
+background: #1a1a1c !important;
 }
 
 .css-1hvrgvd-CollectionTopContainer-card-cardTop {
-width: auto;
-padding: 10px 20px;
-background: #1a1a1a;
-border-radius: 15px;
-border: 1px solid #639;
+width: auto !important;
+padding: 10px 20px !important;
+background: #1a1a1a !important;
+border-radius: 15px !important;
+border: 1px solid #639 !important;
 }
 
 .css-bn4qgs-CollectionTopNewButton-button-default-gray {
-border-radius: 30px;
+border-radius: 30px !important;
 }
 
 .css-37khcc-CollectionTopHeading-cardTopHeading {
-font-size: 1.3rem;
-color: var(--text);
+font-size: 1.3rem) !important;
+color: var(--text) !important;
 }
