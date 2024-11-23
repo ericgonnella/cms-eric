@@ -1,0 +1,14 @@
+.nc-root {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f9;
+  }
+  
+  .nc-header {
+    background-color: #333;
+    color: white;
+  }
+  
+  .nc-sidebar {
+    background-color: #222;
+    color: white;
+  }
