@@ -1,17 +1,17 @@
 backend:
   name: git-gateway
-  branch: main # or the branch you want to use for content updates
+  branch: main # Update this to match your Git branch name
 
-media_folder: "images/uploads" # Folder for storing images
-public_folder: "/images/uploads" # Public path for the images
+media_folder: "images/uploads" # Folder where uploaded images will be stored
+public_folder: "/images/uploads" # Public URL path for images
 
 collections:
-  - name: "blog" # Name of the collection
-    label: "Blog" # Label in the CMS
-    folder: "content/blog" # Where posts are stored
-    create: true # Allow users to create new posts
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Post URL pattern
-    fields: # Fields for blog posts
+  - name: "blog" # Identifier for the collection
+    label: "Blog" # Visible label in the CMS
+    folder: "content/blog" # Folder where blog posts will be stored
+    create: true # Allow creating new blog posts
+    slug: "{{slug}}" # URL pattern for new posts
+    fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
