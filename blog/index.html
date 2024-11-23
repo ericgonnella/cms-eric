@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Blog</h1>
+    <p>Welcome to the blog! Here are the latest posts:</p>
+  </header>
+  <main id="blog-list"></main>
+  <script>
+    // Fetch blog posts dynamically
+    async function fetchPosts() {
+      const response = await fetch('/content/blog');
+      const posts = await response.json(); // Adjust this if needed based on your setup
+      const blogList = document.getElementById('blog-list');
+
+      posts.forEach(post => {
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h2>${post.title}</h2>
+          <p><small>${post.date} by ${post.author}</small></p>
+          <p>${post.body.substring(0, 100)}...</p>
+          <a href="/blog/${post.slug}">Read More</a>
+        `;
+        blogList.appendChild(article);
+      });
+    }
+
+    fetchPosts();
+  </script>
+</body>
+</html>

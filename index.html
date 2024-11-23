@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric's Site</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="main-header">
+    <div class="container">
+      <h1>Welcome to Eric's Site</h1>
+      <p>Your go-to hub for tutorials, blogs, and dynamic content.</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <ul class="container">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Intro Section -->
+  <section id="intro" class="container">
+    <h2>About This Site</h2>
+    <p>
+      Welcome to my personal site! Here, you'll find a collection of blog posts,
+      tutorials, and resources on topics ranging from web development to tech insights.
+      Feel free to explore the blog for the latest updates or learn more about me below.
+    </p>
+  </section>
+
+  <!-- Featured Blog Posts -->
+  <section id="featured-blogs" class="container">
+    <h2>Latest Blog Posts</h2>
+    <div id="blog-preview">
+      <!-- Blog posts will be dynamically inserted here -->
+    </div>
+    <a href="/blog/" class="btn">View All Blog Posts</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Eric! I’m passionate about building creative and functional websites.
+      This site is a showcase of my work, thoughts, and projects. When I’m not coding,
+      I enjoy gaming, exploring new technologies, and tinkering with designs.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container">
+    <h2>Contact Me</h2>
+    <p>Have questions or want to collaborate? Feel free to reach out!</p>
+    <ul>
+      <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+      <li>Twitter: <a href="https://twitter.com/yourhandle" target="_blank">@yourhandle</a></li>
+      <li>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2024 Eric's Site. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Blog Posts Script -->
+  <script>
+    // Dynamically fetch and display featured blog posts
+    async function loadFeaturedBlogs() {
+      const response = await fetch('/content/blog'); // Adjust the path if needed
+      const posts = await response.json(); // Adjust this if you're serving a JSON API or Markdown files
+      const blogPreview = document.getElementById('blog-preview');
+
+      posts.slice(0, 3).forEach(post => { // Limit to the latest 3 posts
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.body.substring(0, 100)}...</p>
+          <a href="/blog/${post.slug}" class="btn">Read More</a>
+        `;
+        blogPreview.appendChild(article);
+      });
+    }
+
+    loadFeaturedBlogs();
+  </script>
+</body>
+</html>
