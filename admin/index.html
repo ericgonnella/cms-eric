@@ -29,52 +29,50 @@
     }
   </script>
 
-  <!-- Load TipTap Editor Scripts -->
-  <script src="/static/js/tiptap-core.js"></script>
-  <script src="/static/js/tiptap-starter-kit.js"></script>
-  
+<script src="/admin/ckeditor/ckeditor.js"></script>
 
-  <script>
-    // Custom TipTap Editor Control for Netlify CMS
-    class TipTapEditorControl extends React.Component {
-      componentDidMount() {
-        const { onChange, value } = this.props;
+<script>
+  class CKEditorControl extends React.Component {
+    componentDidMount() {
+      const { onChange, value } = this.props;
 
-        // Create TipTap Editor instance
-        this.editor = new window.tiptap.Editor({
-          extensions: [window.tiptap.StarterKit],
-          content: value || '', // Load existing content
-          onUpdate: ({ editor }) => {
-            const jsonContent = editor.getJSON(); // Output as JSON
-            onChange(JSON.stringify(jsonContent)); // Pass JSON to Netlify CMS
-          },
-        });
+      // Initialize CKEditor
+      this.editor = CKEDITOR.replace(this.editorContainer, {
+        height: 300,
+      });
 
-        // Attach the editor to the container
-        this.editorContainer.appendChild(this.editor.view.dom);
-      }
+      // Set the initial value
+      this.editor.setData(value || '');
 
-      componentWillUnmount() {
-        // Destroy the editor when unmounting
-        if (this.editor) {
-          this.editor.destroy();
-        }
-      }
+      // Update the CMS whenever CKEditor content changes
+      this.editor.on('change', () => {
+        const data = this.editor.getData();
+        onChange(data); // Send the data to Netlify CMS
+      });
+    }
 
-      render() {
-        return (
-          <div
-            ref={(ref) => {
-              this.editorContainer = ref;
-            }}
-          ></div>
-        );
+    componentWillUnmount() {
+      // Destroy the CKEditor instance when unmounting
+      if (this.editor) {
+        this.editor.destroy();
       }
     }
 
-    // Register TipTap as a widget in Netlify CMS
-    CMS.registerWidget('tiptap', TipTapEditorControl);
-    
-  </script>
+    render() {
+      return (
+        <textarea
+          ref={(ref) => (this.editorContainer = ref)}
+          defaultValue={this.props.value || ''}
+        ></textarea>
+      );
+    }
+  }
+
+  // Register CKEditor as a widget in Netlify CMS
+  CMS.registerWidget('ckeditor', CKEditorControl);
+</script>
+
+
+
 </body>
 </html>
