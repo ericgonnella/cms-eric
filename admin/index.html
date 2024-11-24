@@ -29,7 +29,8 @@
     }
   </script>
 
-<script src="/admin/ckeditor/ckeditor.js"></script>
+<script src="/admin/ckeditor5/ckeditor5.js"></script>
+
 
 <script>
   class CKEditorControl extends window.React.Component {
@@ -65,7 +66,7 @@
           });
         })
         .catch(error => {
-          console.error('There was a problem initializing CKEditor:', error);
+          console.error('Error initializing CKEditor:', error);
         });
     }
 
@@ -90,6 +91,7 @@
   // Register CKEditor 5 as a widget in Netlify CMS
   CMS.registerWidget('ckeditor5', CKEditorControl);
 </script>
+
 
 
 

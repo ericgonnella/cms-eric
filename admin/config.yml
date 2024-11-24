@@ -13,7 +13,8 @@ collections:
     slug: "{{slug}}" # File naming pattern
     format: "json" # Save files as JSON instead of Markdown
     fields: # Define fields for blog posts
+     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string" }
-      - { label: "Body", name: "body", widget: "ckeditor5" } # Replaced duplicate content field
+      - { label: "Body", name: "body", widget: "ckeditor5" }
