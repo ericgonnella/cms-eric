@@ -32,27 +32,45 @@
 <script src="/admin/ckeditor/ckeditor.js"></script>
 
 <script>
-  class CKEditorControl extends React.Component {
+  class CKEditorControl extends window.React.Component {
     componentDidMount() {
       const { onChange, value } = this.props;
 
-      // Initialize CKEditor
-      this.editor = CKEDITOR.replace(this.editorContainer, {
-        height: 300,
-      });
+      // Initialize CKEditor 5
+      ClassicEditor.create(this.editorContainer, {
+        toolbar: [
+          'heading',
+          '|',
+          'bold',
+          'italic',
+          'link',
+          'bulletedList',
+          'numberedList',
+          '|',
+          'undo',
+          'redo',
+        ],
+      })
+        .then(editor => {
+          this.editor = editor;
 
-      // Set the initial value
-      this.editor.setData(value || '');
+          // Set initial value
+          if (value) {
+            editor.setData(value);
+          }
 
-      // Update the CMS whenever CKEditor content changes
-      this.editor.on('change', () => {
-        const data = this.editor.getData();
-        onChange(data); // Send the data to Netlify CMS
-      });
+          // Update Netlify CMS when content changes
+          editor.model.document.on('change:data', () => {
+            onChange(editor.getData());
+          });
+        })
+        .catch(error => {
+          console.error('There was a problem initializing CKEditor:', error);
+        });
     }
 
     componentWillUnmount() {
-      // Destroy the CKEditor instance when unmounting
+      // Destroy CKEditor instance on unmount
       if (this.editor) {
         this.editor.destroy();
       }
@@ -60,17 +78,19 @@
 
     render() {
       return (
-        <textarea
-          ref={(ref) => (this.editorContainer = ref)}
-          defaultValue={this.props.value || ''}
-        ></textarea>
+        <div
+          ref={ref => {
+            this.editorContainer = ref;
+          }}
+        ></div>
       );
     }
   }
 
-  // Register CKEditor as a widget in Netlify CMS
-  CMS.registerWidget('ckeditor', CKEditorControl);
+  // Register CKEditor 5 as a widget in Netlify CMS
+  CMS.registerWidget('ckeditor5', CKEditorControl);
 </script>
+
 
 
 

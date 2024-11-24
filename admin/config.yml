@@ -17,3 +17,5 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Body", name: "body", widget: "ckeditor" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Content", name: "content", widget: "ckeditor5" }
