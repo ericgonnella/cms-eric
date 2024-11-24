@@ -7,11 +7,16 @@
   <title>Admin Panel</title>
 </head>
 <body>
+  
   <!-- Load Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+  
   <!-- Load Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  
   <script>
     // Enable Netlify Identity debug mode
     window.netlifyIdentityDebug = true;
@@ -29,15 +34,14 @@
     }
   </script>
 
-<script src="/admin/ckeditor5/ckeditor5.js"></script>
-
 
 <script>
+  // Register CKEditor 5 Widget
   class CKEditorControl extends window.React.Component {
     componentDidMount() {
       const { onChange, value } = this.props;
 
-      // Initialize CKEditor 5
+      // Initialize CKEditor
       ClassicEditor.create(this.editorContainer, {
         toolbar: [
           'heading',
@@ -71,30 +75,19 @@
     }
 
     componentWillUnmount() {
-      // Destroy CKEditor instance on unmount
+      // Destroy CKEditor instance
       if (this.editor) {
         this.editor.destroy();
       }
     }
 
     render() {
-      return (
-        <div
-          ref={ref => {
-            this.editorContainer = ref;
-          }}
-        ></div>
-      );
+      return <div ref={ref => (this.editorContainer = ref)}></div>;
     }
   }
 
   // Register CKEditor 5 as a widget in Netlify CMS
   CMS.registerWidget('ckeditor5', CKEditorControl);
 </script>
-
-
-
-
-
 </body>
 </html>
