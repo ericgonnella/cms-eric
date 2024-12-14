@@ -5,52 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/cms.css" />
   <title>Admin Dashboard</title>
-  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #2a2a2a;
-      color: ghostwhite;
-      margin: 0;
-      padding: 20px;
-    }
-    #editor-container {
-      height: 300px;
-      background: white;
-      color: black;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      background: #639;
-      color: ghostwhite;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #825;
-    }
-  </style>
 </head>
 <body>
-  <h1>Admin Dashboard</h1>
-  <form id="post-form">
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" style="width: 100%; margin-bottom: 20px;" required><br>
-
-    <label for="editor-container">Content:</label>
-    <div id="editor-container"></div>
-
-    <!-- Hidden field to store editor content -->
-    <input type="hidden" name="content" id="content">
-
-    <button type="submit">Save Post</button>
-  </form>
 
   <!-- Load Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
   <!-- Load Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -71,95 +31,5 @@
     }
   </script>
 
-  <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
-  <script>
-
-// Register Quill as a Netlify CMS widget
-class QuillControl extends window.React.Component {
-  componentDidMount() {
-    const { onChange, value } = this.props;
-
-    // Initialize Quill editor
-    this.quill = new Quill(this.editorContainer, {
-      theme: 'snow',
-      modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline'],
-          ['link', 'image'],
-          [{ list: 'ordered' }, { list: 'bullet' }],
-          [{ header: [1, 2, 3, false] }],
-        ],
-      },
-    });
-
-    // Set initial value if present
-    if (value) {
-      this.quill.root.innerHTML = value;
-    }
-
-    // Update CMS on content changes
-    this.quill.on('text-change', () => {
-      onChange(this.quill.root.innerHTML);
-    });
-  }
-
-  render() {
-    return <div ref={(ref) => (this.editorContainer = ref)} />;
-  }
-}
-
-// Register Quill widget with Netlify CMS
-CMS.registerWidget('quill', QuillControl);
-
-
-
-    // Initialize Quill editor
-    const quill = new Quill('#editor-container', {
-      theme: 'snow',
-      modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline'],
-          ['link', 'image'],
-          [{ list: 'ordered' }, { list: 'bullet' }],
-          [{ header: [1, 2, 3, false] }],
-        ],
-      },
-    });
-
-    // Form submission handler
-    const form = document.getElementById('post-form');
-    form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent default form submission
-
-  // Get Quill content
-  const content = quill.root.innerHTML;
-  const title = form.title.value;
-
-  // Simulate a CMS post creation
-  const entry = {
-    title,
-    content,
-  };
-
-  console.log(entry); // Debug: ensure data is structured correctly
-
-  CMS.getBackend()
-    .persistEntry({
-      collection: 'blog', // Adjust this to your actual collection
-      slug: title.toLowerCase().replace(/\s+/g, '-'), // Generate a slug
-      entry: {
-        data: entry, // Pass your content here
-      },
-    })
-    .then(() => {
-      alert('Post saved to CMS!');
-    })
-    .catch((err) => {
-      console.error('Error saving post:', err);
-      alert('Error saving post. Check console for details.');
-    });
-});
-
-  </script>
 </body>
 </html>
