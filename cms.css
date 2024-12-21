@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
 --background: #2a2a2a;
 --text: ghostwhite;
@@ -6,6 +8,8 @@
 
 html {
 background-color: #2B2B2B !important;
+font-family: "Noto Sans", serif;
+font-optical-sizing: auto;
 }
 
 
@@ -92,3 +96,63 @@ color: var(--text) !important;
 .Resizer.vertical {
 background: #639 !important;
 }
+
+.css-1lv5pus-SidebarNavList {
+width: 90%;    
+margin-inline: auto;
+border-radius: 4px;
+}
+
+
+/* new blog button clicked panel */
+
+[data-whatintent="mouse"] :focus {
+    outline: none;
+    background: var(--background) !important;
+    color: var(--text) !important;
+  }
+
+.css-83wr9v {
+background: var(--background) !important;
+color: var(--text);
+}
+
+.css-83wr9v:focus {
+background: var(--background) !important;
+}
+    
+
+.css-188efjc {
+background: var(--background);
+color: var(--text);
+}
+
+.css-abwcjt-ToolbarSectionBackLink-toolbarSection {
+display: flex;
+-moz-box-align: center;
+align-items: center;
+border-width: 0px 1px 0px 0px;
+border-style: solid;
+border-image: none;
+padding: 0px 20px;
+background: rgb(102, 51, 153);
+background-color: rgb(102, 51, 153);
+width: 17%;
+font-weight: normal;
+}
+
+
+.css-abwcjt-ToolbarSectionBackLink-toolbarSection:hover {
+    background: rgb(102, 51, 140);
+background-color: rgb(102, 51, 140);
+}
+
+.css-1whurdv-BackCollection {
+color: var(--text);
+}
+
+.css-o6hjv6-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishButton{
+background-color: #663399 !important;
+}
+
+

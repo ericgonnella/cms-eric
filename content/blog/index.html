@@ -3,52 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
+  <title>Blog Posts</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header>
-    <h1>Blog</h1>
-    <p>Welcome to the blog! Here are the latest posts:</p>
+    <h1>All Blog Posts</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
   </header>
-  <main id="blog-list"></main>
+  <main>
+    <div id="all-blog-posts">
+      <!-- Blog posts will be dynamically inserted here -->
+    </div>
+  </main>
   <script>
-    // Fetch blog posts dynamically
-    async function fetchPosts() {
-  const blogList = document.getElementById('blog-preview');
-  const posts = [];
+    async function loadAllBlogs() {
+      try {
+        const response = await fetch('/content/blog');
+        if (!response.ok) {
+          throw new Error('Could not fetch blog posts. Check the path or network.');
+        }
 
-  // Fetch JSON files dynamically
-  const response = await fetch('/content/blog');
-  const directoryHTML = await response.text(); // Get the directory listing as HTML
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(directoryHTML, 'text/html');
-  const files = Array.from(doc.querySelectorAll('a')).filter(file => file.href.endsWith('.json'));
+        const directory = await response.json();
+        const blogContainer = document.getElementById('all-blog-posts');
 
-  // Load each JSON file
-  for (const file of files) {
-    const fileResponse = await fetch(file.href);
-    const post = await fileResponse.json();
-    posts.push(post);
-  }
+        // Clear existing content in case of reload
+        blogContainer.innerHTML = '';
 
-  // Render blog posts
-  posts.forEach(post => {
-    const article = document.createElement('article');
-    article.innerHTML = `
-      <h3>${post.title}</h3>
-      <p><small>${new Date(post.date).toLocaleDateString()} by ${post.author}</small></p>
-      <p>${post.body.substring(0, 100)}...</p>
-      <a href="#">Read More</a>
-    `;
-    blogList.appendChild(article);
-  });
-}
+        // Iterate over JSON files and fetch each one
+        for (const file of directory.files) {
+          const fileResponse = await fetch(`/content/blog/${file}`);
+          const post = await fileResponse.json();
 
-fetchPosts().catch(err => console.error('Error fetching posts:', err));
+          const article = document.createElement('article');
+          article.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.body.substring(0, 200)}...</p>
+            <a href="/blog/${file.replace('.json', '')}" class="btn">Read More</a>
+          `;
+          blogContainer.appendChild(article);
+        }
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+        const blogContainer = document.getElementById('all-blog-posts');
+        blogContainer.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
+      }
+    }
 
-
-    fetchPosts();
+    loadAllBlogs();
   </script>
 </body>
 </html>

@@ -41,7 +41,8 @@
     <div id="blog-preview">
       <!-- Blog posts will be dynamically inserted here -->
     </div>
-    <a href="/blog/" class="btn">View All Blog Posts</a>
+    <a href="content/blog/index.html" class="btn">View All Blog Posts</a>
+
   </section>
 
   <!-- About Section -->
@@ -75,23 +76,47 @@
   <!-- Blog Posts Script -->
   <script>
     // Dynamically fetch and display featured blog posts
-    async function loadFeaturedBlogs() {
-      const response = await fetch('/content/blog'); // Adjust the path if needed
-      const posts = await response.json(); // Adjust this if you're serving a JSON API or Markdown files
-      const blogPreview = document.getElementById('blog-preview');
+ // Dynamically fetch and display featured blog posts
+ async function loadFeaturedBlogs() {
+  try {
+    const response = await fetch('/content/blog/index.json'); // Adjust to match your structure
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-      posts.slice(0, 3).forEach(post => { // Limit to the latest 3 posts
+    const files = await response.json(); // Assuming index.json returns an array of filenames
+    const blogPreview = document.getElementById('blog-preview');
+    blogPreview.innerHTML = '';
+
+    for (const file of files) {
+      try {
+        const fileResponse = await fetch(`/content/blog/${file}`);
+        if (!fileResponse.ok) {
+          throw new Error(`Failed to fetch ${file}: ${fileResponse.status}`);
+        }
+
+        const post = await fileResponse.json();
+
         const article = document.createElement('article');
         article.innerHTML = `
           <h3>${post.title}</h3>
           <p>${post.body.substring(0, 100)}...</p>
-          <a href="/blog/${post.slug}" class="btn">Read More</a>
+          <a href="/blog/${file.replace('.json', '')}" class="btn">Read More</a>
         `;
         blogPreview.appendChild(article);
-      });
+      } catch (error) {
+        console.error(`Error loading post file ${file}:`, error);
+      }
     }
+  } catch (error) {
+    console.error('Error loading blog posts:', error);
+    const blogPreview = document.getElementById('blog-preview');
+    blogPreview.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
+  }
+}
 
-    loadFeaturedBlogs();
+loadFeaturedBlogs();
+
   </script>
 
 <script>
