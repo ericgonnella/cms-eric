@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[[redirects]]
+  from = "/content/blog/*"
+  to = "/content/blog/:splat"
+  status = 200

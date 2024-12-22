@@ -8,5 +8,11 @@
     "serve": "^14.2.4",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
-  }
+  },
+"scripts": {
+  "generate-index": "node generateIndex.js",
+  "build": "npm run generate-index && webpack",
+  "start": "serve ."
 }
+}
+

@@ -25,11 +25,36 @@
           window.netlifyIdentity.on("login", () => {
             document.location.href = "/admin/";
           });
+
+          if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('login', () => {
+    // Re-fetch blog posts after login/publish
+    fetchBlogPosts();
+  });
+}
         }
       });
       window.netlifyIdentity.init(); // Ensure Identity is initialized
     }
   </script>
+
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        console.log("No user logged in.");
+      } else {
+        console.log("Logged in as:", user);
+      }
+    });
+    window.netlifyIdentity.on("login", () => {
+      console.log("User logged in.");
+      document.location.href = "/admin/";
+    });
+  }
+</script>
+
 
 </body>
 </html>

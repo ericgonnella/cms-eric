@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Posts</title>
+  <title>Blog</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -11,49 +11,99 @@
     <h1>All Blog Posts</h1>
     <nav>
       <a href="/">Home</a>
-      <a href="/blog.html">Blog</a>
     </nav>
   </header>
-  <main>
-    <div id="all-blog-posts">
-      <!-- Blog posts will be dynamically inserted here -->
-    </div>
+  <main id="all-blogs">
+    <!-- Blog list will be dynamically inserted here -->
   </main>
-  <script>
-    async function loadAllBlogs() {
-      try {
-        const response = await fetch('/content/blog');
-        if (!response.ok) {
-          throw new Error('Could not fetch blog posts. Check the path or network.');
-        }
 
-        const directory = await response.json();
-        const blogContainer = document.getElementById('all-blog-posts');
+<script>
 
-        // Clear existing content in case of reload
-        blogContainer.innerHTML = '';
+document.addEventListener("DOMContentLoaded", () => {
+  async function loadAllBlogs() {
+    const blogContainer = document.getElementById('all-blogs');
 
-        // Iterate over JSON files and fetch each one
-        for (const file of directory.files) {
-          const fileResponse = await fetch(`/content/blog/${file}`);
-          const post = await fileResponse.json();
-
-          const article = document.createElement('article');
-          article.innerHTML = `
-            <h3>${post.title}</h3>
-            <p>${post.body.substring(0, 200)}...</p>
-            <a href="/blog/${file.replace('.json', '')}" class="btn">Read More</a>
-          `;
-          blogContainer.appendChild(article);
-        }
-      } catch (error) {
-        console.error('Error loading blog posts:', error);
-        const blogContainer = document.getElementById('all-blog-posts');
-        blogContainer.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
-      }
+    // Check if the blogContainer element exists
+    if (!blogContainer) {
+      console.error('"all-blogs" element not found.');
+      return;
     }
 
-    loadAllBlogs();
+    try {
+      const response = await fetch('/content/blog/index.json');
+      const files = await response.json();
+
+      blogContainer.innerHTML = '';
+
+      for (const file of files) {
+        const postResponse = await fetch(`/content/blog/${file}`);
+        const post = await postResponse.json();
+
+        // Validate fields before rendering
+        if (!post.title || !post.body) {
+          console.warn(`Skipping invalid post: ${file}`);
+          continue;
+        }
+
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h2>${post.title}</h2>
+          <p>${post.body.substring(0, 200)}...</p>
+          <a href="/content/blog/${file.replace('.json', '.html')}" class="btn">Read More</a>
+        `;
+        blogContainer.appendChild(article);
+      }
+    } catch (error) {
+      console.error('Error loading blog posts:', error);
+      blogContainer.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
+    }
+  }
+
+  loadAllBlogs();
+});
+
+
+</script>
+
+  <script>
+async function loadAllBlogs() {
+  try {
+    const response = await fetch('/content/blog/index.json');
+    const files = await response.json();
+
+    const blogContainer = document.getElementById('all-blogs');
+    blogContainer.innerHTML = '';
+
+    for (const file of files) {
+      try {
+        const postResponse = await fetch(`/content/blog/${file}`);
+        const post = await postResponse.json();
+
+        // Validate the post structure
+        if (!post.title || !post.body) {
+          console.warn(`Skipping invalid post: ${file}`, post);
+          continue; // Skip this post
+        }
+
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h2>${post.title}</h2>
+          <p>${post.body.substring(0, 200)}...</p>
+          <a href="/content/blog/${file.replace('.json', '.html')}" class="btn">Read More</a>
+        `;
+        blogContainer.appendChild(article);
+      } catch (postError) {
+        console.error(`Error loading post ${file}:`, postError);
+      }
+    }
+  } catch (error) {
+    console.error('Error loading blog posts:', error);
+    const blogContainer = document.getElementById('all-blogs');
+    blogContainer.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
+  }
+}
   </script>
+
+
 </body>
 </html>
