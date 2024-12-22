@@ -7,9 +7,9 @@
   "devDependencies": {
     "serve": "^14.2.4"
   },
-  "scripts": {
-    "generate-index": "node generateIndex.js",
-    "build": "npm run generate-index",
-    "start": "serve ."
-  }
+"scripts": {
+  "generate-index": "node generateIndex.js",
+  "build": "npm run generate-index",
+  "start": "serve ."
+}
 }
