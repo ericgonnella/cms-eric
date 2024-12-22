@@ -1,13 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
-
-// Paths
-const blogDir = path.join(__dirname, 'content/blog'); // Source folder for JSON files
-const indexFile = path.join(blogDir, 'index.json'); // Blog index JSON file
-
 function generateBlogIndex() {
-  const files = fs.readdirSync(blogDir).filter(file => file.endsWith('.json'));
+  const files = fs.readdirSync(blogDir).filter(file => file.endsWith('.json') && file !== 'index.json'); // Skip index.json
 
   // Update index.json
   fs.writeFileSync(indexFile, JSON.stringify(files, null, 2));
@@ -18,11 +10,10 @@ function generateBlogIndex() {
     const filePath = path.join(blogDir, file);
     const post = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
-    // Validate fields
-if (!post.title || !post.body || !post.author || !post.date) {
-  console.error(`Invalid JSON structure in ${filePath}`);
-  return; // Skip invalid posts
-}
+    if (!post.title || !post.body || !post.author || !post.date) {
+      console.error(`Invalid JSON structure in ${filePath}`);
+      return; // Skip invalid posts
+    }
 
     const htmlContent = `
       <!DOCTYPE html>
@@ -55,5 +46,3 @@ if (!post.title || !post.body || !post.author || !post.date) {
 
   console.log('Blog index and HTML files updated.');
 }
-
-generateBlogIndex();
