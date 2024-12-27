@@ -31,28 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch('/content/blog/index.json');
-      const files = await response.json();
+      const posts = await response.json();
 
       blogContainer.innerHTML = '';
 
-      for (const file of files) {
-        const postResponse = await fetch(`/content/blog/${file}`);
-        const post = await postResponse.json();
-
-        // Validate fields before rendering
-        if (!post.title || !post.body) {
-          console.warn(`Skipping invalid post: ${file}`);
-          continue;
-        }
-
+      // Display posts (already sorted by date in index.json)
+      posts.forEach(post => {
         const article = document.createElement('article');
         article.innerHTML = `
           <h2>${post.title}</h2>
-          <p>${post.body.substring(0, 200)}...</p>
-          <a href="/content/blog/${file.replace('.json', '.html')}" class="btn">Read More</a>
+          <p>${new Date(post.date).toLocaleDateString()}</p>
+          <a href="/content/blog/${post.filename.replace('.json', '.html')}" class="btn">Read More</a>
         `;
         blogContainer.appendChild(article);
-      }
+      });
     } catch (error) {
       console.error('Error loading blog posts:', error);
       blogContainer.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
