@@ -88,18 +88,24 @@ function generateBlogIndex() {
         <link rel="stylesheet" href="/blog/blog.css">
         </head>
         <body>
+          <a href="/content/blog/index.html">Back to Blog</a>  
           <header>
             <h1>${post.title}</h1>
-            <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
-          </header>
-          <main>
-            <article>
-              ${postContentHTML} <!-- Rendered HTML from markdown -->
+            <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>   
+         </header>         
+          <nav class="nav-button-effects">
+            <a href="#About">About</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Articles">Articles</a>
+            <a href="Contact">Contact</a>
+          </nav>
+         <main>
+          <article>
+            ${postContentHTML} <!-- Rendered HTML from markdown -->
             </article>
-            <a href="/content/blog/index.html" class="btn">Back to Blog</a>
           </main>
         </body>
-        </html>
+      </html>
       `;
 
       fs.writeFileSync(htmlOutputPath, htmlContent);

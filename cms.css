@@ -12,6 +12,23 @@ font-family: "Noto Sans", serif;
 font-optical-sizing: auto;
 }
 
+.title-back {
+margin: 0;
+display: flex;
+justify-content: space-between;
+color: var(--text);
+padding: 0px 20px;
+background: var(--header);
+
+a {
+font-weight: bold;
+}
+
+a:hover {
+color: rgb(102, 51, 153);
+}
+
+}
 
 .css-v758ki-AppMainContainer {
 background: var(--background) !important;
@@ -107,10 +124,10 @@ border-radius: 4px;
 /* new blog button clicked panel */
 
 [data-whatintent="mouse"] :focus {
-    outline: none;
-    background: var(--background) !important;
-    color: var(--text) !important;
-  }
+outline: none;
+background: var(--background) !important;
+color: var(--text) !important;
+}
 
 .css-83wr9v {
 background: var(--background) !important;
@@ -120,7 +137,7 @@ color: var(--text);
 .css-83wr9v:focus {
 background: var(--background) !important;
 }
-    
+
 
 .css-188efjc {
 background: var(--background);
@@ -143,7 +160,7 @@ font-weight: normal;
 
 
 .css-abwcjt-ToolbarSectionBackLink-toolbarSection:hover {
-    background: rgb(102, 51, 140);
+background: rgb(102, 51, 140);
 background-color: rgb(102, 51, 140);
 }
 
@@ -155,4 +172,36 @@ color: var(--text);
 background-color: #663399 !important;
 }
 
+.css-882a4r-CardsGrid {
+justify-content: space-evenly;
+margin: 0;
+width: 100%;
+flex-wrap: wrap;
+flex-flow: row wrap;
+}
 
+.css-ltypdx-GridCardLink {
+background: #1a1a1a !important;
+color: var(--text) !important;
+}
+
+.css-1tsjwkh-CardBody {
+background-color: #1a1a1a !important;
+background: #1a1a1a !important;
+color: var(--text) !important;
+height: 300px !important;
+}
+
+
+.css-17fei3e-CardHeading {
+color: var(--text) !important;
+}
+
+.css-1iwq7gj-GridCard-card {
+margin-top: 100px;
+outline: 1px solid var(--text);
+}
+
+.css-1iwq7gj-GridCard-card:hover {
+  box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000; 
+}
