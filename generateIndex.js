@@ -17,7 +17,7 @@ function generateBlogIndex() {
 
   // Prepare metadata for index.json
   const posts = files.map(file => {
-    const filePath = path.join(postsDir, file);
+    const filePath = path.join(postsDir, file); // Correct path to the JSON file
     const post = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
     // Skip invalid posts
@@ -47,10 +47,14 @@ function generateBlogIndex() {
 
   // Generate HTML for each post
   posts.forEach(({ filename }) => {
-    const filePath = path.join(blogDir, filename);
-    const post = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const filePath = path.join(blogDir, filename); // Path to the JSON file
+    const post = JSON.parse(fs.readFileSync(path.join(blogDir, filename), 'utf-8')); // Ensure path is accurate
 
-    const postDir = path.dirname(filePath); // Directory for the post
+    const postDir = path.join(postsDir, filename.replace('.json', '')); // Create a folder for each post
+    if (!fs.existsSync(postDir)) {
+      fs.mkdirSync(postDir, { recursive: true });
+    }
+
     const htmlOutputPath = path.join(postDir, 'index.html'); // Output HTML file
 
     const htmlContent = `
@@ -60,7 +64,8 @@ function generateBlogIndex() {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${post.title}</title>
-        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/global.css">
+        <link rel="stylesheet" href="/blog.css">
       </head>
       <body>
         <header>

@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "filename": "posts/test-post-1.json",
+    "title": "Test Post #1",
+    "date": "2025-01-11T03:33:20.816Z"
+  }
+]

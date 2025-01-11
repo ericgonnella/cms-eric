@@ -177,7 +177,7 @@
         articleElement.innerHTML = `
           <h2>${article.title}</h2>
           <p><strong>Date:</strong> ${new Date(article.date).toLocaleDateString()}</p>
-          <a href="/content/blog/${article.filename.replace('.json', '/index.html')}" class="btn">Read More</a>
+          <a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}" class="btn">Read More</a>
         `;
         articlesContainer.appendChild(articleElement);
       });
