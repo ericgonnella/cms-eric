@@ -65,7 +65,7 @@ function generateBlogIndex() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${post.title}</title>
         <link rel="stylesheet" href="/global.css">
-        <link rel="stylesheet" href="/blog.css">
+        <link rel="stylesheet" href="/blog/blog.css">
       </head>
       <body>
         <header>
