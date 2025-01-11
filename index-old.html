@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric's Site</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="main-header">
+    <div class="container">
+      <h1>Welcome to Eric's Site</h1>
+      <p>Your go-to hub for tutorials, blogs, and dynamic content.</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <ul class="container">
+      <li><a href="/">Home</a></li>
+      <li> <a href="/content/blog/index.html">Blog</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Intro Section -->
+  <section id="intro" class="container">
+    <h2>About This Site</h2>
+    <p>
+      Welcome to my personal site! Here, you'll find a collection of blog posts,
+      tutorials, and resources on topics ranging from web development to tech insights.
+      Feel free to explore the blog for the latest updates or learn more about me below.
+    </p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Eric! I’m passionate about building creative and functional websites.
+      This site is a showcase of my work, thoughts, and projects. When I’m not coding,
+      I enjoy gaming, exploring new technologies, and tinkering with designs.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container">
+    <h2>Contact Me</h2>
+    <p>Have questions or want to collaborate? Feel free to reach out!</p>
+    <ul>
+      <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+      <li>Twitter: <a href="https://twitter.com/yourhandle" target="_blank">@yourhandle</a></li>
+      <li>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2024 Eric's Site. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+
+    
+  </script>
+
+  <!-- Blog Posts Script -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  async function fetchBlogPosts() {
+    const blogPreview = document.getElementById('blog-preview');
+
+    // Check if the blogPreview element exists
+    if (!blogPreview) {
+      console.warn('"blog-preview" element not found. Skipping blog post fetching.');
+      return; // Exit if the element is missing
+    }
+
+    try {
+      const response = await fetch('/content/blog/index.json');
+      const files = await response.json();
+
+      blogPreview.innerHTML = '';
+
+      for (const file of files) {
+        const postResponse = await fetch(`/content/blog/${file}`);
+        const post = await postResponse.json();
+
+        // Validate fields before rendering
+        if (!post.title || !post.body) {
+          console.warn(`Skipping invalid post: ${file}`);
+          continue;
+        }
+
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.body.substring(0, 100)}...</p>
+          <a href="/content/blog/${file.replace('.json', '.html')}" class="btn">Read More</a>
+        `;
+        blogPreview.appendChild(article);
+      }
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+    }
+  }
+
+  fetchBlogPosts();
+});
+
+</script>
+
+
+  <script>
+
+async function fetchBlogPosts() {
+  try {
+    const response = await fetch('/content/blog/index.json');
+    const files = await response.json();
+
+    const blogPreview = document.getElementById('blog-preview');
+    blogPreview.innerHTML = '';
+
+    for (const file of files) {
+      const postResponse = await fetch(`/content/blog/${file}`);
+      const post = await postResponse.json();
+
+      const article = document.createElement('article');
+      article.innerHTML = `
+        <h3>${post.title}</h3>
+        <p>${post.body.substring(0, 100)}...</p>
+        <a href="/blog/${file.replace('.json', '')}" class="btn">Read More</a>
+      `;
+      blogPreview.appendChild(article);
+    }
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+  }
+}
+
+// Initial load
+fetchBlogPosts();
+
+
+ // Dynamically fetch and display featured blog posts
+ async function loadFeaturedBlogs() {
+  try {
+    const response = await fetch('/content/blog/index.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const files = await response.json(); // List of filenames
+    const blogPreview = document.getElementById('blog-preview');
+    blogPreview.innerHTML = ''; // Clear any existing content
+
+    for (const file of files) {
+      try {
+        const postResponse = await fetch(`/content/blog/${file}`);
+        if (!postResponse.ok) {
+          throw new Error(`Failed to fetch ${file}: ${postResponse.status}`);
+        }
+
+        const post = await postResponse.json();
+
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.body.substring(0, 100)}...</p>
+          <p>Author: ${post.author}</p>
+          <p>Date: ${new Date(post.date).toLocaleDateString()}</p>
+          <a href="/blog/${file.replace('.json', '')}" class="btn">Read More</a>
+        `;
+        blogPreview.appendChild(article);
+      } catch (error) {
+        console.error(`Error loading blog post ${file}:`, error);
+      }
+    }
+  } catch (error) {
+    console.error('Error loading blog posts:', error);
+    const blogPreview = document.getElementById('blog-preview');
+    blogPreview.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
+  }
+}
+
+loadFeaturedBlogs();
+
+  </script>
+
+<script>
+    // Check if the URL contains a hash with an invite token
+    const hash = window.location.hash; // Get the hash part of the URL (e.g., #invite_token=abc123)
+    
+    if (hash && hash.includes("invite_token")) {
+      // Extract the token and redirect to the admin page
+      const token = hash.split("invite_token=")[1];
+      if (token) {
+        // Redirect to the /admin page with the token
+        window.location.href = `/admin/#invite_token=${token}`;
+      }
+    }
+  </script>
+  
+  
+
+</body>
+</html>

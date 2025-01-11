@@ -11,7 +11,7 @@ public_folder: "/images/uploads" # Public-facing path for uploaded images
 collections:
   - name: "blog" # Name of the collection
     label: "Blog" # Label in the CMS
-    folder: "content/blog" # Folder to store blog posts
+    folder: "content/blog/posts" # Folder to store blog posts
     create: true # Allow creating new blog posts
     slug: "{{slug}}" # File naming pattern
     format: "json" # Save files as JSON instead of Markdown
@@ -20,4 +20,3 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
-

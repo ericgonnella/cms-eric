@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+--font1: 'Doto', sans-serif;
+--font2: 'Inter', sans-serif;
+--font3: 'Inter Tight', sans-serif;
+--text: #f2f2f2;
+--accent: #6441a5;
+}
+
+html, body {
+font-family: var(--font3);
+color: var(--text);
+padding: 0;
+margin: 0;
+position: relative;
+scroll-behavior: smooth;
+scrollbar-color: white black;
+scrollbar-width: thin;
+}
+
+h1 {
+font-size:5rem;
+margin: 0px;
+}
+
+h2 {
+font-size: 3rem;
+font-family: var(--font2);
+}
+
+nav {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+font-size: 1.3rem;
+gap: 1rem;
+padding: 30px;
+top: 0;
+position: sticky;
+z-index: 999;
+font-family: var(--font1);
+}
+
+
+.nav-button-effects a {
+font-size: 1rem;
+color: #e1e1e1;
+font-family: inherit;
+cursor: pointer;
+position: relative;
+border: none;
+font-weight: 800;
+background: none;
+text-decoration: none;
+text-transform: uppercase;
+transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+transition-duration: 400ms;
+transition-property: color;
+}
+
+.nav-button-effects a:focus,
+.nav-button-effects a:hover {
+color: #fff;
+}
+
+.nav-button-effects a:focus:after,
+.nav-button-effects a:hover:after {
+width: 100%;
+left: 0%;
+}
+
+.nav-button-effects a:after {
+content: "";
+pointer-events: none;
+bottom: -2px;
+left: 50%;
+position: absolute;
+width: 0%;
+height: 2px;
+background-color: #6441a5;
+transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+transition-duration: 400ms;
+transition-property: width, left;
+}
+
+body {
+background: linear-gradient(132deg, rgba(30,30,46,1) 6%, rgba(27,27,29,1) 54%, rgba(36,41,46,1) 91%);
+background-size: 400% 400%;
+animation: gradient 50s ease infinite;
+height: auto;
+}
+
+@keyframes gradient {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+.screen-padding {
+padding: 0px 40px;
+}

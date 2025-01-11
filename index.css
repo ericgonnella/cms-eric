@@ -1,0 +1,80 @@
+#Hero {
+height: 90vh;
+display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+justify-content: center;
+flex-direction: column;
+margin-bottom: 5rem;
+font-size: clamp(.8rem, .8rem + 1.5vw, 1.5rem);
+}
+
+#Hero span {
+font-family: var(--font3);
+font-size: clamp(2rem, 2.5696rem + 3.0253vw, 6rem);
+margin-right:20px;
+}
+
+
+.name {
+justify-content: flex-start !important;
+}
+
+#About {
+height: 90vh;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+font-size: 1.3rem;
+}
+
+#target {
+font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+font-kerning: none; /* Prevent shifting when split or reverted */
+text-align: left;
+line-height: 1.5;
+padding: 20px;
+margin: 0 auto;
+opacity: 1; /* Temporarily set to 1 for debugging */
+}
+
+
+.about-container {
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap-reverse;
+}
+
+
+.about-right img{
+border-radius: 25px;
+outline: 5px solid var(--text);
+width: clamp(5rem, 5rem + 50vw, 40rem);
+/* min-width: 320px;
+max-width: 600px; */
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+}
+
+#Projects {
+height: 90vh;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+font-size: 1.3rem;
+}
+
+#Articles {
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+font-size: 1.3rem;
+margin: 2rem 0;
+}
+
+#Contact {
+height: 90vh;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+font-size: 1.3rem;
+}
