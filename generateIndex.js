@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { marked } = require('marked'); // Import the markdown parser
 
 // Paths
 const blogDir = path.join(__dirname, 'content/blog');
@@ -15,23 +16,38 @@ if (!fs.existsSync(postsDir)) {
 function generateBlogIndex() {
   const files = fs.readdirSync(postsDir).filter(file => file.endsWith('.json')); // Only JSON files
 
+  if (files.length === 0) {
+    console.warn('No blog post files found in the posts directory.');
+    return;
+  }
+
   // Prepare metadata for index.json
   const posts = files.map(file => {
-    const filePath = path.join(postsDir, file); // Correct path to the JSON file
-    const post = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    try {
+      const filePath = path.join(postsDir, file); // Correct path to the JSON file
+      const post = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
-    // Skip invalid posts
-    if (!post.date || !post.title || !post.body) {
-      console.warn(`Skipping invalid post: ${file}`);
+      // Skip invalid posts
+      if (!post.date || !post.title || !post.body) {
+        console.warn(`Skipping invalid post: ${file}`);
+        return null;
+      }
+
+      return {
+        filename: file, // Just the filename (e.g., test-post.json)
+        title: post.title,
+        date: new Date(post.date).toISOString()
+      };
+    } catch (error) {
+      console.error(`Error reading or parsing file: ${file}`, error);
       return null;
     }
-
-    return {
-      filename: `posts/${file}`, // Include the relative path
-      title: post.title,
-      date: new Date(post.date).toISOString() // Standardize date format
-    };
   }).filter(Boolean); // Remove null values
+
+  if (posts.length === 0) {
+    console.warn('No valid posts found.');
+    return;
+  }
 
   // Sort posts by date (most recent first)
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -47,43 +63,50 @@ function generateBlogIndex() {
 
   // Generate HTML for each post
   posts.forEach(({ filename }) => {
-    const filePath = path.join(blogDir, filename); // Path to the JSON file
-    const post = JSON.parse(fs.readFileSync(path.join(blogDir, filename), 'utf-8')); // Ensure path is accurate
+    try {
+      const filePath = path.join(postsDir, filename); // Path to the JSON file
+      const post = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
-    const postDir = path.join(postsDir, filename.replace('.json', '')); // Create a folder for each post
-    if (!fs.existsSync(postDir)) {
-      fs.mkdirSync(postDir, { recursive: true });
-    }
+      // Convert markdown body to HTML
+      const postContentHTML = marked(post.body);
 
-    const htmlOutputPath = path.join(postDir, 'index.html'); // Output HTML file
+      const postDir = path.join(postsDir, filename.replace('.json', '')); // Create a folder for each post
+      if (!fs.existsSync(postDir)) {
+        fs.mkdirSync(postDir, { recursive: true });
+      }
 
-    const htmlContent = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${post.title}</title>
-        <link rel="stylesheet" href="/global.css">
+      const htmlOutputPath = path.join(postDir, 'index.html'); // Output HTML file
+
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>${post.title}</title>
+          <link rel="stylesheet" href="/global.css"> 
         <link rel="stylesheet" href="/blog/blog.css">
-      </head>
-      <body>
-        <header>
-          <h1>${post.title}</h1>
-          <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
-        </header>
-        <main>
-          <article>
-            <p>${post.body}</p>
-          </article>
-          <a href="/content/blog/index.html" class="btn">Back to Blog</a>
-        </main>
-      </body>
-      </html>
-    `;
+        </head>
+        <body>
+          <header>
+            <h1>${post.title}</h1>
+            <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
+          </header>
+          <main>
+            <article>
+              ${postContentHTML} <!-- Rendered HTML from markdown -->
+            </article>
+            <a href="/content/blog/index.html" class="btn">Back to Blog</a>
+          </main>
+        </body>
+        </html>
+      `;
 
-    fs.writeFileSync(htmlOutputPath, htmlContent);
-    console.log(`Generated HTML for: ${filename}`);
+      fs.writeFileSync(htmlOutputPath, htmlContent);
+      console.log(`Generated HTML for: ${filename}`);
+    } catch (error) {
+      console.error(`Error generating HTML for: ${filename}`, error);
+    }
   });
 
   console.log('Blog index and HTML files updated.');

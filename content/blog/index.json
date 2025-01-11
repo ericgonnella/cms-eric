@@ -1,6 +1,11 @@
 [
   {
-    "filename": "posts/test-post-1.json",
+    "filename": "new-test-post-with-new-bg.json",
+    "title": "New Test Post with New BG",
+    "date": "2025-01-11T04:33:56.565Z"
+  },
+  {
+    "filename": "test-post-1.json",
     "title": "Test Post #1",
     "date": "2025-01-11T03:33:20.816Z"
   }
