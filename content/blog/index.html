@@ -4,18 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/content/blog/all-blogs.css">
+  <link rel="stylesheet" href="/global.css">
+  <link rel="stylesheet" href="././media-queries-blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-  <header>
-    <h1>All Blog Posts</h1>
-    <nav>
-      <a href="/">Home</a>
-    </nav>
-  </header>
-  <main id="all-blogs">
-    <!-- Blog list will be dynamically inserted here -->
-  </main>
+
+  <nav class="nav-button-effects">
+    <a href="/index.html/">Home</a>
+    <a href="/index.html#Projects">Projects</a>
+    <a href="/index.html#Articles">Articles</a>
+    <a href="/index.html#Contact">Contact</a>
+</nav>
+
+  <section class="blog-header">
+    <h1>All Posts</h1>
+    <main id="all-blogs" data-aos="fade-left"></main>
+  </section>
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+  AOS.init();
+  </script>
 
 <script>
 
@@ -39,9 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
       posts.forEach(post => {
         const article = document.createElement('article');
         article.innerHTML = `
-          <h2>${post.title}</h2>
+          <h2><a href="/content/blog/${post.filename}">${post.title}</a></h2>
           <p>${new Date(post.date).toLocaleDateString()}</p>
-          <a href="/content/blog/${post.filename.replace('.json', '.html')}" class="btn">Read More</a>
+          
         `;
         blogContainer.appendChild(article);
       });

@@ -21,7 +21,9 @@ scrollbar-width: thin;
 
 h1 {
 font-size:5rem;
+text-wrap: pretty;
 margin: 0px;
+margin-bottom: 0px;
 }
 
 h2 {
@@ -104,5 +106,7 @@ background-position: 0% 50%;
 }
 
 .screen-padding {
-padding: 0px 40px;
+padding: 0px 20px;
 }
+
+

@@ -1,0 +1,35 @@
+@media (min-device-width:0px) and (max-device-width:560px) {
+
+html, body {
+overflow-x: hidden !important;
+background-color: #1a1a1a !important;
+}
+
+#Hero {
+height: 70vh !important;
+}
+
+#About {
+flex-wrap: nowrap !important;
+text-align: justify !important;
+}
+
+.about-container {
+flex-wrap: reverse !important;
+}
+
+#About, #Articles, #Projects, #Contact {
+height: auto !important;
+margin-bottom: 50px !important;
+}
+
+.articles-container {
+width: 100% !important;
+}
+
+.hero-buttons{
+flex-direction: column;
+}
+
+}
+

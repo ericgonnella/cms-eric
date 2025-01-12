@@ -1,0 +1,56 @@
+body, html {
+overflow-x: hidden !important;
+overflow-y: hidden !important;
+background-color: #1a1a1a !;
+}
+
+.blog-header {
+display: flex;
+justify-content: space-evenly;
+height: 100vh !important;
+padding-right: 30px;
+}
+
+#all-blogs {
+flex:2;
+    
+a {
+color: var(--text) !important;
+text-decoration: none !important;
+ }    
+}
+
+h1 {
+position: absolute;
+height: 1000px;
+left: -40px;
+writing-mode: vertical-rl;
+font-size: 10rem !important;
+margin-top: 230px !important;
+}
+
+article {
+
+h2 {
+margin-bottom: 0px !important;
+text-align: right !important;
+}
+
+p {
+margin: 0px !important;
+font-weight: bold;
+text-align: right !important;
+}
+
+a {
+text-align: right !important;
+font-size: clamp(.7rem, .7rem + 3vw, 5rem) !important;
+transition: 112ms ease-in-out all;
+ }
+
+a:hover {
+font-size: clamp(1rem, 1rem + 3vw, 5rem) !important;
+transition-duration: 200ms;
+transition: 170ms ease-in-out all;
+ }
+}

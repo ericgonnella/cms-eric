@@ -1,0 +1,24 @@
+
+@media (min-device-width:0px) and (max-device-width:800px) {
+
+html, body {
+overflow-x: hidden !important;
+background-color: #1a1a1a !important;
+}
+        
+
+h1 {
+position: relative !important;
+writing-mode: horizontal-tb !important;
+font-size: 3.4rem !important;
+margin-top: 0px !important;
+height: auto !important;
+padding: 0px 35px !important;
+margin: 4rem 0px !important;
+}
+
+.blog-header {
+flex-direction: column;
+padding: 0px 20px; 
+}
+}

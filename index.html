@@ -6,26 +6,31 @@
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/global.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="/media-queries.css">
     <title>Document</title>
 </head>
 <body id="fluid">
 
 <nav class="nav-button-effects">
-    <a href="#About">About</a>
+    <a href="#About">Home</a>
     <a href="#Projects">Projects</a>
     <a href="#Articles">Articles</a>
-    <a href="Contact">Contact</a>
+    <a href="#Contact">Contact</a>
 </nav>
 <main>
 
 <section id="Hero" class="screen-padding">
 
-    <h1 data-aos="fade-up" class="name">
-        <span>Hey, I'm Eric.</span>
-    </h1>
+    <h1 class="animate__animated animate__jackInTheBox">Hey, I'm <span>Eric.</span></h1>
 
     <div>Digital Creator, Front End Engieer, Marketing Guru, SEO Wizard, and Master of 'Other Duties as Assigned'</div>
+
+    <div class="hero-buttons">
+      <button href="#">Get in Touch!</button>
+      <button href="#">Check out my work!</button>
+    </div>
+
 
 </section>
 
@@ -34,10 +39,7 @@
     <div class="about-left">
 
         <div id="target">
-            I'm a Digital Creator and Front End Engineer<br>
-            with skills in SEO, Content Creation,<br>
-            and finding what's needed to get the job done.<br>
-            :)
+          I am a freelance website designer, front end developer, and digital marketer. I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
           </div>
 
     </div>
@@ -45,30 +47,22 @@
         <img src="/images/Eric-Image-Edit-transformed.png" alt="">
     </div>
 </div>
-
-
 </section>
-
-<div></div>
 
 <section  id="Projects" class="screen-padding">
-    <h2>Projects</h2>
-<div class="projects-container"></div>
+  
+<div class="projects-container"> 
+  <h2 data-aos="fade">Projects</h2>
+</div>
 </section>
 
-<section  id="Articles" class="screen-padding">
-    <h2>Articles</h2>
-<div class="articles-container">
-  <section id="Articles" class="screen-padding">
-    <div class="articles-container">
-      <section id="Articles" class="screen-padding">
-        <div class="articles-container">
-          <section id="articles">
-            <!-- Articles will be dynamically inserted here -->
-          </section>
-        </div>
-      </section>
-    </div>
+<section id="Articles"">
+    <h2 class="screen-padding title" data-aos="fade">Articles</h2>
+    <section id="Articles" class="screen-padding">
+      <div class="articles-container">
+        <section id="articles">
+          <!-- Articles will be dynamically inserted here -->
+        </section>
   </section>
   
   
@@ -77,11 +71,12 @@
 
 
 <section  id="Contact" class="screen-padding">
-  <h2>Contact</h2>
+  <h2 data-aos="fade">Contact</h2>
 <div class="articles-container"></div>
 </section>
 
 </main>
+
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -102,12 +97,7 @@
       // Initialize SplitType
       const target = document.querySelector('#target');
       const text = new SplitType(target, { types: 'words, chars' });
-      console.log('SplitType initialized:', text);
-      console.log('Target element:', target);
 
-      // Verify SplitType generated elements
-      console.log('Generated chars:', text.chars);
-      console.log('Generated words:', text.words);
 
       // Function to check if the element is partially in the viewport
       function isInViewport(element) {
@@ -128,8 +118,8 @@
           gsap.to(text.chars, {
             opacity: 1,
             y: 0,
-            duration: 0.5,
-            stagger: { amount: 0.5 },
+            duration: 0.7,
+            stagger: { amount: 0.5},
           });
           window.removeEventListener('scroll', onScroll); // Remove listener after animation
         }
@@ -171,9 +161,8 @@
       articles.forEach(article => {
         const articleElement = document.createElement('article');
         articleElement.innerHTML = `
-          <h2>${article.title}</h2>
+          <h2><a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}">${article.title}</a></h2>
           <p><strong>Date:</strong> ${new Date(article.date).toLocaleDateString()}</p>
-          <a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}" class="btn">Read More</a>
         `;
         articlesContainer.appendChild(articleElement);
       });

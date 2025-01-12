@@ -88,17 +88,20 @@ function generateBlogIndex() {
         <link rel="stylesheet" href="/blog/blog.css">
         </head>
         <body>
-          <a href="/content/blog/index.html">Back to Blog</a>  
-          <header>
-            <h1>${post.title}</h1>
-            <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>   
-         </header>         
+        <div class="top-bar">
           <nav class="nav-button-effects">
             <a href="#About">About</a>
             <a href="#Projects">Projects</a>
             <a href="#Articles">Articles</a>
             <a href="Contact">Contact</a>
           </nav>
+        </div>
+          <header>
+            <h1>${post.title}</h1>
+            <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
+            <a href="/content/blog/index.html">Back to Blog</a>
+         </header>         
+
          <main>
           <article>
             ${postContentHTML} <!-- Rendered HTML from markdown -->
