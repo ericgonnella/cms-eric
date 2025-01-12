@@ -176,7 +176,72 @@ margin-top: 230px !important;
 transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
 flex: 2 !important;
- }
+}
+
+.hero-buttons {
+display: flex;
+flex-direction: row;
+gap: 30px;
+flex-wrap: wrap;
+justify-content: flex-end;
+}
+
+.articles-button{
+justify-content: flex-end;
+display: flex;
+margin-top: 4rem;
+}
+
+button {
+font-family: inherit;
+display: inline-block;
+height: 2.6em;
+line-height: 2.5em;
+margin: 0px;
+position: relative;
+cursor: pointer;
+overflow: hidden;
+border: 2px solid var(--accent);
+transition: color 0.5s;
+z-index: 1;
+font-size: 17px;
+border-radius: 6px;
+font-weight: 500;
+color: var(--text);
+background:transparent;
+padding: 0px 20px;
+}
+
+button:before {
+content: "";
+position: absolute;
+z-index: -1;
+background: var(--accent);
+height: 150px;
+width: 300px;
+border-radius: 50%;
+}
+
+button:hover {
+color: #fff;
+}
+
+button:before {
+top: 100%;
+left: 100%;
+transition: all 0.7s;
+}
+
+button:hover:before {
+top: -30px;
+left: -30px;
+}
+
+button:active:before {
+background: var(--accent);
+transition: background 0s;
+    }
+
 }
 
 #Contact {
