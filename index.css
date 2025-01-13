@@ -1,3 +1,8 @@
+form {
+width: clamp(15rem, 15rem + 16vw, 24rem);
+}
+
+
 #Hero {
 height: 90vh;
 display: flex;
@@ -15,7 +20,7 @@ margin-bottom: 20px;
 a {
 text-decoration: none;
 color: var(--text);
- }
+}
 
 h1 > span {
 color: var(--accent);
@@ -50,7 +55,7 @@ color: var(--text);
 background:transparent;
 padding: 0px 20px;
 }
-  
+
 button:before {
 content: "";
 position: absolute;
@@ -80,8 +85,6 @@ button:active:before {
 background: var(--accent);
 transition: background 0s;
 }
-
-
 }
 
 #Hero span {
@@ -95,7 +98,7 @@ height: 100vh;
 display: flex;
 flex-direction: column;
 align-self: center;
-flex-wrap: wrap-reverse;
+flex-wrap: wrap;
 font-size: 1.3rem;
 scroll-margin-top: 22rem;
 padding-bottom: 100px;
@@ -103,12 +106,12 @@ padding-bottom: 100px;
 .about-container {
 display: flex;
 justify-content: space-evenly;
-flex-wrap: wrap; 
+flex-wrap: wrap-reverse; 
 }
 }
 
 #target {
-font-size: clamp(2rem, 1.4rem + 2.5vw, 2.7rem);
+font-size: clamp(2rem, 1.5rem + 2vw, 2.3rem);
 font-kerning: none; /* Prevent shifting when split or reverted */
 text-align: left;
 line-height: 1.5;
@@ -117,12 +120,16 @@ max-width: 900px;
 text-wrap: pretty;
 margin: 0 auto;
 opacity: 1; /* Temporarily set to 1 for debugging */
+
+span {
+color: var(--accent);
+ }
 }
 
 .about-right img{
 border-radius: 25px;
 outline: 5px solid var(--text);
-width: clamp(12rem, 12rem + 20vw, 20rem);
+width: clamp(15rem, 15rem + 16vw, 24rem);
 /* min-width: 320px;
 max-width: 600px; */
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
@@ -138,11 +145,11 @@ font-size: 1.3rem;
 h2 {
 position: relative;
 writing-mode: vertical-rl;
-font-size:5.4rem !important;
 margin-top: 100px;
 transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
- }
+font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
+}
 }
 
 #Articles {
@@ -156,9 +163,10 @@ flex-wrap: wrap;
 
 a {
 text-align: right !important;
-font-size: clamp(.7rem, .7rem + 3vw, 5rem) !important;
+font-size: clamp(1rem, 1.5rem + 3vw, 5rem) !important;
 transition: 112ms ease-in-out all;
 text-decoration: none;
+line-height: 1;
 color: var(--text);
 }
 
@@ -171,11 +179,11 @@ transition: 170ms ease-in-out all;
 .title {    
 position: relative;
 writing-mode: vertical-rl;
-font-size:5.4rem !important;
 margin-top: 230px !important;
 transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
 flex: 2 !important;
+font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
 }
 
 .hero-buttons {
@@ -240,34 +248,17 @@ left: -30px;
 button:active:before {
 background: var(--accent);
 transition: background 0s;
-    }
-
 }
 
-#Contact {
-height: 90vh;
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-font-size: 1.3rem;
-
-
-h2 {
-position: relative;
-writing-mode: vertical-rl;
-font-size:5.4rem !important;
-margin-top: 100px;
-transform: rotate(180deg) scaleX(1);
-margin-left: -30px;
- } 
-}
 
 article {
+
 
 h2 {
 margin-bottom: 0px !important;
 text-align: right !important;
 }
+
 
 p {
 margin: 0px !important;
@@ -278,5 +269,33 @@ text-align: right !important;
 a {
 text-align: right !important;
 font-size: clamp(.7rem, .7rem + 3vw, 5rem) !important;
+
+ }
 }
+
 }
+
+#Contact {
+height: 50vh;
+display: flex;
+flex-direction: row;
+align-items: center;
+flex-wrap: wrap;
+
+h2 {
+position: relative;
+writing-mode: vertical-rl;
+font-size:5.4rem !important;
+margin-top: 100px;
+transform: rotate(180deg) scaleX(1);
+margin-left: -30px;
+font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
+ }     
+}
+
+
+
+
+
+
+

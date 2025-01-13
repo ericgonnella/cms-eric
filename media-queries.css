@@ -1,4 +1,4 @@
-@media (min-device-width:0px) and (max-device-width:560px) {
+@media screen and (min-device-width:0px) and (max-device-width:560px) {
 
 html, body {
 overflow-x: hidden !important;
@@ -6,22 +6,19 @@ background-color: #1a1a1a !important;
 }
 
 #Hero {
-height: 70vh !important;
+height: 90vh !important;
+margin-bottom: 30px;
 }
 
 #About {
-flex-wrap: nowrap !important;
+flex-wrap: wrap !important;
 text-align: justify !important;
 }
 
 .about-container {
-flex-wrap: reverse !important;
+flex-wrap: wrap-reverse !important;
 }
 
-#About, #Articles, #Projects, #Contact {
-height: auto !important;
-margin-bottom: 50px !important;
-}
 
 .articles-container {
 width: 100% !important;
@@ -31,5 +28,28 @@ width: 100% !important;
 flex-direction: column;
 }
 
+
+#Projects {
+.projects-container h2 {
+writing-mode: horizontal-tb;
+transform: rotate(0deg) scaleX(1);
+padding: 0px 25px;
+}
 }
 
+#Articles { 
+.title {
+writing-mode: horizontal-tb;
+transform: rotate(0deg) scaleX(1);
+padding: 0px 25px;
+}
+}
+
+#Contact {
+h2 {
+writing-mode: horizontal-tb;
+transform: rotate(0deg) scaleX(1);
+padding: 0px 25px;
+}
+}
+}

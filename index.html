@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="./media-queries.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="/media-queries.css">
+
     <title>Document</title>
 </head>
 <body id="fluid">
 
 <nav class="nav-button-effects">
-    <a href="#About">Home</a>
+    <a href="#">Home</a>
     <a href="#Projects">Projects</a>
     <a href="#Articles">Articles</a>
     <a href="#Contact">Contact</a>
@@ -27,8 +28,8 @@
     <div>Digital Creator, Front End Engieer, Marketing Guru, SEO Wizard, and Master of 'Other Duties as Assigned'</div>
 
     <div class="hero-buttons">
-      <button href="#">Get in Touch!</button>
       <button href="#">Check out my work!</button>
+      <button href="#">Get in Touch!</button>
     </div>
 
 
@@ -39,29 +40,35 @@
     <div class="about-left">
 
         <div id="target">
-          I am a freelance website designer, front end developer, and digital marketer. I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
+          I am a freelance <span class="animate__animated animate__jello animate__delay-5s">website designer</span>, <span class="animate__animated animate__jello animate__delay-5s">front end developer</span>, and <span class="animate__animated animate__jello animate__delay-5s">digital marketer</span>.<br><br> I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
           </div>
 
     </div>
-    <div class="about-right" data-aos="fade-left">
+    <div class="about-right" data-aos="fade-left"
+    data-aos-anchor="#About"
+    data-aos-easing="ease-in-cubic"
+    data-aos-duration="1625">
         <img src="/images/Eric-Image-Edit-transformed.png" alt="">
     </div>
 </div>
 </section>
 
-<section  id="Projects" class="screen-padding">
+<section  id="Projects" class="screen-padding title">
   
-<div class="projects-container"> 
-  <h2 data-aos="fade">Projects</h2>
+<div data-aos="fade-right" class="projects-container"> 
+  <h2>Projects</h2>
 </div>
 </section>
 
-<section id="Articles" class="screen-padding">
-    <h2 class="title" data-aos="fade">Articles</h2>
+<section data-aos="fade-right" id="Articles" class="screen-padding">
+    <h2 class="title">Articles</h2>
       <div class="articles-container">
-        <section id="articles">
+        <section data-aos="fade-left"
+        data-aos-duration="600" id="articles">
           <!-- Articles will be dynamically inserted here -->
-         
+
+          <button href="#">View All Articles</button>
+          
         </section>
 
         <div class="articles-button">
@@ -73,9 +80,24 @@
 </section>
 
 
-<section  id="Contact" class="screen-padding">
-  <h2 data-aos="fade">Contact</h2>
-<div class="articles-container"></div>
+<section data-aos="fade-right" id="Contact" class="screen-padding">
+  <h2>Contact</h2>
+  
+<div class="contact-container">
+
+  <form name="contact" netlify>
+    <p>
+      <label>Name <input type="text" name="name" /></label>
+    </p>
+    <p>
+      <label>Email <input type="email" name="email" /></label>
+    </p>
+    <p>
+      <button type="submit">Send</button>
+    </p>
+  </form>
+
+</div>
 </section>
 
 </main>
@@ -120,9 +142,9 @@
           gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
           gsap.to(text.chars, {
             opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: { amount: 0.5},
+            y: 5,
+            duration: 0.95,
+            stagger: { amount: 1.1},
           });
           window.removeEventListener('scroll', onScroll); // Remove listener after animation
         }
@@ -165,7 +187,7 @@
         const articleElement = document.createElement('article');
         articleElement.innerHTML = `
           <h2><a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}">${article.title}</a></h2>
-          <p><strong>Date:</strong> ${new Date(article.date).toLocaleDateString()}</p>
+          <p><strong></strong> ${new Date(article.date).toLocaleDateString()}</p>
         `;
         articlesContainer.appendChild(articleElement);
       });
