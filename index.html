@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="./media-queries.css">
@@ -23,7 +24,9 @@
 
 <section id="Hero" class="screen-padding">
 
-    <h1 class="animate__animated animate__jackInTheBox">Hey, I'm <span>Eric.</span></h1>
+  <section  class="animate__animated animate__jackInTheBox">
+    <h1>Hey, I'm <span>Eric.</span></h1>
+  </section>
 
     <div>Digital Creator, Front End Engieer, Marketing Guru, SEO Wizard, and Master of 'Other Duties as Assigned'</div>
 
@@ -53,18 +56,39 @@
 </div>
 </section>
 
-<section  id="Projects" class="screen-padding title">
+<section id="Projects" class="title">
+  <div class="projects-container">
+    <div data-aos="fade-right"
+    data-aos-duration="500"
+    data-aos-offset="200">
+      <h2>Projects</h2>
+    </div> 
   
-<div data-aos="fade-right" class="projects-container"> 
-  <h2>Projects</h2>
-</div>
+    <div class="project-content">
+      <swiper-container class="mySwiper" pagination="true" pagination-type="fraction">
+        <swiper-slide><img src="https://placecats.com/1920/1800" alt=""></swiper-slide>
+        <swiper-slide><img src="https://placecats.com/1920/1800" alt=""></swiper-slide>
+        <swiper-slide><img src="https://placecats.com/1920/1800" alt=""></swiper-slide>
+
+
+      </swiper-container>
+    </div>
+  </div>
 </section>
 
-<section data-aos="fade-right" id="Articles" class="screen-padding">
-    <h2 class="title">Articles</h2>
+<section id="Articles" class="screen-padding">
+
+  <div data-aos="fade-right">
+    <h2 class="title" data-aos="fade-right">Articles</h2>
+  </div>
+
+
       <div class="articles-container">
-        <section data-aos="fade-left"
-        data-aos-duration="600" id="articles">
+        <section
+        data-aos="fade-left"
+        data-aos-easing="ease-in-cubic"
+        data-aos-anchor="#Articles"
+        data-aos-duration="1625" id="articles">
           <!-- Articles will be dynamically inserted here -->
 
           <button href="#">View All Articles</button>
@@ -80,29 +104,37 @@
 </section>
 
 
-<section data-aos="fade-right" id="Contact" class="screen-padding">
-  <h2>Contact</h2>
-  
-<div class="contact-container">
+<section id="Contact" class="screen-padding">
 
-  <form name="contact" netlify>
-    <p>
-      <label>Name <input type="text" name="name" /></label>
-    </p>
-    <p>
-      <label>Email <input type="email" name="email" /></label>
-    </p>
-    <p>
-      <button type="submit">Send</button>
-    </p>
-  </form>
+  <div data-aos="fade-right">
+    <h2>Contact</h2>
+  </div>
 
-</div>
+    <div data-aos="fade-up" class="contact-container">
+
+
+      <form name="contact" netlify>
+        <p>
+          <label>Name <input type="text" name="name" /></label>
+        </p>
+        <p>
+          <label>Email <input type="email" name="email" /></label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
+
+  </div>
+
+
+
+
 </section>
 
 </main>
 
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
@@ -136,16 +168,16 @@
 
       // Scroll event listener to trigger animation
       function onScroll() {
-        console.log('onScroll triggered');
+  
         if (isInViewport(target)) {
           console.log('Animating text');
           gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
           gsap.to(text.chars, {
-            opacity: 1,
-            y: 5,
-            duration: 0.95,
-            stagger: { amount: 1.1},
-          });
+  opacity: 1,
+  translateY: '5px', // Avoid layout-affecting changes
+  duration: 0.95,
+  stagger: { amount: 1.1 },
+});
           window.removeEventListener('scroll', onScroll); // Remove listener after animation
         }
       }

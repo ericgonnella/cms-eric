@@ -96,19 +96,19 @@ height: auto;
 }
 
 @keyframes gradient {
-0% {
-background-position: 0% 50%;
-}
-50% {
-background-position: 100% 50%;
-}
-100% {
-background-position: 0% 50%;
-}
+    0% {
+    background-position: 0% 50%;
+    }
+    60% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
 }
 
 .screen-padding {
-padding: 0px 20px;
+padding: 100px 20px;
 }
 
 

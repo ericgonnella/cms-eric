@@ -1,17 +1,18 @@
-form {
-width: clamp(15rem, 15rem + 16vw, 24rem);
+html{
+margin: 0;
+padding: 0;
+height: 100%; /* Ensure height is managed correctly */
 }
-
 
 #Hero {
 height: 90vh;
 display: flex;
 flex-wrap: wrap;
-align-items: flex-start;
 justify-content: center;
 flex-direction: column;
 font-size: clamp(.8rem, .8rem + 1.5vw, 1.5rem);
 margin-bottom: 50px;
+
 
 div {
 margin-bottom: 20px;
@@ -73,7 +74,7 @@ color: #fff;
 button:before {
 top: 100%;
 left: 100%;
-transition: all 0.7s;
+
 }
 
 button:hover:before {
@@ -83,7 +84,7 @@ left: -30px;
 
 button:active:before {
 background: var(--accent);
-transition: background 0s;
+
 }
 }
 
@@ -102,6 +103,7 @@ flex-wrap: wrap;
 font-size: 1.3rem;
 scroll-margin-top: 22rem;
 padding-bottom: 100px;
+overflow-x: hidden;
 
 .about-container {
 display: flex;
@@ -119,7 +121,6 @@ padding: 20px;
 max-width: 900px;
 text-wrap: pretty;
 margin: 0 auto;
-opacity: 1; /* Temporarily set to 1 for debugging */
 
 span {
 color: var(--accent);
@@ -141,15 +142,22 @@ display: flex;
 flex-direction: column;
 flex-wrap: wrap;
 font-size: 1.3rem;
+overflow-x: hidden;
+}
 
-h2 {
+.projects-container {
+
+div > h2 {
 position: relative;
 writing-mode: vertical-rl;
-margin-top: 100px;
+margin-top: 400px;
 transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
 font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
+margin-top: 31rem;
+margin-left: -9px;
 }
+
 }
 
 #Articles {
@@ -160,6 +168,8 @@ flex-wrap: wrap;
 font-size: 1.3rem;
 margin: 2rem 0;
 flex-wrap: wrap;
+justify-content: space-between;
+overflow-x: hidden;
 
 a {
 text-align: right !important;
@@ -179,7 +189,7 @@ transition: 170ms ease-in-out all;
 .title {    
 position: relative;
 writing-mode: vertical-rl;
-margin-top: 230px !important;
+margin-top: 230px;
 transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
 flex: 2 !important;
@@ -252,13 +262,17 @@ transition: background 0s;
 
 
 article {
+width: 100%;
 
+.articles-contaier {
+margin-top: 15px;
+margin-top: 5rem;
+}
 
 h2 {
 margin-bottom: 0px !important;
 text-align: right !important;
 }
-
 
 p {
 margin: 0px !important;
@@ -269,14 +283,12 @@ text-align: right !important;
 a {
 text-align: right !important;
 font-size: clamp(.7rem, .7rem + 3vw, 5rem) !important;
-
+ }
  }
 }
 
-}
-
 #Contact {
-height: 50vh;
+height: 60vh;
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -285,17 +297,58 @@ flex-wrap: wrap;
 h2 {
 position: relative;
 writing-mode: vertical-rl;
-font-size:5.4rem !important;
-margin-top: 100px;
+margin-top: 230px;
 transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
 font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
- }     
+ }
+ 
+.contact-container {
+width: 100%;
+display: flex;
+justify-content: center;
+} 
+
+form {
+    width: clamp(15rem, 15rem + 16vw, 24rem);
+    }
+
+input {
+width: 100%;
 }
 
+}
+
+.projects-container {
+display: flex;
+justify-content: space-between;
+align-items: end;
 
 
+.project-content {
+width: 50vw;
+flex-grow: 3;
+height: 80vh;
+ }
+}
 
+swiper-container {
+width: 80%;
+height: 100%;
+}
 
+swiper-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
-
+swiper-slide img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
