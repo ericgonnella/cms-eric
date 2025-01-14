@@ -5,7 +5,7 @@ background-color: #1a1a1a !important;
 }
 
 .screen-padding {
-padding: 0px 20px !important;
+padding: 20px 20px !important;
 }
 
 #Hero {
@@ -17,6 +17,7 @@ margin-bottom: 30px;
 #About {
 flex-wrap: wrap !important;
 text-align: justify !important;
+height: 100%;
 }
 
 .about-container {
@@ -26,6 +27,11 @@ flex-wrap: wrap-reverse !important;
 
 .articles-container {
 width: 100% !important;
+padding-top: 0px !important;
+}
+
+#articles {
+padding-top: 10px !important;
 }
 
 .hero-buttons{
@@ -57,21 +63,42 @@ height: 50vh;
   }
 }
 
-#Articles { 
+#Articles {
+  height: 100vh !important; 
+  overflow-y: hidden;
 .title {
 writing-mode: horizontal-tb;
 transform: rotate(0deg) scaleX(1);
 padding: 0px 25px;
+margin-top: 3rem;
+margin-bottom: 0px !important;
 }
+
+#articles {
+padding-top: 12rem;
+}
+
+
 }
 
 #Contact {
+height: 100vh !important;
 h2 {
 writing-mode: horizontal-tb;
 transform: rotate(0deg) scaleX(1);
-padding: 0px 25px;
-margin-top: 25px !important;
+margin: 0px !important;
+padding: 0px 25px 0px 0px;
 }
+
+
+.contact-container {
+width: 95%; 
+}
+
+form {
+margin-top: 100px !important;
+}
+
 }
 
 
