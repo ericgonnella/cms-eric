@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Thanks to the amazing creators who's projects helped assit me in my project: 
+
+https://codepen.io/P1N2O/pen/pyBNzX
+https://uiverse.io/WhiteNervosa/popular-ladybug-27s
+ -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
@@ -10,7 +15,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-    <title>Document</title>
+    <title>Eric Gonnella | Portfolio | Digital Creator | SEO</title>
 </head>
 <body id="fluid">
 
@@ -41,7 +46,7 @@
     <div class="about-left">
 
         <div id="target">
-          I am a freelance <span class="animate__animated animate__jello animate__delay-5s">website designer</span>, <span class="animate__animated animate__jello animate__delay-5s">front end developer</span>, and <span class="animate__animated animate__jello animate__delay-5s">digital marketer</span>.<br><br> I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
+          I am a freelance <span class="animate__animated animate__jello animate__delay-4s">website designer</span>, <span class="animate__animated animate__jello animate__delay-4s">front end developer</span>, and <span class="animate__animated animate__jello animate__delay-4s">digital marketer</span>.<br><br> I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
           </div>
 
     </div>
@@ -63,13 +68,68 @@
     </div> 
   
     <div class="project-content">
-      <swiper-container class="mySwiper" pagination="true" pagination-type="fraction">
-        <swiper-slide><img src="https://placecats.com/1920/1800" alt=""></swiper-slide>
-        <swiper-slide><img src="https://placecats.com/1920/1800" alt=""></swiper-slide>
-        <swiper-slide><img src="https://placecats.com/1920/1800" alt=""></swiper-slide>
+      <section id="sort">
+
+        <nav class="tag-navigation" aria-label="Content filters">
+            <a href="#" class="tag-link active" data-tag="all" aria-current="true">All Items</a>
+            <a href="#" class="tag-link" data-tag="technology">HTML</a>
+            <a href="#" class="tag-link" data-tag="nature">CSS</a>
+            <a href="#" class="tag-link" data-tag="art">JS</a>
+            <a href="#" class="tag-link" data-tag="science">Misc.</a>
+        </nav>
+    
+    
+        <div class="items-container" role="region" aria-live="polite">
+            <article class="item" data-tags="technology,science">
+                <h2>Test1</h2>
+                <p>Test Text</p>
+                <div class="item-tags">
+                    <span class="item-tag">technology</span>
+                    <span class="item-tag">science</span>
+                </div>
+            </article>
+    
+            <article class="item" data-tags="nature,science">
+                <h2>Test2</h2>
+                <p>Test Text</p>
+                <div class="item-tags">
+                    <span class="item-tag">nature</span>
+                    <span class="item-tag">science</span>
+                </div>
+            </article>
+    
+            <article class="item" data-tags="art">
+              <h2>Test3</h2>
+              <p>Test Text</p>
+                <div class="item-tags">
+                    <span class="item-tag">art</span>
+                </div>
+            </article>
+    
+            <article class="item" data-tags="technology,art">
+              <h2>Test4</h2>
+              <p>Test Text</p>
+                <div class="item-tags">
+                    <span class="item-tag">technology</span>
+                    <span class="item-tag">art</span>
+                </div>
+            </article>
+    
+            <article class="item" data-tags="nature,art">
+              <h2>Test5</h2>
+              <p>Test Text</p>
+                <div class="item-tags">
+                    <span class="item-tag">nature</span>
+                    <span class="item-tag">art</span>
+                </div>
+            </article>
+        </div>
+    
+    </section>
+    
+    
 
 
-      </swiper-container>
     </div>
   </div>
 </section>
@@ -102,13 +162,14 @@
 </section>
 
 
-<section id="Contact" class="screen-padding">
+<section data-aos="fade-up" data-aos-duration="500"
+data-aos-offset="200" id="Contact" class="screen-padding">
 
-  <div data-aos="fade-right">
+  <div>
     <h2>Contact</h2>
   </div>
   
-    <div data-aos="fade-up" class="contact-container">
+    <div class="contact-container">
       <form name="contact" netlify>
         <p>
           <label>Name <input type="text" name="name" /></label>
@@ -127,7 +188,53 @@
     
 </section>
 
+
+
+
 </main>
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+      const tagLinks = document.querySelectorAll('.tag-link');
+      const items = document.querySelectorAll('.item');
+
+      tagLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const selectedTag = link.dataset.tag;
+
+              // Update active state of tag links
+              tagLinks.forEach(tl => {
+                  tl.classList.remove('active');
+                  tl.removeAttribute('aria-current');
+              });
+              link.classList.add('active');
+              link.setAttribute('aria-current', 'true');
+
+              // Filter items
+              items.forEach(item => {
+                  const itemTags = item.dataset.tags.split(',');
+                  const shouldShow = selectedTag === 'all' || itemTags.includes(selectedTag);
+                  
+                  if (shouldShow) {
+                      item.classList.remove('hidden');
+                      // Reset animation
+                      item.style.opacity = '0';
+                      // Force reflow
+                      void item.offsetWidth;
+                      // Trigger animation
+                      item.style.opacity = '1';
+                  } else {
+                      item.classList.add('hidden');
+                  }
+              });
+          });
+      });
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -227,19 +334,10 @@
   loadArticles();
 });
 
-
-
-
-
   </script>
 </body>
 
 
 
-<!-- Thanks to the amazing creators who's projects helped assit me in my project: 
-
-https://codepen.io/P1N2O/pen/pyBNzX
-https://uiverse.io/WhiteNervosa/popular-ladybug-27s
- -->
 
 </html>

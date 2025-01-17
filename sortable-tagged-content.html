@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sortable Tagged Content</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+<section id="sort">
+
+<div class="tag-navigation" aria-label="Content filters">
+<a href="#" class="tag-link active" data-tag="all" aria-current="true">All Items</a>
+<a href="#" class="tag-link" data-tag="technology">Technology</a>
+<a href="#" class="tag-link" data-tag="nature">Nature</a>
+<a href="#" class="tag-link" data-tag="art">Art</a>
+<a href="#" class="tag-link" data-tag="science">Science</a>
+</div>
+
+
+<div class="items-container" role="region" aria-live="polite">
+<article class="item" data-tags="technology,science">
+<h2>Artificial Intelligence</h2>
+<p>Exploring the latest developments in machine learning and AI applications.</p>
+<div class="item-tags">
+<span class="item-tag">technology</span>
+<span class="item-tag">science</span>
+</div>
+</article>
+
+<article class="item" data-tags="nature,science">
+<h2>Rainforest Ecosystems</h2>
+<p>Understanding the complex interactions within tropical rainforest biodiversity.</p>
+<div class="item-tags">
+<span class="item-tag">nature</span>
+<span class="item-tag">science</span>
+</div>
+</article>
+
+<article class="item" data-tags="art">
+<h2>Modern Architecture</h2>
+<p>Examining contemporary architectural designs and their impact on urban spaces.</p>
+<div class="item-tags">
+<span class="item-tag">art</span>
+</div>
+</article>
+
+<article class="item" data-tags="technology,art">
+<h2>Digital Photography</h2>
+<p>Advanced techniques in digital image capture and processing.</p>
+<div class="item-tags">
+<span class="item-tag">technology</span>
+<span class="item-tag">art</span>
+</div>
+</article>
+
+<article class="item" data-tags="nature,art">
+<h2>Botanical Illustration</h2>
+<p>The intersection of scientific accuracy and artistic expression in plant drawings.</p>
+<div class="item-tags">
+<span class="item-tag">nature</span>
+<span class="item-tag">art</span>
+</div>
+</article>
+</div>
+
+</section>
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+const tagLinks = document.querySelectorAll('.tag-link');
+const items = document.querySelectorAll('.item');
+
+tagLinks.forEach(link => {
+link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const selectedTag = link.dataset.tag;
+
+    // Update active state of tag links
+    tagLinks.forEach(tl => {
+        tl.classList.remove('active');
+        tl.removeAttribute('aria-current');
+    });
+    link.classList.add('active');
+    link.setAttribute('aria-current', 'true');
+
+    // Filter items
+    items.forEach(item => {
+        const itemTags = item.dataset.tags.split(',');
+        const shouldShow = selectedTag === 'all' || itemTags.includes(selectedTag);
+        
+        if (shouldShow) {
+            item.classList.remove('hidden');
+            // Reset animation
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity .7s ease-in, transform .7s ease-out';
+            // Force reflow
+            void item.offsetWidth;
+            // Trigger animation
+            item.style.opacity = '1';
+            item.style.transform = 'translateY()';
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+});
+});
+});
+</script>
+
+
+
+</body>
+</html>

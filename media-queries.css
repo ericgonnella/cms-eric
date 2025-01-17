@@ -1,20 +1,15 @@
-@media screen and (min-device-width:0px) and (max-device-width:560px) {
+@media screen and (min-device-width:0px) and (max-device-width:880px) {
 
 body {
 background-color: #1a1a1a !important;
 }
 
-.screen-padding {
-padding: 20px 20px !important;
-}
-
 #Hero {
-height: 80vh !important;
-margin-bottom: 30px;
-;
+padding-top: 25vh !important;
 }
 
 #About {
+margin-top: -50px !important;
 flex-wrap: wrap !important;
 text-align: justify !important;
 height: 100%;
@@ -24,14 +19,14 @@ height: 100%;
 flex-wrap: wrap-reverse !important;
 }
 
-
 .articles-container {
 width: 100% !important;
 padding-top: 0px !important;
+margin: 0px !important;
 }
 
 #articles {
-padding-top: 10px !important;
+padding-top: 50px !important;
 }
 
 .hero-buttons{
@@ -40,32 +35,44 @@ flex-direction: column;
 
 
 #Projects {
-
-.projects-container {
-margin-left: 0;
-}
-
-
-.projects-container h2 {
-writing-mode: horizontal-tb;
-transform: rotate(0deg) scaleX(1);
-padding: 0px 25px;
-margin-top: 150px;
-}
-
-.project-content {
-width: 100vw;
-height: 50vh;
- }
-
- swiper-container {
-  width: 87.55%;
+  height: 272vh !important;
+    
+  .projects-container {
+  margin-left: 0;
   }
+  
+  
+  .projects-container h2 {
+  writing-mode: horizontal-tb;
+  transform: rotate(0deg) scaleX(1);
+  padding: 0px 25px;
+  margin-top: 30px !important;
+  }
+  
+  .project-content {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+flex-wrap: wrap;   }
+  }
+
+#sort {
+justify-content: center !important;
+
+.item {
+  height: 150px !important;
+  width: 150px !important;
+}
+
 }
 
 #Articles {
   height: 100vh !important; 
   overflow-y: hidden;
+  margin-bottom: 0px !important;
+  padding-bottom: 30vh !important;
+
 .title {
 writing-mode: horizontal-tb;
 transform: rotate(0deg) scaleX(1);
@@ -77,26 +84,28 @@ margin-bottom: 0px !important;
 #articles {
 padding-top: 12rem;
 }
-
-
 }
 
 #Contact {
-height: 100vh !important;
+padding-top: 40px;
+display: flex;
+flex-direction: column !important;
 h2 {
 writing-mode: horizontal-tb;
 transform: rotate(0deg) scaleX(1);
 margin: 0px !important;
-padding: 0px 25px 0px 0px;
+margin-top: 30px;
+padding: 40px 25px 0px 0px !important;
 }
 
 
 .contact-container {
 width: 95%; 
-}
+display: flex; 
+ }
 
 form {
-margin-top: 100px !important;
+margin-top: 0px !important;
 }
 
 }
@@ -105,6 +114,11 @@ margin-top: 100px !important;
 .projects-container {
 display: flex;
 flex-direction: column;
+
+h2 {
+  margin-top: 30px !important;
+}
+
 }
 
 
@@ -116,5 +130,128 @@ margin-top: 15px !important;
 }
 
 }
+
+}
+
+
+
+
+@media (min-width:0px) and (max-width:800px) {
+
+body {
+background-color: #1a1a1a !important;
+}
+    
+#Hero {
+padding-top: 25vh !important;
+}
+    
+#About {
+margin-top: -50px !important;
+flex-wrap: wrap !important;
+text-align: justify !important;
+height: 100%;
+
+.about-container {
+flex-wrap: wrap-reverse !important;
+}
+
+}
+    
+
+    
+.articles-container {
+width: 100% !important;
+padding-top: 0px !important;
+margin: 0px !important;
+}
+        
+.hero-buttons{
+flex-direction: column;
+}
+    
+    
+#Projects {
+height: 100% !important;
+height: 82vh !important;
+
+    .projects-container {
+    margin-left: 0;
+    }
+
+    .projects-container h2 {
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg) scaleX(1);
+    padding: 0px 25px;
+    margin-top: 150px;
+    }
+
+    .project-content {
+    width: 100vw;
+    height: 50vh;
+    }                                             
+}
+    
+#Articles {
+margin-top: 5%;
+height: 100vh !important; 
+overflow-y: hidden;
+margin-bottom: 0px !important;
+
+
+    .title {
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg) scaleX(1);
+    padding: 0px 25px;
+    margin-bottom: 0px !important;
+    }
+
+    #articles {
+    padding-top: 15px !important;
+    }
+
+    
+    .articles-container {
+      padding-right: 0px !important;
+    }
+}
+
+#Contact {
+padding-top: 40px;
+display: flex;
+flex-direction: column !important;
+
+    h2 {
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg) scaleX(1);
+    margin: 0px !important;
+    padding: 0px 25px 0px 0px;
+    }
+
+    .contact-container {
+    width: 95%; 
+    display: flex; 
+    }
+        
+    form {
+    margin-top: 0px !important;
+    }  
+}
+
+.projects-container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+  article { 
+  h2 {
+  margin-top: 15px !important;
+  }
+ }
+}
+
+
+@media (min-width:560px) and (max-width:969px) {
 
 }

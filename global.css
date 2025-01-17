@@ -6,10 +6,11 @@
 --font3: 'Inter Tight', sans-serif;
 --text: #f2f2f2;
 --accent: #6441a5;
+--screen-padding: 40vh 3vw 40vh 3vw;
 }
 
 html, body {
-font-family: var(--font3);
+font-family: var(--font2);
 color: var(--text);
 padding: 0;
 margin: 0;
@@ -41,7 +42,6 @@ font-size: 1.3rem;
 gap: 1rem;
 padding: 30px;
 top: 0;
-position: sticky;
 z-index: 999;
 font-family: var(--font1);
 }
@@ -108,7 +108,7 @@ height: auto;
 }
 
 .screen-padding {
-padding: 100px 20px;
+padding: 10px 20px;
 }
 
 
