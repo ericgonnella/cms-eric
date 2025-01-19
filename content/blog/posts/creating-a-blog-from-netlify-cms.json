@@ -2,5 +2,5 @@
   "date": "2025-01-19T03:40:05.389Z",
   "title": "Creating a Blog from Netlify CMS",
   "author": "Eric",
-  "body": "# H﻿ello, this is me testing how this works\n\n## I﻿ want to see all of the headings working\n\n### o﻿ne after another is how it should be\n\n#### A﻿ll the way down the line\n\n![](/images/uploads/nico_robin_christmas__by_selenne97_ditv2g1-pre.jpg)"
+  "body": "![Robin in some Christmas stuff](/images/uploads/nico_robin_christmas__by_selenne97_ditv2g1-pre.jpg \"RobinHotson\")\n\n# H﻿ello, this is me testing how this works\n\n## I﻿ want to see all of the headings working\n\n### o﻿ne after another is how it should be\n\n#### A﻿ll the way down the line"
 }
