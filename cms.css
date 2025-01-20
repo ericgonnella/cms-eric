@@ -110,9 +110,6 @@ color: var(--text) !important;
 }
 
 
-
-
-
 .css-6o0rf-PreviewPaneContainer-ControlPaneContainer {
 background: #1a1a1a !important;
 
@@ -256,4 +253,41 @@ background: #1a1a1a !important;
 span{
   color: var(--text) !important;
  } 
+}
+
+
+/* Search Style */
+
+.css-svjxk-SearchContainer {
+  position: relative;
+  width: 180px;
+  margin: 12px 5px;
+  --accent-color: #a3e583;
+}
+
+.css-svjxk-SearchContainer:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.css-svjxk-SearchContainer:before, 
+.css-svjxk-SearchContainer:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.css-1blbyw7-SearchInput {
+  background-color: var(--background);
+  border: 2px solid #663399;
+  color: var(--text);
+}
+
+.css-1blbyw7-SearchInput:focus {
+box-shadow: #663399 0px 0px 0px 2px inset;
 }
