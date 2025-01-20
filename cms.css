@@ -43,6 +43,21 @@ padding: 10px 20px !important;
 background: var(--header) !important;
 }
 
+
+.css-12b66la-AppHeaderContent {
+  display: flex;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+  min-width: 800px;
+  padding: 0px 12px;
+  margin: 0px;
+}
+
+
+.css-1hvrgvd-CollectionTopContainer {
+margin: 0px !important;
+}
+
 .css-1hvrgvd-CollectionTopContainer-card-cardTop {
 width: auto !important;
 padding: 10px 20px !important;
@@ -91,11 +106,16 @@ border: 2px solid #639 !important;
 
 .css-npvq26-SidebarHeading {
 font-size: 1.5rem !important;
-color: var(--text);
+color: var(--text) !important;
 }
+
+
+
+
 
 .css-6o0rf-PreviewPaneContainer-ControlPaneContainer {
 background: #1a1a1a !important;
+
 }
 
 .css-6o0rf-PreviewPaneContainer-ControlPaneContainer, .css-16b5p1f-ToolbarSectionMain-toolbarSection, .css-1acatj1-ToolbarSectionMeta-toolbarSection {
@@ -106,8 +126,12 @@ background: var(--header) !important;
 background: var(--background) !important;
 }
 
-.css-1jydmlz-PreviewContainer {
+.css-1jydmlz-PreviewContainer{
+
+h1, h2, h3, h4, h5 {
 color: var(--text) !important;
+}
+
 }
 
 .Resizer.vertical {
@@ -138,6 +162,24 @@ color: var(--text);
 background: var(--background) !important;
 }
 
+.css-1f3mf5k-StyledModal {
+background: var(--background) !important;
+}
+
+/* Uploaded Item */
+
+.css-1v1y2wn-Card {
+border: 2px solid var(--accent) !important;
+}
+
+.css-ybq7l8-CardImage {
+object-fit: cover;;
+}
+
+.css-1gte1kw-CardText {
+margin-top: 10px;
+color: var(--text);
+}
 
 .css-188efjc {
 background: var(--background);
@@ -204,4 +246,14 @@ outline: 1px solid var(--text);
 
 .css-1iwq7gj-GridCard-card:hover {
   box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000; 
+}
+
+/* editor */
+
+.css-1vfl1js {
+background: #1a1a1a !important;
+
+span{
+  color: var(--text) !important;
+ } 
 }

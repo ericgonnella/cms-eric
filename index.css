@@ -154,9 +154,9 @@ overflow-x: hidden;
 padding-bottom: 4rem !important;
 }
 
-.project-content {
-width: 100%;
-}
+    .project-content {
+    width: 100%;
+    }
 
     .projects-container {
     width: 100%;
@@ -206,7 +206,7 @@ padding-bottom: 30vh !important;
     .title {    
     position: relative;
     writing-mode: vertical-rl;
-    margin-top: 283px;
+    margin-top: 451px;
     transform: rotate(180deg) scaleX(1);
     margin-left: -30px;
     flex: 2 !important;
