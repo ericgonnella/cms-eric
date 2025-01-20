@@ -4,9 +4,13 @@ padding: 0;
 height: 100%; /* Ensure height is managed correctly */
 overflow-x: hidden;
 overscroll-behavior: none;
+scroll-behavior: smooth;
+scrollbar-width: thin;
+-webkit-scrollbar-width: thin;
 }
 
 #Hero {
+overflow-x: hidden;
 padding: var(--screen-padding);
 flex-wrap: wrap;
 flex-direction: column;
@@ -57,6 +61,7 @@ font-size: clamp(.8rem, .8rem + 1.5vw, 1.5rem);
     color: var(--text);
     background:transparent;
     padding: 0px 20px;
+    
     }
 
     button:before {
@@ -71,6 +76,7 @@ font-size: clamp(.8rem, .8rem + 1.5vw, 1.5rem);
 
     button:hover {
     color: #fff;
+    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
     }
 
     button:before {
@@ -105,7 +111,7 @@ scroll-margin-top: 22rem;
 padding-bottom: 100px;
 overflow-x: hidden;
 overflow-y: hidden;
-padding-bottom: 30vh !important;
+padding-bottom: 20vh !important;
 
     .about-container {
     display: flex;
@@ -145,7 +151,11 @@ flex-direction: column;
 flex-wrap: wrap;
 font-size: 1.3rem;
 overflow-x: hidden;
-padding-bottom: 25vh !important;
+padding-bottom: 4rem !important;
+}
+
+.project-content {
+width: 100%;
 }
 
     .projects-container {
@@ -159,7 +169,7 @@ padding-bottom: 25vh !important;
     writing-mode: vertical-rl;
     margin-top: 100px;
     transform: rotate(180deg) scaleX(1);
-    margin-left: -30px;
+    margin-left: -9px;
     font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
     margin-top: 31rem;
     margin-left: -9px;
@@ -339,21 +349,21 @@ overflow-x: hidden;
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
-    width: 95%;
-    gap: 2rem;
-    margin-right: 24px !important;
+    width: 100% !important;
+    gap: 1rem;
+    margin-right: 30px;
     }
 
     .item {
     background: white;
-    padding: 1rem;
+    padding: .4rem;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     opacity: 1;
     transform: translateY(0);
     transition: opacity 1.3s ease, transform 1.3s ease;
-    width:350px;
-    height: 350px;
+    max-width: 350px; 
+   width: 100% !important;
     }
 
     .item.hidden {
@@ -376,21 +386,46 @@ overflow-x: hidden;
     color: var(--primary-color);
     border-radius: 1rem;
     }
+
+    .tag-container {
+    display: flex;
+    flex-wrap: wrap; 
+    overflow-y: hidden;
+    }
+
+    .items-container {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        width: 100% !important;
+        gap: 1rem;
+        }
+    
+
 }
 
 #Contact {
-height: 40vh;
+display: flex;
+justify-content: space-between;
+background: var(--accent);
 overflow-x: hidden !important;
 overflow-y: hidden !important;
-border-top: 1px solid wheat;
-border-inline: 1px solid wheat;
+border-top: 1px solid var(--accent);
+    border-inline: 1px solid var(--accent);
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
 border-radius: 20px 20px 0px 0px;
-padding: 15px 30px;
+padding: 10px 10px 15px 30px;
+outline: 1px solid var(--text);
+outline-offset: -8px;
 
+    h2 {
+    padding: 5px 0px;    
+    }
 
-h2 {
-padding: 10px 0px;    
-}
+    img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    width: 300px;
+    }
 
 }

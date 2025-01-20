@@ -34,8 +34,8 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
     <div>Digital Creator, Front End Engieer, Marketing Guru, SEO Wizard, and Master of 'Other Duties as Assigned'</div>
 
     <div class="hero-buttons">
-      <button href="#">Check out my work!</button>
-      <button href="#">Get in Touch!</button>
+      <button title="Click to check out my projects!" onclick="document.location='index.html#Projects'">Check out my work!</button>
+      <button title="Click here to contact me!" onclick="document.location='index.html#Contact'">Get in Touch!</button>
     </div>
 
 
@@ -62,8 +62,8 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
 <section id="Projects" class="title">
   <div class="projects-container">
     <div data-aos="fade-right"
-    data-aos-duration="500"
-    data-aos-offset="200">
+    data-aos-duration="1000"
+    data-aos-offset="250">
       <h2>Projects</h2>
     </div> 
   
@@ -78,8 +78,10 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
             <a href="#" class="tag-link" data-tag="science">Misc.</a>
         </nav>
     
+        <div class="tag-container">
+
     
-        <div class="items-container" role="region" aria-live="polite">
+          <div class="items-container" role="region" aria-live="polite">
             <article class="item" data-tags="technology,science">
                 <h2>Test1</h2>
                 <p>Test Text</p>
@@ -123,21 +125,20 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
                     <span class="item-tag">art</span>
                 </div>
             </article>
+
         </div>
-    
+
+        </div>
     </section>
-    
-    
-
-
     </div>
   </div>
 </section>
 
 <section id="Articles" class="screen-padding">
-
-  <div data-aos="fade-right">
-    <h2 class="title" data-aos="fade-right">Articles</h2>
+  <div data-aos="fade-right"
+  data-aos-duration="1000"
+  data-aos-offset="250">
+    <h2 class="title">Articles</h2>
   </div>
 
 
@@ -146,15 +147,14 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
         data-aos="fade-left"
         data-aos-easing="ease-in-cubic"
         data-aos-anchor="#Articles"
-        data-aos-duration="1625" id="articles">
-          <!-- Articles will be dynamically inserted here -->
-
-          <button href="#">View All Articles</button>
-          
+         data-aos-duration="350"
+    data-aos-offset="250" id="articles">
+          <!-- Articles go here, seems kinda -->
+          <button title="View all articles" onclick="URL('/content/blog/index.html')">View All Articles</button>
         </section>
 
         <div class="articles-button">
-          <button href="#">View All Articles</button>
+          <button title="Go to W3Schools HTML section" onclick="document.location='/content/blog/index.html'">View All Articles</button>
         </div>
   
   
@@ -162,12 +162,12 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
 </section>
 
 
-<section data-aos="fade-left" data-aos-anchor="#Contact" data-aos-easing="ease-in-cubic" data-aos-delay="200s" data-aos-duration="1625" id="Contact" class="screen-padding">
+<section  id="Contact" class="screen-padding">
 
-  <div>
+
+
+  <div data-aos="fade-right" data-aos-anchor="#Contact" data-aos-easing="ease-in-cubic" data-aos-delay="200s" data-aos-duration="1625">
     <h2>Contact</h2>
-  </div>
-  
     <div class="contact-container">
       <form name="contact" netlify>
         <p>
@@ -184,7 +184,7 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
         </p>
       </form>
     </div>
-    
+  </div>
 </section>
 
 
