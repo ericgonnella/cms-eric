@@ -17,34 +17,42 @@
     <!-- Blog list will be dynamically inserted here -->
   </main>
   <script>
-async function loadAllBlogs() {
-  try {
-    const response = await fetch('/content/blog/index.json');
-    const files = await response.json();
-
-    const blogContainer = document.getElementById('all-blogs');
-    blogContainer.innerHTML = '';
-
-    for (const file of files) {
-      const postResponse = await fetch(`/content/blog/${file}`);
-      const post = await postResponse.json();
-
-      const article = document.createElement('article');
-      article.innerHTML = `
-        <h2>${post.title}</h2>
-        <p>${post.body.substring(0, 200)}...</p>
-        <a href="/blog/${file.replace('.json', '.html')}" class="btn">Read More</a>
-      `;
-      blogContainer.appendChild(article);
-    }
-  } catch (error) {
-    console.error('Error loading blog posts:', error);
-    document.getElementById('all-blogs').innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
-  }
-}
-
-loadAllBlogs();
-
-  </script>
+    document.addEventListener("DOMContentLoaded", () => {
+      async function loadAllBlogs() {
+        const blogContainer = document.getElementById('all-blogs');
+    
+        if (!blogContainer) {
+          console.error('"all-blogs" element not found.');
+          return;
+        }
+    
+        try {
+          const response = await fetch('/content/blog/index.json');
+          const posts = await response.json();
+    
+          blogContainer.innerHTML = '';
+    
+          posts.forEach(post => {
+            const article = document.createElement('article');
+            // Extract the post slug from filename (remove .json)
+            const postSlug = post.filename.replace('.json', '');
+            // Build the correct path to the index.html in the post folder
+            const postPath = `/content/blog/posts/${postSlug}/index.html`;
+            
+            article.innerHTML = `
+              <h2><a href="${postPath}">${post.title}</a></h2>
+              <p>${new Date(post.date).toLocaleDateString()}</p>
+            `;
+            blogContainer.appendChild(article);
+          });
+        } catch (error) {
+          console.error('Error loading blog posts:', error);
+          blogContainer.innerHTML = '<p>Could not load blog posts. Please try again later.</p>';
+        }
+      }
+    
+      loadAllBlogs();
+    });
+    </script>
 </body>
 </html>

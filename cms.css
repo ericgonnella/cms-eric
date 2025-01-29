@@ -122,12 +122,7 @@ background: var(--header) !important;
 }
 
 #preview-pane {
-background: #DCDCDC !important;
-color: white !important;
-}
-
-.frame-content {
-color: var(--text) !important;
+background: hsl(0, 0%, 71%) !important;
 }
 
 .css-1jydmlz-PreviewContainer{
@@ -166,15 +161,19 @@ color: var(--text) !important;
 font-size: 2em !important;
 }
 
+
+/* image plugin */
+
 .css-83wr9v {
-background: var(--background) !important;
+background: var(--header) !important;
 color: var(--text) !important;
 }
 
 .css-83wr9v:focus {
-background: var(--background) !important;
+background: var(--header) !important;
 }
 
+/* ==== */
 
 .css-1f3mf5k-StyledModal {
 background: var(--background) !important;
@@ -269,13 +268,7 @@ outline: 1px solid var(--text);
 
 /* editor */
 
-.css-1vfl1js {
- 
-}
 
-
-.css-bgdqy7-InsertionPoint {
-  }
 
 /* Search Style */
 
@@ -313,16 +306,16 @@ outline: 1px solid var(--text);
 box-shadow: #663399 0px 0px 0px 2px inset;
 }
 
-.css-1jydmlz-PreviewContainer.e1r8oqnq0 {
-color: var(--text) !important;
+.css-7d7n9g-StyledSplitPane-card-splitPane .Pane {
+background: var(--header) !important;
+}
+
+.frame-content {
+font-family: var(--font2) !important;
+
+.css-1jydmlz-PreviewContainer .e1r8oqnq0{
+background: #1a1a1a !important;
+}
 }
 
 
-.css-1igku8m-PreviewPaneContainer {
-background: var(--background) !important;
-}
-
-
-.css-ydk1nv-PreviewPaneContainer-ControlPaneContainer {
-background: var(--background) !important;
-}

@@ -1,0 +1,161 @@
+html, body {
+font-size: clamp(.3rem, .3rem + 1.5vw, 1.5rem) !important;
+background: #1b1b1f !important;
+scrollbar-width: auto !important;
+scrollbar-color: ghosthwhite ghostwhite !important;
+}
+
+main  {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+width: 90% !important;
+max-width: none !important;
+}
+
+h1 {
+font-size: clamp(2rem, 2rem + 2vw, 4rem) !important;
+}
+
+h2 {
+font-size: clamp(1.5rem, 1.5rem + 2vw, 2.6rem) !important;
+color: var(--accent);
+}
+
+
+#page-header {
+outline-offset: -3px;
+background-image: url('/projects/polar-lights-6992628_1280.webp');
+background-size: cover;
+background-position: center;
+border-radius: 0px 0px 150px 0px;
+padding: 20px;
+padding-bottom: 8vh;
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+
+video {
+height: 10vh;
+}
+
+}
+
+.back-button {
+margin: 30px;
+}
+
+.main-content {
+display: flex;
+margin: 17vh 0px;
+}
+
+.sticky-content {
+top: 0;
+width: 30vw;
+}
+
+.left {
+flex-grow: 3;
+
+p {
+position: sticky;
+top: 0;
+}
+
+}
+
+.right {
+flex-grow: 3;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+height: 90vh;
+overflow: scroll;
+
+img {
+width: 100%;
+max-width: 800px;
+min-width: 300px;
+outline: none !important;
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+outline: 3px solid var(--accent)
+}
+
+img:hover {
+cursor: n-resize;
+transform: translate(0px, -5px);
+}
+} 
+
+.right:hover {
+    cursor: n-resize;
+    }
+
+#target {
+text-wrap: pretty;
+}
+
+.back-to-top {
+display: flex;
+padding-left: 10vh;
+margin-bottom: 10vh;
+}
+
+
+@media only screen and (max-width:1000px) {
+
+main {
+margin-top: 20px;
+}
+
+.back-button {
+margin: 30px 10px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    margin: 5vh 0px 8vh 0px;
+}
+
+.right {
+    img {
+max-width: 350px;
+ }
+} 
+
+.sticky-content {
+width: 100%;
+font-size: 2rem;
+margin-bottom: 5vh;
+}
+
+
+.right {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    overflow: scroll;
+    
+    img {
+    width: 100%;
+    max-width: 667px;
+    min-width: 300px;
+    outline: none !important;
+    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+    }
+    
+    img:hover {
+    cursor: n-resize;
+    transform: translate(0px, -5px);
+    }
+    } 
+
+.back-to-top {
+justify-content: center;
+padding: 0px;
+}
+
+/* end */
+}

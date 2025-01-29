@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <!-- Your styles (optional) -->
+  <link rel="stylesheet" href="/global.css" />
+  <link rel="stylesheet" href="/blog/blog.css" />
+  <link rel="stylesheet" href="/projects/projects.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <title>Disability Services</title>
+</head>
+<body>
+
+
+
+<section id="page-header">
+    <nav class="nav-button-effects">
+        <a href="#">Home</a>
+        <a href="#Projects">Projects</a>
+        <a href="#Articles">Articles</a>
+        <a href="#Contact">Contact</a>
+    </nav>
+    <div>
+        <h1>Disability Services</h1>
+        <h2>Ocean County College</h2>
+    </div>   
+</section>
+
+<div class="back-button">
+  <a class="back-button" href="/index.html#Projects">← Back to Projects</a>
+</div>
+
+
+  <main>
+    <section class="main-content">
+      <div class="sticky-content">
+        <div class="left">
+            <h3>Old Page</h3>
+            <div id="target">
+                As the College was entering its 60th year of operation it was decided that a 60th anniversary page was needed. <br><br>
+                The result was a page that provided a fun interaractive overview for the visitors while also giving a sense of the college's history. <br><br>
+                Some highlighted features include: Then-Now Slider, Image Gallery, Interactive timeline, and form input. 
+                </div>
+        </div>
+      </div>
+
+
+      <div class="right">
+        <div class="60th-desktop">
+          <img
+            src="/projects/DisabilityServices/Disability-Services-Old.webp"
+            alt="Disability Services Web Page - Old"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="sticky-content">
+        <div class="left">
+            <h3 style="color: var(--accent);">New Page</h3>
+            <div data-aos="fade-right"
+            data-aos-easing="ease-in-cubic"
+             data-aos-duration="350"
+               data-aos-offset="250" id="target2">
+                I am a freelance <span class="animate__animated animate__jello animate__delay-4s">website designer</span>, <span class="animate__animated animate__jello animate__delay-4s">front end developer</span>, and <span class="animate__animated animate__jello animate__delay-4s">digital marketer</span>.<br><br> I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
+                </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="60th-mobile">
+          <img
+            src="/projects/DisabilityServices/Disability-Services-New.webp"
+            alt="Disability Services Web Page - New"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+<div class="back-to-top">
+    <a href="#">↑ Back to Top</a>
+</div>
+
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+  AOS.init();
+  </script>
+
+  
+<script src="/index.js"></script>
+
+<script src="https://unpkg.com/split-type"></script>
+
+<!-- Include SplitType and GSAP from CDNs -->
+<script src="https://unpkg.com/split-type"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize SplitType
+  const target = document.querySelector('#target');
+  const text = new SplitType(target, { types: 'words, chars' });
+
+
+  // Function to check if the element is partially in the viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    console.log('Element rect:', rect);
+    return (
+      rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom > 0
+    );
+  }
+
+  // Scroll event listener to trigger animation
+  function onScroll() {
+
+    if (isInViewport(target)) {
+      console.log('Animating text');
+      gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
+      gsap.to(text.chars, {
+opacity: 1,
+translateY: '5px', // Avoid layout-affecting changes
+duration: 1.5,
+stagger: { amount: 1.1 },
+});
+      window.removeEventListener('scroll', onScroll); // Remove listener after animation
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+
+  // Trigger the scroll event once to check if the element is already in view
+  onScroll();
+});
+</script>
+
+</body>
+</html>
