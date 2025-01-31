@@ -33,7 +33,7 @@
 </section>
 
 <div class="back-button">
-  <a class="back-button" href="/index.html#Projects">← Back to Projects</a>
+  <a class="back-button" href="/index.html#Projects">◄ Back to Projects</a>
 </div>
 
 
@@ -100,52 +100,6 @@
 
   
 <script src="/index.js"></script>
-
-<script src="https://unpkg.com/split-type"></script>
-
-<!-- Include SplitType and GSAP from CDNs -->
-<script src="https://unpkg.com/split-type"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize SplitType
-  const target = document.querySelector('#target');
-  const text = new SplitType(target, { types: 'words, chars' });
-
-
-  // Function to check if the element is partially in the viewport
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    console.log('Element rect:', rect);
-    return (
-      rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.bottom > 0
-    );
-  }
-
-  // Scroll event listener to trigger animation
-  function onScroll() {
-
-    if (isInViewport(target)) {
-      console.log('Animating text');
-      gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
-      gsap.to(text.chars, {
-opacity: 1,
-translateY: '5px', // Avoid layout-affecting changes
-duration: 1.5,
-stagger: { amount: 1.1 },
-});
-      window.removeEventListener('scroll', onScroll); // Remove listener after animation
-    }
-  }
-
-  window.addEventListener('scroll', onScroll);
-
-  // Trigger the scroll event once to check if the element is already in view
-  onScroll();
-});
-</script>
 
 </body>
 </html>

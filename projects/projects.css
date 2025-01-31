@@ -22,7 +22,6 @@ font-size: clamp(1.5rem, 1.5rem + 2vw, 2.6rem) !important;
 color: var(--accent);
 }
 
-
 #page-header {
 outline-offset: -3px;
 background-image: url('/projects/polar-lights-6992628_1280.webp');
@@ -41,11 +40,13 @@ height: 10vh;
 
 .back-button {
 margin: 30px;
+text-align: right;
 }
 
 .main-content {
 display: flex;
 margin: 17vh 0px;
+justify-content: space-between;
 }
 
 .sticky-content {
@@ -64,26 +65,28 @@ top: 0;
 }
 
 .right {
-flex-grow: 3;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
 height: 90vh;
 overflow: scroll;
+outline: 5px solid var(--accent);
+border-radius: 8px;
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+scrollbar-width: auto !important;
+scrollbar-color: black ghostwhite !important;
+
 
 img {
 width: 100%;
 max-width: 800px;
 min-width: 300px;
 outline: none !important;
-box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-outline: 3px solid var(--accent)
 }
 
 img:hover {
 cursor: n-resize;
-transform: translate(0px, -5px);
-}
+ }
 } 
 
 .right:hover {
@@ -109,6 +112,7 @@ margin-top: 20px;
 
 .back-button {
 margin: 30px 10px;
+text-align: left;
 }
 
 .main-content {
@@ -118,9 +122,7 @@ margin: 30px 10px;
 }
 
 .right {
-    img {
-max-width: 350px;
- }
+width: 95% !important;
 } 
 
 .sticky-content {
@@ -131,12 +133,12 @@ margin-bottom: 5vh;
 
 
 .right {
-    flex-grow: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 90vh;
     overflow: scroll;
+    flex-wrap: wrap;
     
     img {
     width: 100%;
@@ -150,7 +152,8 @@ margin-bottom: 5vh;
     cursor: n-resize;
     transform: translate(0px, -5px);
     }
-    } 
+
+     
 
 .back-to-top {
 justify-content: center;
@@ -158,4 +161,5 @@ padding: 0px;
 }
 
 /* end */
+}
 }

@@ -99,7 +99,7 @@ function generateBlogIndex() {
           <header>
             <h1>${post.title}</h1>
             <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
-            <a href="/content/blog/index.html">Back to Blog</a>
+            <a id="back-button" href="/content/blog/index.html">◄ Back to Blog</a>
          </header>         
 
          <main>

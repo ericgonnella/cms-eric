@@ -419,7 +419,8 @@ outline: 1px solid var(--text);
 outline-offset: -8px;
 
     h2 {
-    padding: 5px 0px;    
+    padding: 5px 0px;  
+    font-size: clamp(2rem, 2rem + 7vw, 6rem) !important; 
     }
 
     img {
@@ -427,6 +428,27 @@ outline-offset: -8px;
     object-fit: cover;
     width: 300px;
     }
+
+}
+
+.contact-content {
+    width: 100%;
+    display: flex;
+}
+
+.contact-container {
+
+    align-items: center; 
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+#contact-form {
+    gap: 50px;
+
+input {
+width: 10rem;
+}
 
 }
 
