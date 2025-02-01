@@ -1,5 +1,5 @@
 html, body {
-font-size: clamp(.3rem, .3rem + 1.5vw, 1.5rem) !important;
+font-size: clamp(.3rem, .3rem + 1.5vw, 1.24rem) !important;
 
 scrollbar-width: auto !important;
 scrollbar-color: ghosthwhite ghostwhite !important;
@@ -24,23 +24,24 @@ font-size: clamp(2rem, 2rem + 2vw, 4rem) !important;
 
 h2 {
 font-size: clamp(1.5rem, 1.5rem + 2vw, 2.6rem) !important;
-color: var(--accent);
+color: var(--accent) !important;
+}
+
+.page-titles {
+
+h2 {
+text-align: left;
+margin-top: -2px !important;
+}
+
 }
 
 #page-header {
-outline-offset: -3px;
-background: #1a1a1a;
 background-size: cover;
 background-position: center;
-border-radius: 0px 0px 150px 0px;
-padding: 20px;
-padding-bottom: 8vh;
+border-radius:10% 0% 62% 90% / 0% 0% 98% 0% ;
+padding: 1rem;
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-
-video {
-height: 10vh;
-}
-
 }
 
 #project-header:hover {
@@ -51,9 +52,19 @@ outline: 3px solid var(--accent);
 transform: translate(0px, -5px);
 }
 
+.top-bar {
+display: flex;
+justify-content: flex-start;
+flex-direction: column !important;
+}
+
 .back-button {
-margin: 30px;
-text-align: right;
+margin: 1rem 1rem;
+text-align: left;
+
+a {
+font-size: 1rem;
+}
 }
 
 .main-content {
@@ -93,8 +104,6 @@ overflow: hidden;
 border-radius: 20px;
 scrollbar-width: thin !important;
 scrollbar-color: black ghostwhite !important;
-box-shadow: 12px 14px 0 0 #6441A5;
-
 
 
 img {
@@ -129,6 +138,7 @@ text-align: center;
 display: flex;
 padding-left: 10vh;
 margin-top: 50px;
+padding-bottom: 50px;
 }
 
 
@@ -174,9 +184,10 @@ margin-top: 20px;
 }
 
 .back-button {
-margin: 30px 10px;
+margin: 10px 10px;
 text-align: left;
 }
+
 
 .main-content {
 display: flex;

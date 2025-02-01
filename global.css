@@ -5,6 +5,7 @@
 --font2: 'Inter', sans-serif;
 --font3: 'Inter Tight', sans-serif;
 --text: #f2f2f2;
+--primary: #136696;
 --accent: #6441a5;
 --screen-padding: 40vh 3vw 40vh 3vw;
 }
@@ -98,22 +99,25 @@ transition-property: width, left;
 }
 
 html, body {
-background: linear-gradient(132deg, rgba(30,30,46,1) 6%, rgba(27,27,29,1) 54%, rgba(36,41,46,1) 91%);
+/* background: linear-gradient(132deg, rgba(30,30,46,1) 6%, rgba(27,27,29,1) 54%, rgba(36,41,46,1) 91%); */
 background-size: 400% 400%;
 animation: gradient 50s ease infinite;
 height: auto;
+background: linear-gradient(15deg,#1a1a1a,#1e1e1e,var(--accent));
+background-size: 180% 180%;
+animation: gradient-animation 15s ease-in-out infinite;
 }
 
-@keyframes gradient {
-    0% {
-    background-position: 0% 50%;
-    }
-    60% {
-    background-position: 100% 50%;
-    }
-    100% {
-    background-position: 0% 50%;
-    }
+@keyframes gradient-animation {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
 }
 
 .screen-padding {
@@ -121,3 +125,53 @@ padding: 10px 20px;
 }
 
 
+button {
+    font-family: inherit;
+    display: inline-block;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 0px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    transition: color 0.5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--text);
+    background:transparent;
+    padding: 0px 20px;
+    }
+    
+    button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--accent);
+    height: 150px;
+    width: 300px;
+    border-radius: 50%;
+    }
+    
+    button:hover {
+    color: #fff;
+    outline: 1px solid var(--accent);
+    }
+    
+    button:before {
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
+    }
+    
+    button:hover:before {
+    top: -30px;
+    left: -30px;
+    }
+    
+    button:active:before {
+    background: var(--accent);
+    transition: background 0s;
+    }
