@@ -316,38 +316,28 @@ font-size: clamp(.7rem, .7rem + 3vw, 5rem) !important;
 font-family: var(--font1);
 overflow-x: hidden;
 
-.tag-navigation {
-margin-bottom: 2rem;
-display: flex;
-flex-wrap: wrap;
-}
+    .tag-navigation {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    }
 
-.items-container {
-justify-content: flex-end;
-margin-right: 2rem;
-}
+    .items-container {
+    justify-content: flex-end;
+    margin-right: 2rem;
+    }
 
-}
-
-.item {
-padding: 1rem !important;
-width: clamp(15rem, 15rem + 16vw, 24rem) !important;
-width: 13rem !important;
-
-h2 {
-color: var(--accent);
-font-size: clamp(.8rem, 1rem + 1.5vw,2rem) !important;
-}
-
-}
+    h2 {
+        color: var(--text);
+        font-size: clamp(.8rem, 1rem + 1.5vw,2rem) !important;
+    }
 
 .tag-link {
 display: inline-block;
 padding: 0.5rem 1rem;
 margin: 0.25rem;
-color: var(--primary-color);
+color: #000;
 text-decoration: none;
-border-radius: 0.25rem;
 transition: background-color 0.2s;
 }
 
@@ -362,7 +352,7 @@ color: var(--text);
 }
 
 .tag-link:focus-visible {
-outline: 2px solid var(--primary-color);
+outline: 2px solid var(--text);
 outline-offset: 2px;
 }
 
@@ -373,10 +363,19 @@ flex-wrap: wrap;
 width: 100% !important;
 gap: 1rem;
 margin-right: 30px;
+padding: 1rem !important;
+
+
+a {
+text-decoration: none;
+color: var(--text);
+font-weight: bold;
+}
+
 }
 
 .item {
-background: white;
+background: var(--accent);
 padding: .4rem;
 border-radius: 0.5rem;
 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -384,7 +383,9 @@ opacity: 1;
 transform: translateY(0);
 transition: opacity 1.3s ease, transform 1.3s ease;
 max-width: 350px; 
-width: 300px !important;
+padding: 1rem !important;
+width: 20rem !important;
+outline: 1px solid var(--text);
 }
 
 .item.hidden {
@@ -403,8 +404,6 @@ margin-top: 1rem;
 .item-tag {
 font-size: 0.875rem;
 padding: 0.25rem 0.75rem;
-background-color: rgba(37, 99, 235, 0.1);
-color: var(--primary-color);
 border-radius: 1rem;
 }
 
@@ -420,8 +419,13 @@ justify-content: flex-end;
 flex-wrap: wrap;
 width: 100% !important;
 gap: 1rem;
- }
 
+
+    a {
+    text-decoration: none;
+    }
+ }
+}
 
 #Contact {
 display: flex;
