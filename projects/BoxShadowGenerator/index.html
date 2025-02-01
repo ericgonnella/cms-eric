@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Shadow Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Shadow Generator</h1>
+    <label for="bgColor">Enter a Box Color (Hex, RGB, RGBA):</label>
+    <input type="text" id="bgColor" placeholder="#1a1a1a or rgb(26, 26, 26)">
+    <label for="pageBgColor">Enter a Page Background Color (Hex, RGB, RGBA):</label>
+    <input type="text" id="pageBgColor" placeholder="#1a1a1a or rgb(26, 26, 26)">
+    <div class="box" id="previewBox">Preview</div>
+    <p>Generated CSS:</p>
+    <code id="cssOutput"></code>
+
+    <script>
+        function isLight(color) {
+            let r, g, b;
+            
+            if (color.startsWith("#")) {
+                r = parseInt(color.substr(1, 2), 16);
+                g = parseInt(color.substr(3, 2), 16);
+                b = parseInt(color.substr(5, 2), 16);
+            } else if (color.startsWith("rgb")) {
+                let rgbValues = color.match(/\d+/g).map(Number);
+                r = rgbValues[0];
+                g = rgbValues[1];
+                b = rgbValues[2];
+            } else {
+                return false;
+            }
+            
+            let luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            return luminance > 0.5;
+        }
+
+        function updateShadow() {
+            let bgColor = document.getElementById("bgColor").value.trim();
+            let pageBgColor = document.getElementById("pageBgColor").value.trim();
+            let box = document.getElementById("previewBox");
+            let cssOutput = document.getElementById("cssOutput");
+            
+            if (bgColor) {
+                try {
+                    let shadowColor = isLight(bgColor) ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.1)';
+                    let shadowColor2 = isLight(bgColor) ? 'rgba(0, 0, 0, 0.4)' : 'rgba(255, 255, 255, 0.05)';
+                    
+                    let boxShadow = `0px 2px 4px ${shadowColor}, 0px 6px 12px ${shadowColor2}`;
+                    box.style.backgroundColor = bgColor;
+                    box.style.boxShadow = boxShadow;
+                    
+                    cssOutput.textContent = `background-color: ${bgColor};\nbox-shadow: ${boxShadow};`;
+                } catch (e) {
+                    cssOutput.textContent = "Invalid color format for box. Use Hex, RGB, or RGBA.";
+                }
+            }
+            
+            if (pageBgColor) {
+                try {
+                    document.body.style.backgroundColor = pageBgColor;
+                } catch (e) {
+                    cssOutput.textContent = "Invalid color format for page background. Use Hex, RGB, or RGBA.";
+                }
+            }
+        }
+
+        document.getElementById("bgColor").addEventListener("input", updateShadow);
+        document.getElementById("pageBgColor").addEventListener("input", updateShadow);
+    </script>
+</body>
+</html>

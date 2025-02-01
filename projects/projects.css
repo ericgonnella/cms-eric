@@ -1,8 +1,12 @@
 html, body {
 font-size: clamp(.3rem, .3rem + 1.5vw, 1.5rem) !important;
-background: #1b1b1f !important;
+
 scrollbar-width: auto !important;
 scrollbar-color: ghosthwhite ghostwhite !important;
+}
+
+img {
+outline: none !important;
 }
 
 main  {
@@ -11,6 +15,7 @@ flex-direction: column;
 justify-content: space-evenly;
 width: 90% !important;
 max-width: none !important;
+margin-top: 0px !important;
 }
 
 h1 {
@@ -24,7 +29,7 @@ color: var(--accent);
 
 #page-header {
 outline-offset: -3px;
-background-image: url('/projects/polar-lights-6992628_1280.webp');
+background: #1a1a1a;
 background-size: cover;
 background-position: center;
 border-radius: 0px 0px 150px 0px;
@@ -38,6 +43,14 @@ height: 10vh;
 
 }
 
+#project-header:hover {
+outline: 3px solid var(--accent);
+}
+
+#project-header img:hover {
+transform: translate(0px, -5px);
+}
+
 .back-button {
 margin: 30px;
 text-align: right;
@@ -45,8 +58,10 @@ text-align: right;
 
 .main-content {
 display: flex;
-margin: 17vh 0px;
-justify-content: space-between;
+margin: 12vh 5vh;
+justify-content: center;
+align-items: center;
+gap: 10rem;
 }
 
 .sticky-content {
@@ -56,10 +71,15 @@ width: 30vw;
 
 .left {
 flex-grow: 3;
+width: 100%;
 
 p {
 position: sticky;
 top: 0;
+}
+
+span {
+color: var(--accent);
 }
 
 }
@@ -67,42 +87,85 @@ top: 0;
 .right {
 display: flex;
 flex-direction: column;
-align-items: flex-end;
+align-items: flex-start;
 height: 90vh;
-overflow: scroll;
-outline: 5px solid var(--accent);
-border-radius: 8px;
-box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-scrollbar-width: auto !important;
+overflow: hidden;
+border-radius: 20px;
+scrollbar-width: thin !important;
 scrollbar-color: black ghostwhite !important;
+box-shadow: 12px 14px 0 0 #6441A5;
+
 
 
 img {
 width: 100%;
-max-width: 800px;
+max-width: 500px;
 min-width: 300px;
 outline: none !important;
+margin-top: 0px !important;
+/* box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000; */
+
 }
 
 img:hover {
-cursor: n-resize;
- }
+cursor: pointer;
+}
 } 
-
-.right:hover {
-    cursor: n-resize;
-    }
 
 #target {
 text-wrap: pretty;
+background: var(--accent) !important;
+}
+
+#middle-text {
+padding: 8vh 2vh;
+margin: 0px !important;
+background: var(--accent);
+border-radius: 20px;
+text-align: center;
 }
 
 .back-to-top {
 display: flex;
 padding-left: 10vh;
-margin-bottom: 10vh;
+margin-top: 50px;
 }
 
+
+.lightbox {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+display: flex;
+align-items: flex-start;
+justify-content: center;
+overflow-y: auto;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox.open {
+opacity: 1;
+visibility: visible;
+z-index: 1;
+}
+.lightbox img {
+max-width: 90%;
+max-height: none;
+transition: transform 0.3s ease;
+cursor: zoom-in;
+margin-top: 20px;
+}
+.lightbox.zoomed img {
+transform: scale(1.15);
+cursor: zoom-out;
+}
+
+
+/* media queries start  */
 
 @media only screen and (max-width:1000px) {
 
@@ -116,9 +179,9 @@ text-align: left;
 }
 
 .main-content {
-    display: flex;
-    flex-direction: column;
-    margin: 5vh 0px 8vh 0px;
+display: flex;
+flex-direction: column;
+margin: 5vh 0px 8vh 0px;
 }
 
 .right {
@@ -131,33 +194,27 @@ font-size: 2rem;
 margin-bottom: 5vh;
 }
 
-
 .right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 90vh;
-    overflow: scroll;
-    flex-wrap: wrap;
-    
-    img {
-    width: 100%;
-    max-width: 667px;
-    min-width: 300px;
-    outline: none !important;
-    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-    }
-    
-    img:hover {
-    cursor: n-resize;
-    transform: translate(0px, -5px);
-    }
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 90vh;
+overflow: scroll;
 
-     
+img {
+width: 100%;
+max-width: 667px;
+min-width: 300px;
+outline: none !important;
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+}
+
+img:hover {
+cursor: pointer;
+}
 
 .back-to-top {
-justify-content: center;
-padding: 0px;
+margin-top: 20px !important;  
 }
 
 /* end */

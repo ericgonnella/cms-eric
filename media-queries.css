@@ -69,7 +69,13 @@ justify-content: center !important;
   width: 150px !important;
 }
 
+.items-container {
+justify-content: center !important;
+margin-right: 0px !important;
+
 }
+
+} 
 
 #Articles {
   height: auto !important;
@@ -256,4 +262,26 @@ justify-content: center;
   margin-top: 15px !important;
   }
  }
+
+
+
+ #sort {
+  justify-content: center !important;
+  
+  .item {
+    height: 300px !important;
+    width: 100% !important;
+  }
+  
+  .items-container {
+  justify-content: center !important;
+  margin-right: 0px !important;
+  
+  }
+  
+  } 
+
+
 }
+
+

@@ -36,28 +36,26 @@
 <div class="back-button">
   <a class="back-button" href="/index.html#Projects">◄ Back to Projects</a>
 </div>
-
-
   <main>
+
     <section class="main-content">
       <div class="sticky-content">
+
         <div class="left">
-            <h3>Desktop</h3>
             <div class="target">
+              <h2>Desktop</h2><br>
                 As the College was entering its 60th year of operation it was decided that a 60th anniversary page was needed. <br><br>
                 The result was a page that provided a fun interaractive overview for the visitors while also giving a sense of the college's history. <br><br>
                 Some highlighted features include: Then-Now Slider, Image Gallery, Interactive timeline, and form input. 
-                </div>
+                </div>     
         </div>
       </div>
 
-
       <div class="right">
-        <div class="60th-desktop">
-          <img
-            src="/projects/60th/60th-Desktop.webp"
-            alt="60th Anniversary Web Page - Desktop"
-          />
+          <div class="60th-desktop">
+            <div class="gallery">
+              <img src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
+          </div>
         </div>
       </div>
     </section>
@@ -65,22 +63,21 @@
     <section class="main-content">
       <div class="sticky-content">
         <div class="left">
-            <h3 style="color: var(--accent);">Mobile</h3>
             <div>
                <div class="target">
-                As the College was entering its 60th year of operation it was decided that a 60th anniversary page was needed. <br><br>
-                The result was a page that provided a fun interaractive overview for the visitors while also giving a sense of the college's history. <br><br>
-                Some highlighted features include: Then-Now Slider, Image Gallery, Interactive timeline, and form input. 
+                <h2>Mobile</h2><br>
+                For the mobile site we ensure that the main slider functionality was carried over from the desktop to proivde micro-interactions for users to engage in the webpage. <br><br>
+                The idea for utilizing slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page. <br><br>
+                Utilizing section seperators provided a new and fresh appearance for each of the users to ensure they would know that content is still avaialbe as the contiuned to scroll. 
                 </div>
             </div>
         </div>
       </div>
       <div class="right">
         <div class="60th-mobile">
-          <img
-            src="/projects/60th/60th-Mobile.webp"
-            alt="60th Anniversary Web Page - Mobile"
-          />
+          <div class="gallery">
+            <img src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
+        </div>
         </div>
       </div>
     </section>
@@ -88,11 +85,41 @@
   
 
 
+<div class="lightbox" onclick="toggleZoom()">
+    <img src="" alt="" id="lightbox-img">
+</div>
+
 <div class="back-to-top">
     <a href="#">↑ Back to Top</a>
 </div>
 
+<script>
+  let isZoomed = false;
+  const lightbox = document.querySelector('.lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
 
+  function openLightbox(img) {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('open');
+      lightbox.scrollTop = 0; // Scroll to top when opened
+  }
+
+  function toggleZoom() {
+      isZoomed = !isZoomed;
+      if (isZoomed) {
+          lightbox.classList.add('zoomed');
+      } else {
+          lightbox.classList.remove('zoomed');
+      }
+  }
+
+  lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+          lightbox.classList.remove('open', 'zoomed');
+          isZoomed = false;
+      }
+  });
+</script>
 
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
