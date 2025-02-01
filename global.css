@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Doto:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
 --font1: 'Doto', sans-serif;
 --font2: 'Inter', sans-serif;
 --font3: 'Inter Tight', sans-serif;
+--font4: 'Open Sans', sans-serif;
 --text: #f2f2f2;
 --primary: #136696;
 --accent: #6441a5;
@@ -11,7 +12,7 @@
 }
 
 html, body {
-font-family: var(--font2);
+font-family: var(--font4);
 color: var(--text);
 padding: 0;
 margin: 0;
@@ -27,6 +28,7 @@ text-wrap: pretty;
 margin: 0px;
 margin-bottom: 20px;
 line-height: 1;
+font-family: var(--font2);
 }
 
 h2 {
@@ -53,7 +55,7 @@ gap: 1rem;
 padding: 30px;
 top: 0;
 z-index: 999;
-font-family: var(--font1);
+font-family: var(--font2);
 }
 
 
@@ -92,7 +94,7 @@ left: 50%;
 position: absolute;
 width: 0%;
 height: 2px;
-background-color: #6441a5;
+background-color: var(--primary);
 transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 transition-duration: 400ms;
 transition-property: width, left;
@@ -126,7 +128,7 @@ padding: 10px 20px;
 
 
 button {
-    font-family: inherit;
+    font-family: var(--font2);
     display: inline-block;
     height: 2.6em;
     line-height: 2.5em;
