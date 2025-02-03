@@ -1,6 +1,7 @@
 html, body {
 background-color: #1a1a1a;
 overflow-x:hidden;
+height: 100%;
 }
 
 h1,h2,h3,h4 {

@@ -82,6 +82,7 @@ margin-right: 0px !important;
   overflow-y: hidden;
   margin-bottom: 0px !important;
   padding-bottom: 30vh !important;
+  flex-wrap: wrap!important;
 
 .title {
 writing-mode: horizontal-tb;
@@ -203,9 +204,10 @@ height: auto !important;
 }
     
 #Articles {
-margin-top: 5%;
+padding-top: 2rem !important;
 margin-bottom: 0px !important;
 height: auto !important;
+flex-wrap: wrap!important;
 
 
     .title {
@@ -223,6 +225,7 @@ height: auto !important;
     .articles-container {
       padding-right: 0px !important;
     }
+
 }
 
 #Contact {
@@ -259,7 +262,7 @@ justify-content: center;
 
   article { 
   h2 {
-  margin-top: 15px !important;
+  margin-top: 0px !important;
   }
  }
 
@@ -269,6 +272,7 @@ justify-content: center;
   justify-content: center !important;
   
   .item {
+    height: 300px !important;
     width: 100% !important;
   }
   

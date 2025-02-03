@@ -16,8 +16,52 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <title>Eric Gonnella | Portfolio | Digital Creator | SEO</title>
+
+<style>
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;  /* Ensure it doesn’t block interactions */
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s;
+    z-index: 10000;  /* Keep it on top */
+  }
+
+
+  .particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+</style>
+
+
+
 </head>
 <body id="fluid">
+  <div class="custom-cursor"></div>
+
 
 <nav class="nav-button-effects">
     <a href="#">Home</a>
@@ -41,6 +85,7 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
 </section>
 
 <section id="About" class="screen-padding"> 
+
 <div class="about-container">
     <div class="about-left">
 
@@ -147,37 +192,36 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
   </div>
 </section>
 
-<section id="Articles" class="screen-padding">
-  <div data-aos="fade-right"
-  data-aos-duration="1000"
-  data-aos-offset="250">
-    <h2 class="title">Articles</h2>
-  </div>
+<!-- Articles ------ -->
 
+<section id="Articles" class="screen-padding">
+
+
+  <div data-aos="fade-right"
+    data-aos-duration="1000"
+    data-aos-offset="250">
+     <h2 class="title">Articles</h2>
+  </div>
 
       <div class="articles-container">
         <section
         data-aos="fade-left"
         data-aos-easing="ease-in-cubic"
         data-aos-anchor="#Articles"
-         data-aos-duration="350"
-           data-aos-offset="250" id="articles">
+        data-aos-duration="350"
+        data-aos-offset="250" 
+        id="articles">
           <!-- Articles go here, seems kinda -->
         </section>
 
         <div class="articles-button">
-          <button title="Go to W3Schools HTML section" onclick="document.location='/content/blog/index.html'">View All Articles</button>
+          <button title="Go to W3Schools HTML section" onclick="document. location='/content/blog/index.html'">View All Articles</button>
         </div>
-  
-  
-</div>
+      </div>
 </section>
 </main>
 
-
-
 <script>
-
   document.addEventListener('DOMContentLoaded', () => {
       const tagLinks = document.querySelectorAll('.tag-link');
       const items = document.querySelectorAll('.item');
@@ -254,12 +298,12 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
   
         if (isInViewport(target)) {
           console.log('Animating text');
-          gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
-          gsap.to(text.chars, {
-  opacity: 1,
-  translateY: '5px', // Avoid layout-affecting changes
-  duration: 0.95,
-  stagger: { amount: 1.1 },
+              gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
+              gsap.to(text.chars, {
+      opacity: 1,
+      translateY: '5px', // Avoid layout-affecting changes
+      duration: 0.95,
+      stagger: { amount: 1.1 },
 });
           window.removeEventListener('scroll', onScroll); // Remove listener after animation
         }
@@ -314,8 +358,58 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
 
   loadArticles();
 });
+</script>
 
-  </script>
+
+
+<script>
+  // Wait for the DOM to fully load
+  document.addEventListener("DOMContentLoaded", function () {
+    const cursor = document.querySelector('.custom-cursor');
+    
+    // Check if the cursor element exists
+    if (!cursor) {
+      console.error("Custom cursor element not found!");
+      return;
+    }
+
+    // Initial mouse and cursor positions
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+
+    // Easing factor for smooth transition
+    const easing = 0.1;
+
+    // Update target mouse coordinates on mouse move
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Animation loop using requestAnimationFrame
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * easing;
+      cursorY += (mouseY - cursorY) * easing;
+
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    // Start the animation loop
+    animateCursor();
+  });
+
+  
+
+  
+</script>
+
+
+
 </body>
 
 

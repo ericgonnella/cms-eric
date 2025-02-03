@@ -1,6 +1,5 @@
 html, body {
 font-size: clamp(.3rem, .3rem + 1.5vw, 1.24rem) !important;
-
 scrollbar-width: auto !important;
 scrollbar-color: ghosthwhite ghostwhite !important;
 }
@@ -24,7 +23,7 @@ font-size: clamp(2rem, 2rem + 2vw, 4rem) !important;
 
 h2 {
 font-size: clamp(1.5rem, 1.5rem + 2vw, 2.6rem) !important;
-color: var(--accent) !important;
+color: var(--primary) !important;
 }
 
 .page-titles {
@@ -105,6 +104,11 @@ border-radius: 20px;
 scrollbar-width: thin !important;
 scrollbar-color: black ghostwhite !important;
 
+&:hover {
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+transform: translate(0px, -5px);
+}
+
 
 img {
 width: 100%;
@@ -112,14 +116,13 @@ max-width: 500px;
 min-width: 300px;
 outline: none !important;
 margin-top: 0px !important;
-/* box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000; */
-
 }
 
 img:hover {
 cursor: pointer;
 }
 } 
+
 
 #target {
 text-wrap: pretty;
@@ -210,18 +213,22 @@ display: flex;
 flex-direction: column;
 align-items: center;
 height: 90vh;
+object-fit: cover;
+object-position: top;
 overflow: scroll;
 
 img {
 width: 100%;
 max-width: 667px;
 min-width: 300px;
-outline: none !important;
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+object-fit: cover;
+object-position: top;
 }
 
 img:hover {
 cursor: pointer;
+
 }
 
 .back-to-top {
