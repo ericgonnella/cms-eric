@@ -326,7 +326,6 @@ align-items: center;
 height: 90vh;
 object-fit: cover;
 object-position: top;
-overflow: scroll;
 
 img {
 width: 100%;
