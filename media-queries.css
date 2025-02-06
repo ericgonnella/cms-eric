@@ -36,6 +36,10 @@ padding-top: 50px !important;
 flex-direction: column;
 }
 
+.custom-cursor {
+  display: none;
+}
+
 
 #Projects {
   height: auto !important;
@@ -170,6 +174,11 @@ padding-bottom: 30vh !important;
 flex-wrap: wrap-reverse !important;
 }
 
+}
+
+
+.custom-cursor {
+  display: none;
 }
     
 .articles-container {
