@@ -60,21 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = new SplitType(target, { types: 'words, chars' });
     // Set initial state: hide characters and position them 20px lower
     gsap.set(text.chars, { opacity: 0, y: 20 });
-    // Animate characters into view as the element enters the viewport
-    gsap.to(text.chars, {
-      opacity: 1,
-      y: 0,
-      duration: 0.06,
-      stagger: { amount: 0.6 },
-      scrollTrigger: {
-        trigger: target,
-        start: "top 80%",
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
-  } else {
-    console.warn('Either #target is missing or required libraries (SplitType, gsap, ScrollTrigger) are not loaded.');
   }
 
   // -------------------------------------------------
