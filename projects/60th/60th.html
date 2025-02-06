@@ -119,5 +119,33 @@
     // Initialize AOS library for scroll animations
     AOS.init();
   </script>
+
+  <script>
+    // Combined and optimized SplitType & GSAP animation using ScrollTrigger
+    document.addEventListener('DOMContentLoaded', () => {
+      const targets = document.querySelectorAll('.target');
+      targets.forEach(target => {
+        // Initialize SplitType for the target element once
+        const splitInstance = new SplitType(target, { types: 'words, chars' });
+        // Set initial state: characters start hidden with an offset
+        gsap.set(splitInstance.chars, { opacity: 0, y: 20 });
+        // Animate characters into view as the element enters the viewport
+        gsap.to(splitInstance.chars, {
+          opacity: 1,
+          y: 0,
+          duration: 0.1,
+          ease: "ease-out",
+          stagger: 0.01,
+          scrollTrigger: {
+            trigger: target,
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
