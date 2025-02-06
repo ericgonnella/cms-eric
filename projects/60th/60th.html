@@ -2,59 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <!-- Your styles (optional) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="/global.css" />
-  <link rel="stylesheet" href="/blog/blog.css" />
   <link rel="stylesheet" href="/projects/projects.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>60th Anniversary Webpage</title>
+
+  <!-- External Scripts (loaded with defer) -->
+  <script src="/index.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/split-type" defer></script>
 </head>
 <body>
 
-
-
-<section id="page-header">
-
-  <div class="top-bar">
-
-    <div class="page-titles">
-      <h1>60th Anniversary Webpage</h1>
-      <h2 style="color:white">Ocean County College</h2>
-   </div> 
-  </div>
-
-
-   <div class="back-button">
-    <button onclick="window.location.href='/index.html#Projects'" href="/index.html#Projects">◄ Back to Projects</button>
-  </div>
-
-</section>
-
+  <section id="page-header">
+    <div class="top-bar">
+      <div class="page-titles">
+        <h1>60th Anniversary Webpage</h1>
+        <h2 style="color:white">Ocean County College</h2>
+      </div> 
+    </div>
+    <div class="back-button">
+      <button onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
+    </div>
+  </section>
 
   <main>
-
     <section class="main-content">
       <div class="sticky-content">
-
         <div class="left">
-            <div class="target">
-              <h2>Desktop</h2><br>
-                As the College was entering its 60th year of operation it was decided that a 60th anniversary page was needed. <br><br>
-                The result was a page that provided a fun interaractive overview for the visitors while also giving a sense of the college's history. <br><br>
-                Some highlighted features include: Then-Now Slider, Image Gallery, Interactive timeline, and form input. 
-                </div>     
+          <div class="target">
+            <h2>Desktop</h2><br>
+            As the College was entering its 60th year of operation it was decided that a 60th anniversary page was needed. <br><br>
+            The result was a page that provided a fun interactive overview for the visitors while also giving a sense of the college's history. <br><br>
+            Some highlighted features include: Then-Now Slider, Image Gallery, Interactive timeline, and form input.
+          </div>     
         </div>
       </div>
-
       <div class="right">
-          <div class="60th-desktop">
-            <div class="gallery">
-              <img src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
+        <div class="60th-desktop">
+          <div class="gallery">
+            <img src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
           </div>
         </div>
       </div>
@@ -63,125 +54,93 @@
     <section class="main-content">
       <div class="sticky-content">
         <div class="left">
-            <div>
-               <div class="target">
-                <h2>Mobile</h2><br>
-                For the mobile site we ensure that the main slider functionality was carried over from the desktop to proivde micro-interactions for users to engage in the webpage. <br><br>
-                The idea for utilizing slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page. <br><br>
-                Utilizing section seperators provided a new and fresh appearance for each of the users to ensure they would know that content is still avaialbe as the contiuned to scroll. 
-                </div>
-            </div>
+          <div class="target">
+            <h2>Mobile</h2><br>
+            For the mobile site we ensured that the main slider functionality was carried over from the desktop to provide micro-interactions for users to engage with the webpage. <br><br>
+            The idea for utilizing a slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page. <br><br>
+            Utilizing section separators provided a new and fresh appearance for each of the users to ensure they would know that content is still available as they continued to scroll.
+          </div>
         </div>
       </div>
       <div class="right">
         <div class="60th-mobile">
           <div class="gallery">
             <img src="https://eric-cms.netlify.app/projects/60th/60th-Mobile.webp" alt="Sample Image" onclick="openLightbox(this)">
-        </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
-  
 
-
-<div class="lightbox" onclick="toggleZoom()">
+  <div class="lightbox" onclick="toggleZoom()">
     <img src="" alt="" id="lightbox-img">
-</div>
+  </div>
 
-<div class="back-to-top">
-    <a href="#">↑ Back to Top</a>
-</div>
+  <div class="back-to-top">
+    <a href="60th.html">↑ Back to Top</a>
+  </div>
 
-<script>
-  let isZoomed = false;
-  const lightbox = document.querySelector('.lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
+  <!-- Inline Scripts -->
+  <script>
+    // Lightbox functionality
+    let isZoomed = false;
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-  function openLightbox(img) {
+    function openLightbox(img) {
       lightboxImg.src = img.src;
       lightbox.classList.add('open');
       lightbox.scrollTop = 0; // Scroll to top when opened
-  }
+    }
 
-  function toggleZoom() {
+    function toggleZoom() {
       isZoomed = !isZoomed;
       if (isZoomed) {
-          lightbox.classList.add('zoomed');
+        lightbox.classList.add('zoomed');
       } else {
-          lightbox.classList.remove('zoomed');
+        lightbox.classList.remove('zoomed');
       }
-  }
+    }
 
-  lightbox.addEventListener('click', function (e) {
+    lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) {
-          lightbox.classList.remove('open', 'zoomed');
-          isZoomed = false;
+        lightbox.classList.remove('open', 'zoomed');
+        isZoomed = false;
       }
-  });
-</script>
-
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    });
+  </script>
 
   <script>
-  AOS.init();
+    // Initialize AOS library for scroll animations
+    AOS.init();
   </script>
 
-  
-<script src="/index.js"></script>
-
-<script src="https://unpkg.com/split-type"></script>
-
-<!-- Include SplitType and GSAP from CDNs -->
-<script src="https://unpkg.com/split-type"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Initialize SplitType for all target elements
-    const targets = document.querySelectorAll('.target');
-    const animatedElements = new Set();
-  
-    targets.forEach(target => {
-      new SplitType(target, { types: 'words, chars' });
-    });
-  
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      return (
-        rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.bottom > 0
-      );
-    }
-  
-    function onScroll() {
-      targets.forEach((target, index) => {
-        if (!animatedElements.has(index) && isInViewport(target)) {
-          const text = SplitType.create(target, { types: 'words, chars' });
-          
-          gsap.set(text.chars, { opacity: 0, y: 20 });
-          gsap.to(text.chars, {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            stagger: { amount: 1.1 },
-          });
-  
-          animatedElements.add(index);
-        }
+  <script>
+    // Combined and optimized SplitType & GSAP animation using ScrollTrigger
+    document.addEventListener('DOMContentLoaded', () => {
+      const targets = document.querySelectorAll('.target');
+      targets.forEach(target => {
+        // Initialize SplitType for the target element once
+        const splitInstance = new SplitType(target, { types: 'words, chars' });
+        // Set initial state: characters start hidden with an offset
+        gsap.set(splitInstance.chars, { opacity: 0, y: 20 });
+        // Animate characters into view as the element enters the viewport
+        gsap.to(splitInstance.chars, {
+          opacity: 1,
+          y: 0,
+          duration: 0.1,
+          ease: "ease-out",
+          stagger: 0.01,
+          scrollTrigger: {
+            trigger: target,
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true
+          }
+        });
       });
-    }
-  
-    window.addEventListener('scroll', onScroll);
-    // Trigger initial check
-    onScroll();
-  });
+    });
   </script>
-
-
-
-
 
 </body>
 </html>
