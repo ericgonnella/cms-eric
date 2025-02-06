@@ -14,7 +14,7 @@ flex-direction: column;
 justify-content: space-evenly;
 width: 90% !important;
 max-width: none !important;
-margin-top: 0px !important;
+margin-top: 6vh !important;
 }
 
 h1 {
@@ -68,11 +68,12 @@ font-size: 1rem;
 
 .main-content {
 display: flex;
-margin: 12vh 5vh;
+margin: 13vh 5vh;
 justify-content: center;
 align-items: center;
 gap: 10rem;
 }
+
 
 .sticky-content {
 top: 0;

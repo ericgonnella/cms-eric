@@ -1,130 +1,111 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // -------------------------------------------------
+  // 1. Tag Filtering Functionality
+  // -------------------------------------------------
+  const tagLinks = document.querySelectorAll('.tag-link');
+  const items = document.querySelectorAll('.item');
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-      const tagLinks = document.querySelectorAll('.tag-link');
-      const items = document.querySelectorAll('.item');
+  tagLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selectedTag = link.dataset.tag;
 
-      tagLinks.forEach(link => {
-          link.addEventListener('click', (e) => {
-              e.preventDefault();
-              const selectedTag = link.dataset.tag;
-
-              // Update active state of tag links
-              tagLinks.forEach(tl => {
-                  tl.classList.remove('active');
-                  tl.removeAttribute('aria-current');
-              });
-              link.classList.add('active');
-              link.setAttribute('aria-current', 'true');
-
-              // Filter items
-              items.forEach(item => {
-                  const itemTags = item.dataset.tags.split(',');
-                  const shouldShow = selectedTag === 'all' || itemTags.includes(selectedTag);
-                  
-                  if (shouldShow) {
-                      item.classList.remove('hidden');
-                      // Reset animation
-                      item.style.opacity = '0';
-                      // Force reflow
-                      void item.offsetWidth;
-                      // Trigger animation
-                      item.style.opacity = '1';
-                  } else {
-                      item.classList.add('hidden');
-                  }
-              });
-          });
+      // Update active state for tag links
+      tagLinks.forEach(tl => {
+        tl.classList.remove('active');
+        tl.removeAttribute('aria-current');
       });
-  });
-</script>
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'true');
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      // Filter items based on selected tag
+      items.forEach(item => {
+        if (!item.dataset.tags) return;
+        const itemTags = item.dataset.tags.split(',').map(tag => tag.trim());
+        const shouldShow = selectedTag === 'all' || itemTags.includes(selectedTag);
 
-    <script>
-    AOS.init();
-    </script>
-
-    <script src="/index.js"></script>
-
-    <script src="https://unpkg.com/split-type"></script>
-
-  <!-- Include SplitType and GSAP from CDNs -->
-  <script src="https://unpkg.com/split-type"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize SplitType
-      const target = document.querySelector('#target');
-      const text = new SplitType(target, { types: 'words, chars' });
-
-
-      // Function to check if the element is partially in the viewport
-      function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        console.log('Element rect:', rect);
-        return (
-          rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.bottom > 0
-        );
-      }
-
-      // Scroll event listener to trigger animation
-      function onScroll() {
-  
-        if (isInViewport(target)) {
-          console.log('Animating text');
-              gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
-              gsap.to(text.chars, {
-      opacity: 1,
-      translateY: '5px', // Avoid layout-affecting changes
-      duration: 0.95,
-      stagger: { amount: 1.1 },
-});
-          window.removeEventListener('scroll', onScroll); // Remove listener after animation
+        if (shouldShow) {
+          item.classList.remove('hidden');
+          // Reset opacity to trigger CSS transition
+          item.style.opacity = '0';
+          void item.offsetWidth; // Force reflow
+          item.style.opacity = '1';
+        } else {
+          item.classList.add('hidden');
         }
-      }
-
-      window.addEventListener('scroll', onScroll);
-
-      // Trigger the scroll event once to check if the element is already in view
-      onScroll();
+      });
     });
-    document.addEventListener("DOMContentLoaded", () => {
+  });
+
+  // -------------------------------------------------
+  // 2. Initialize AOS (Animate on Scroll)
+  // -------------------------------------------------
+  if (typeof AOS !== 'undefined') {
+    AOS.init();
+  } else {
+    console.error('AOS library is not loaded.');
+  }
+
+  // -------------------------------------------------
+  // 3. GSAP & SplitType Animation for Target Text Using ScrollTrigger
+  // -------------------------------------------------
+  const target = document.querySelector('#target');
+  if (
+    target &&
+    typeof SplitType !== 'undefined' &&
+    typeof gsap !== 'undefined' &&
+    typeof ScrollTrigger !== 'undefined'
+  ) {
+    // Initialize SplitType for the target element
+    const text = new SplitType(target, { types: 'words, chars' });
+    // Set initial state: hide characters and position them 20px lower
+    gsap.set(text.chars, { opacity: 0, y: 20 });
+    // Animate characters into view as the element enters the viewport
+    gsap.to(text.chars, {
+      opacity: 1,
+      y: 0,
+      duration: 0.06,
+      stagger: { amount: 0.6 },
+      scrollTrigger: {
+        trigger: target,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+    });
+  } else {
+    console.warn('Either #target is missing or required libraries (SplitType, gsap, ScrollTrigger) are not loaded.');
+  }
+
+  // -------------------------------------------------
+  // 4. Load and Display Articles from JSON
+  // -------------------------------------------------
   async function loadArticles() {
     const articlesContainer = document.getElementById('articles');
-
     if (!articlesContainer) {
       console.error('Articles container not found!');
       return;
     }
-
     try {
-      // Fetch articles from index.json
-      const response = await fetch('/content/blog/index.json'); // Adjust the path if necessary
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
+      const response = await fetch('/content/blog/index.json');
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       let articles = await response.json();
-
       // Sort articles by date (most recent first)
       articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      // Display only the last 5 articles
+      // Limit to the 5 most recent articles
       articles = articles.slice(0, 5);
-
       // Clear the container
       articlesContainer.innerHTML = '';
-
-      // Loop through articles and create HTML elements
+      // Create and append each article element
       articles.forEach(article => {
         const articleElement = document.createElement('article');
         articleElement.innerHTML = `
-          <h2><a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}">${article.title}</a></h2>
-          <p><strong></strong> ${new Date(article.date).toLocaleDateString()}</p>
+          <h2>
+            <a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}">
+              ${article.title}
+            </a>
+          </h2>
+          <p>${new Date(article.date).toLocaleDateString()}</p>
         `;
         articlesContainer.appendChild(articleElement);
       });
@@ -133,53 +114,33 @@
       articlesContainer.innerHTML = '<p>Could not load articles. Please try again later.</p>';
     }
   }
-
   loadArticles();
-});
-</script>
 
-
-
-<script>
-  // Wait for the DOM to fully load
-  document.addEventListener("DOMContentLoaded", function () {
-    const cursor = document.querySelector('.custom-cursor');
-    
-    // Check if the cursor element exists
-    if (!cursor) {
-      console.error("Custom cursor element not found!");
-      return;
-    }
-
-    // Initial mouse and cursor positions
+  // -------------------------------------------------
+  // 5. Custom Cursor Animation
+  // -------------------------------------------------
+  const cursor = document.querySelector('.custom-cursor');
+  if (cursor) {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let cursorX = mouseX;
     let cursorY = mouseY;
-
-    // Easing factor for smooth transition
     const easing = 0.1;
 
-    // Update target mouse coordinates on mouse move
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
 
-    // Animation loop using requestAnimationFrame
     function animateCursor() {
       cursorX += (mouseX - cursorX) * easing;
       cursorY += (mouseY - cursorY) * easing;
-
       cursor.style.left = `${cursorX}px`;
       cursor.style.top = `${cursorY}px`;
-
       requestAnimationFrame(animateCursor);
     }
-
-    // Start the animation loop
     animateCursor();
-  });
-</script>
-
-
+  } else {
+    console.error('Custom cursor element not found!');
+  }
+});
