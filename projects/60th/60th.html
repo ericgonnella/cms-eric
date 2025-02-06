@@ -10,6 +10,11 @@
   <title>60th Anniversary Webpage</title>
 
   <!-- External Scripts (loaded with defer) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" as="script">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js" as="script">
+  <link rel="preload" href="https://unpkg.com/split-type" as="script">
+  
+  
   <script src="/index.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" defer></script>
@@ -77,7 +82,7 @@
   </div>
 
   <div class="back-to-top">
-    <a href="60th.html">↑ Back to Top</a>
+    <a href="#">↑ Back to Top</a>
   </div>
 
   <!-- Inline Scripts -->
@@ -114,33 +119,5 @@
     // Initialize AOS library for scroll animations
     AOS.init();
   </script>
-
-  <script>
-    // Combined and optimized SplitType & GSAP animation using ScrollTrigger
-    document.addEventListener('DOMContentLoaded', () => {
-      const targets = document.querySelectorAll('.target');
-      targets.forEach(target => {
-        // Initialize SplitType for the target element once
-        const splitInstance = new SplitType(target, { types: 'words, chars' });
-        // Set initial state: characters start hidden with an offset
-        gsap.set(splitInstance.chars, { opacity: 0, y: 20 });
-        // Animate characters into view as the element enters the viewport
-        gsap.to(splitInstance.chars, {
-          opacity: 1,
-          y: 0,
-          duration: 0.1,
-          ease: "ease-out",
-          stagger: 0.01,
-          scrollTrigger: {
-            trigger: target,
-            start: "top 80%",
-            toggleActions: "play none none none",
-            once: true
-          }
-        });
-      });
-    });
-  </script>
-
 </body>
 </html>

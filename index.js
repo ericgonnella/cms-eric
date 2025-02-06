@@ -26,9 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (shouldShow) {
           item.classList.remove('hidden');
-          // Reset opacity to trigger CSS transition
           item.style.opacity = '0';
-          void item.offsetWidth; // Force reflow
+          void item.offsetWidth; // Force reflow to restart CSS transition
           item.style.opacity = '1';
         } else {
           item.classList.add('hidden');
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------
-  // 3. GSAP & SplitType Animation for Target Text Using ScrollTrigger
+  // 3. Optimized GSAP & SplitType Animation for Target Text Using ScrollTrigger
   // -------------------------------------------------
   const target = document.querySelector('#target');
   if (
@@ -56,10 +55,23 @@ document.addEventListener('DOMContentLoaded', () => {
     typeof gsap !== 'undefined' &&
     typeof ScrollTrigger !== 'undefined'
   ) {
-    // Initialize SplitType for the target element
     const text = new SplitType(target, { types: 'words, chars' });
-    // Set initial state: hide characters and position them 20px lower
     gsap.set(text.chars, { opacity: 0, y: 20 });
+    gsap.to(text.chars, {
+      opacity: 1,
+      y: 0,
+      duration: 0.75,          // Faster animation
+      ease: "power2.out",
+      stagger: 0.02,           // Minimal stagger for fluidity
+      scrollTrigger: {
+        trigger: target,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        once: true,
+      }
+    });
+  } else {
+    console.warn('Either #target is missing or required libraries (SplitType, gsap, ScrollTrigger) are not loaded.');
   }
 
   // -------------------------------------------------
@@ -77,11 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let articles = await response.json();
       // Sort articles by date (most recent first)
       articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-      // Limit to the 5 most recent articles
-      articles = articles.slice(0, 5);
-      // Clear the container
+      articles = articles.slice(0, 5); // Limit to 5 articles
       articlesContainer.innerHTML = '';
-      // Create and append each article element
       articles.forEach(article => {
         const articleElement = document.createElement('article');
         articleElement.innerHTML = `
