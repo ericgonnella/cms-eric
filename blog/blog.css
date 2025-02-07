@@ -8,6 +8,23 @@ h1,h2,h3,h4 {
 margin: .5rem 0px;
 }
 
+nav  {
+justify-content: center !important;
+align-items: center !important;
+padding: 10px 0px !important;
+}
+
+header {
+display: flex;
+flex-direction: column;
+width: 100%;
+flex-wrap: wrap;
+
+    p {
+    margin: 10px 0px 0px 0px;
+    }
+}
+
 p {
 margin: 1rem 0px;
 font-size: 1.3em;
@@ -62,12 +79,6 @@ margin-bottom: 20px !important;
     }
 }
 
-img {
-margin: 20px 0px !important;
-border-radius: 0px 0px 50px 0px;
-outline: 5px solid var(--accent);
-}
-
 /* Main Content Area */
 main {
 max-width: 1100px;
@@ -78,7 +89,11 @@ margin-top: 100px;
 padding: 20px;
 
     img {
-    width: 100%;
+    width: 60%;
+    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+    margin: 20px 0px !important;
+    border-radius: 20px;
+    outline: 1px solid var(--accent);
     }
 }
 
@@ -88,6 +103,9 @@ align-items: baseline;
 margin:0;
 padding: 0px 20px;
 justify-content: flex-end;
+border-radius: 0px !important;
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+padding: 0 1rem 1rem 1rem;
 }
 
 /* Header Section */
@@ -95,12 +113,16 @@ header {
 margin-top: 30px !important;
 margin: 30px;
 
+p {
+font-size: clamp(1rem, .7rem + 1vw, 1.3rem);
+}
+
 p > strong {
 color: var(--accent);
 }
 
 h1 {
-font-size: clamp(2rem, 2rem + 3vw, 5rem);
+font-size: clamp(2.5rem, 2.5rem + 3vw, 5rem);
 margin: 10px 0px !important;
 margin-top:0px !important;
 }
@@ -108,4 +130,55 @@ margin-top:0px !important;
 
 
 
+/* MQ */
 
+@media (min-width:0px) and (max-width:1111px) {
+
+ .top-bar {
+ flex-wrap: wrap;
+ display: block;
+  }
+
+nav {
+display: flex !important;
+justify-content: flex-start !important;
+padding: 0px 30px !important
+}
+
+
+}
+
+
+@media screen and (min-device-width:0px) and (max-device-width:1111px) {
+
+    .top-bar {
+        flex-wrap: wrap;
+        display: block;
+         }
+       
+       nav {
+       display: flex !important;
+       justify-content: flex-start !important;
+       }
+
+main img {
+width: 100% !important;
+}
+
+
+}
+
+
+
+@media screen and (min-device-width:0px) and (max-device-width:880px) {
+    .top-bar {
+    border-radius:10% 0% 62% 90% / 0% 0% 98% 0% !important;
+    }
+    }
+        
+    @media (min-width:0px) and (max-width:880px) {
+    .top-bar {
+    border-radius:10% 0% 62% 90% / 0% 0% 98% 0% !important;
+    }
+    }
+    

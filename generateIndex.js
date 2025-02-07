@@ -78,36 +78,52 @@ function generateBlogIndex() {
       const htmlOutputPath = path.join(postDir, 'index.html'); // Output HTML file
 
       const htmlContent = `
-        <!DOCTYPE html>
-        <html lang="en">
+      <!DOCTYPE html>
+       <html lang="en">
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>${post.title}</title>
-          <link rel="stylesheet" href="/global.css"> 
-        <link rel="stylesheet" href="/blog/blog.css">
-        </head>
+            <title>${post.title}</title>
+             <link rel="stylesheet" href="/global.css"> 
+             <link rel="stylesheet" href="/blog/blog.css">
+             <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+         </head>
         <body>
-        <div class="top-bar">
-          <nav class="nav-button-effects">
-            <a href="#About">About</a>
-            <a href="#Projects">Projects</a>
-            <a href="#Articles">Articles</a>
-            <a href="Contact">Contact</a>
-          </nav>
-        </div>
-          <header>
-            <h1>${post.title}</h1>
-            <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
-            <a id="back-button" href="/content/blog/index.html">◄ Back to Blog</a>
-         </header>         
-
+           <div class="top-bar">
+             <header>
+               <h1>${post.title}</h1>
+               <p><strong>Author:</strong> ${post.author} | <strong>Date:</strong> ${new Date(post.date).toLocaleDateString()}</p>
+              </header>  
+             <nav>
+              <button id="back-button" title="View All Posts" onclick="document.location='/content/blog/index.html'"> < View All Posts</button>
+            </nav>
+          </div>
          <main>
-          <article>
-            ${postContentHTML} <!-- Rendered HTML from markdown -->
+          <article id="blog-article">
+            ${postContentHTML}
             </article>
           </main>
-        </body>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll("#blog-article p img");
+  images.forEach(img => {
+    img.setAttribute("data-aos", "fade-up");
+    img.setAttribute("data-aos-duration", "1625"); 
+    img.setAttribute("data-aos-easing", "ease-in-cubic");
+  });
+
+  AOS.init({
+    duration: 700, // you can override with data-aos-duration on each element if needed
+    once: true
+  });
+});
+</script>
+
+       </body>
       </html>
       `;
 

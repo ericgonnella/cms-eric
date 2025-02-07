@@ -20,14 +20,16 @@ margin-top: 6vh !important;
 
 
 ol, ul {
-    padding-left: 10px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 20px !important;
-    
-        p {
-        margin: 0px
-        }
-    }
+padding-left: 10px !important;
+line-height: 1.5 !important;
+margin-bottom: 20px !important;
+display: flex !important;
+flex-direction: column !important;
+
+p {
+margin: 0px
+}
+}
 
 
 a {
@@ -139,8 +141,6 @@ main {
 
 
 #page-header {
-background-size: cover;
-background-position: center;
 padding: 1rem;
 border-radius: 0px !important;
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
@@ -171,16 +171,14 @@ font-size: 1rem;
 
 .main-content {
 display: flex;
-margin: 13vh 5vh;
+margin: 6vh 5vh;
 justify-content: center;
 align-items: center;
-gap: 10rem;
+gap: 5rem;
 }
-
 
 .sticky-content {
 top: 0;
-width: 30vw;
 }
 
 .left {
@@ -201,35 +199,31 @@ color: var(--accent);
 .right {
 display: flex;
 flex-direction: column;
-align-items: flex-start;
-height: 90vh;
-overflow: hidden;
-border-radius: 20px;
 scrollbar-width: thin !important;
 scrollbar-color: black ghostwhite !important;
-
-&:hover {
-box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-transform: translate(0px, -5px);
-}
-
+padding: 20px;
+gap: 30px;
 
 img {
-width: 100%;
-max-width: 500px;
-min-width: 300px;
-outline: none !important;
+width: clamp(2rem, 2rem + 23vw, 25rem);
+height: 400px;
+object-fit: cover;
+object-position: top;
 margin-top: 0px !important;
+border-radius: 20px;
+border: 5px solid var(--accent);
 }
 
 img:hover {
 cursor: pointer;
+box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+transform: translate(0px, -5px);
 }
 } 
 
 
 #target {
-text-wrap: pretty;
+text-wrap: balanced;
 background: var(--accent) !important;
 }
 
@@ -304,6 +298,8 @@ margin: 5vh 0px 8vh 0px;
 
 .right {
 width: 95% !important;
+display: flex;
+flex-wrap: wrap;
 } 
 
 .sticky-content {
@@ -314,16 +310,17 @@ margin-bottom: 5vh;
 
 .right {
 display: flex;
-flex-direction: column;
+flex-direction: row;
+flex-wrap: wrap;
 align-items: center;
+justify-content: center;
 height: 90vh;
 object-fit: cover;
 object-position: top;
+width: 100% !important;
 
 img {
-width: 100%;
-max-width: 667px;
-min-width: 300px;
+width: clamp(30rem, 25rem + 25vw, 25rem);
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
 object-fit: cover;
 object-position: top;
