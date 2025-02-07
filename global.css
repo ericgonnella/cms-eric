@@ -20,6 +20,7 @@ position: relative;
 scroll-behavior: smooth;
 scrollbar-color: white black;
 scrollbar-width: thin;
+overscroll-behavior: none;
 }
 
 h1 {

@@ -6,8 +6,6 @@ scrollbar-color: ghosthwhite ghostwhite !important;
 
 img {
     margin: 20px 0px !important;
-    border-radius: 0px 0px 50px 0px;
-    outline: 5px solid var(--accent);
     }
 
 
@@ -87,7 +85,7 @@ font-size: clamp(2rem, 2rem + 2vw, 4rem) !important;
 
 h2 {
 font-size: clamp(1.5rem, 1.5rem + 2vw, 2.6rem) !important;
-color: var(--primary) !important;
+color: var(--accent) !important;
 }
 
 .page-titles {
@@ -138,18 +136,13 @@ main {
     margin-top:0px !important;
     }
     }
-    
-    
-    
-    
-    
 
 
 #page-header {
 background-size: cover;
 background-position: center;
-border-radius:10% 0% 62% 90% / 0% 0% 98% 0% ;
 padding: 1rem;
+border-radius: 0px !important;
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
 }
 
@@ -346,5 +339,20 @@ margin-top: 20px !important;
 }
 
 /* end */
+}
+}
+
+
+/* MQ */
+
+@media screen and (min-device-width:0px) and (max-device-width:880px) {
+#page-header {
+border-radius:10% 0% 62% 90% / 0% 0% 98% 0% !important;
+}
+}
+    
+@media (min-width:0px) and (max-width:880px) {
+#page-header {
+border-radius:10% 0% 62% 90% / 0% 0% 98% 0% !important;
 }
 }

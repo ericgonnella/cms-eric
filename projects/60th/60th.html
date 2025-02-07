@@ -10,16 +10,15 @@
   <title>60th Anniversary Webpage</title>
 
   <!-- External Scripts (loaded with defer) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" as="script">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js" as="script">
+  <link rel="preload" href="/gsap.min.js" as="script">
+  <link rel="preload" href="/ScrollTrigger.js" as="script">
   <link rel="preload" href="https://unpkg.com/split-type" as="script">
   
-  
-  <script src="/index.js" defer></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js" defer></script>
+
+<script src="/gsap.min.js"></script>
+<script src="/ScrollTrigger.js"></script>
   <script src="https://unpkg.com/split-type" defer></script>
+  <script src="/projects/projects.js" defer></script>
 </head>
 <body>
 
@@ -70,7 +69,7 @@
       <div class="right">
         <div class="60th-mobile">
           <div class="gallery">
-            <img src="https://eric-cms.netlify.app/projects/60th/60th-Mobile.webp" alt="Sample Image" onclick="openLightbox(this)">
+            <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Mobile.webp" alt="Sample Image" onclick="openLightbox(this)">
           </div>
         </div>
       </div>
@@ -113,11 +112,6 @@
         isZoomed = false;
       }
     });
-  </script>
-
-  <script>
-    // Initialize AOS library for scroll animations
-    AOS.init();
   </script>
 
   <script>
