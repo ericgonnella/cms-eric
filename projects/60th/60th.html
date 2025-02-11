@@ -11,20 +11,20 @@
 </head>
 <body>
 
-  <nav class="nav-button-effects">
+  <div class="nav-button-effects">
 
     <div class="back-button">
       <button  onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
     </div>
 
-    <div>
+    <nav>
     <a href="index.html">Home</a>
     <a href="/projects.html">Projects</a>
     <a href="/content/blog/index.html">Articles</a>
     <a href="#">Contact</a>
-    </div>
+    </nav>
 
-</nav>
+  </div>
 
   <section id="page-header">
     <div class="top-bar">
@@ -66,7 +66,7 @@
         <div class="60th-desktop">
           <h2>Desktop</h2>
           <div class="gallery">
-            <img src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
+            <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
           </div>
         </div>
         <div class="60th-mobile">
@@ -131,7 +131,6 @@
         // Animate characters into view as the element enters the viewport
         gsap.to(splitInstance.chars, {
           opacity: 1,
-      y: 0,
       translateY: '5px', // Avoid layout-affecting changes
       duration: 0.02,          // Faster animation
       ease: "power2.out",
