@@ -131,6 +131,11 @@ main {
     }
     }
 
+.nav-button-effects {
+display: flex; 
+justify-content: space-between;
+}
+
 
 #project-header:hover {
 outline: 3px solid var(--accent);
@@ -142,11 +147,12 @@ transform: translate(0px, -5px);
 
 .top-bar {
 display: flex;
-display: flex;
-align-items: baseline;
+align-items: center;
 justify-content: center;
+flex-direction: column;
 margin:0;
-padding: 5rem 20px 0px 20px; 
+padding: 2rem 20px 0px 20px; 
+height: 80vh;
 
 
 h1, h2 {
