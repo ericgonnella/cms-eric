@@ -14,53 +14,15 @@ scrollbar-width: thin;
 }
 
 
-
-
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    pointer-events: none;  /* Ensure it doesn’t block interactions */
-    transform: translate(-50%, -50%);
-    transition: background-color 0.2s;
-    z-index: 10000;  /* Keep it on top */
-  }
-
-
-  .particle {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 1;
-  transform: translate(-50%, -50%);
-  animation: fadeOut 0.8s forwards;
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(2);
-  }
-}
-
-
 #Hero {
-overflow-x: hidden;
-padding: var(--screen-padding);
-flex-wrap: wrap;
-flex-direction: column;
-font-size: clamp(.8rem, .8rem + 1.5vw, 1.5rem);
+text-align: center;
+height: 90vh;
+justify-content: center;
+align-items: center;
+align-content: center;
 
 div {
-margin-bottom: 20px;
+margin-bottom: 2rem;
 }
 
 a {
@@ -69,7 +31,7 @@ color: var(--text);
 }
 
 h1 {
-margin-top: -100px;
+font-size: clamp(3.4rem, 2rem + 3vw, 5rem);
 }
 
 h1 > span {
@@ -83,8 +45,8 @@ font-size: 5rem;
 display: flex;
 flex-direction: row;
 gap: 30px;
-flex-wrap: wrap;
-
+justify-content: center;
+flex-wrap: wrap-reverse;
 }
 }
 
@@ -92,7 +54,7 @@ flex-wrap: wrap;
 
 #Hero span {
 font-family: var(--font3);
-font-size: clamp(2rem, 2.5696rem + 3.0253vw, 6rem);
+font-size: clamp(3.4rem, 2rem + 3vw, 5rem) !important;
 margin-right:20px;
 }
 
@@ -116,17 +78,22 @@ flex-wrap: wrap-reverse;
 }
 
 #target {
-font-size: clamp(2rem, 1.5rem + 2vw, 2.3rem);
+font-size: clamp(.7rem, .7rem + 1.5vw, 1.5rem);
 font-kerning: none; /* Prevent shifting when split or reverted */
-text-align: left;
-line-height: 1.5;
-padding: 20px;
-max-width: 900px;
+text-align: center;
 text-wrap: pretty;
+margin-bottom: 0px !important;
+padding: 0px 0px 2rem 0px !important;
+max-width: 1215px;
 margin: 0 auto;
 
 span {
 color: var(--accent);
+}
+
+.word {
+margin-bottom: 10px !important;
+height: 2rem;
 }
 }
 
@@ -206,14 +173,6 @@ transform: rotate(180deg) scaleX(1);
 margin-left: -30px;
 flex: 2 !important;
 font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
-}
-
-.hero-buttons {
-display: flex;
-flex-direction: row;
-gap: 30px;
-flex-wrap: wrap;
-justify-content: flex-end;
 }
 
 .articles-button{

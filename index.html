@@ -1,234 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Thanks to the amazing creators who's projects helped assit me in my project: 
-
-https://codepen.io/P1N2O/pen/pyBNzX
-https://uiverse.io/WhiteNervosa/popular-ladybug-27s
- -->
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="./media-queries.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Eric Gonnella | Portfolio | Digital Creator | SEO</title></head>
+<body>
 
-    <title>Eric Gonnella | Portfolio | Digital Creator | SEO</title>
+    <nav class="nav-button-effects">
+        <a href="index.html">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/content/blog/index.html">Articles</a>
+        <a href="#">Contact</a>
+    </nav>
 
-<style>
-</style>
+    <section id="Hero" class="screen-padding">
 
-
-
-</head>
-<body id="fluid">
-  <div class="custom-cursor"></div>
-
-
-<nav class="nav-button-effects">
-    <a href="#">Home</a>
-    <a href="#Projects">Projects</a>
-    <a href="#Articles">Articles</a>
-</nav>
-<main>
-
-<section id="Hero" class="screen-padding">
-
-    <h1 class="animate__animated animate__jackInTheBox">Hey, I'm <span>Eric.</span></h1>
-
-    <div>Digital Creator, Front End Engineer, Marketing Guru, SEO Wizard, and Master of 'Other Duties as Assigned'</div>
-
-    <div class="hero-buttons">
-      <button title="Click to check out my projects!" onclick="document.location='index.html#Projects'">Check out my work!</button>
-      <button title="Click here to contact me!" onclick="document.location='index.html#Contact'">Get in Touch!</button>
-    </div>
-
-
-</section>
-
-<section id="About" class="screen-padding"> 
-
-<div class="about-container">
-    <div class="about-left">
-
-        <div id="target">
-          I am a freelance <span class="animate__animated animate__jello animate__delay-4s">website designer</span>, <span class="animate__animated animate__jello animate__delay-4s">front end developer</span>, and <span class="animate__animated animate__jello animate__delay-4s">digital marketer</span>.<br><br> I am skilled in SEO, content creation, and user expereience. Feel free to check out my works, or contact me below!
-          </div>
-
-    </div>
-    <div class="about-right" data-aos="fade-left"
-    data-aos-anchor="#About"
-    data-aos-easing="ease-in-cubic"
-    data-aos-duration="1625">
-        <img src="/images/Eric-Image-Edit-transformed.png" alt="">
-    </div>
-</div>
-</section>
-
-<section id="Projects" class="title">
-  <div class="projects-container">
-    <div data-aos="fade-right"
-    data-aos-duration="1000"
-    data-aos-offset="250">
-      <h2>Projects</h2>
-    </div> 
-  
-    <div class="project-content">
-
-<section id="sort">
-
-        <nav class="tag-navigation" aria-label="Content filters">
-            <a href="#" class="tag-link active" data-tag="all" aria-current="true">All Items</a>
-            <!-- <a href="#" class="tag-link" data-tag="technology">HTML</a> << copy this to make more tag  -->
-
-
-        </nav>
-    
-        <div class="tag-container">
-          <div class="items-container" role="region" aria-live="polite">
-            <a href="/projects/60th/60th.html" class="item" data-tags="technology,science">
-                <h2>60th Anniversary</h2>
-                <p>Test Text</p>
-                <!-- <div class="item-tags">
-                    <span class="item-tag">technology</span>
-                    <span class="item-tag">science</span>
-                </div> -->
-              </a>
-    
-            <article class="item" data-tags="nature,science">
-                <h2>Board of Trustees</h2>
-                <p>Test Text</p>
-                <!-- <div class="item-tags">
-                    <span class="item-tag">nature</span>
-                    <span class="item-tag">science</span>
-                </div> -->
-            </article>
-    
-            <article class="item" data-tags="art">
-              <h2>Currents Newsletter</h2>
-              <p>Test Text</p>
-                <!-- <div class="item-tags">
-                    <span class="item-tag">art</span>
-                </div> -->
-            </article>
-    
-            <article class="item" data-tags="technology,art">
-              <h2>Test4</h2>
-              <p>Test Text</p>
-                <!-- <div class="item-tags">
-                    <span class="item-tag">technology</span>
-                    <span class="item-tag">art</span>
-                </div> -->
-            </article>
-    
-            <article class="item" data-tags="nature,art">
-              <h2>Test5</h2>
-              <p>Test Text</p>
-                <!-- <div class="item-tags">
-                    <span class="item-tag">nature</span>
-                    <span class="item-tag">art</span>
-                </div> -->
-            </article>
-
+        <div class="animate__animated animate__fadeInUp">
+        <h1>Hey, I'm <span>Eric.</span></h1>
         </div>
 
-        </div> 
+    
+        <div id="target">Digital Creator, Front End Engineer, Marketing Guru, SEO Wizard, and Master of 'Other Duties as Assigned'</div>
+    
+        <div class="hero-buttons">
+            <button title="Click here to contact me!" onclick="document.location='index.html'">Get in Touch!</button>
+          <button class="animate__animated animate__rubberBand animate__delay-3s"  title="Click to check out my projects!" onclick="document.location='/projects.html'">Check out my work!</button>
+        </div>
+    
+
+    
     </section>
-    </div>
-  </div>
-</section>
-
-<!-- Articles ------ -->
-
-<section id="Articles" class="screen-padding">
-
-
-  <div class="articles-title" data-aos="fade-right"
-    data-aos-duration="1000"
-    data-aos-offset="250">
-     <h2 class="title">Articles</h2>
-  </div>
-
-      <div class="articles-container">
-        <section
-        data-aos="fade-left"
-        data-aos-easing="ease-in-cubic"
-        data-aos-anchor="#Articles"
-        data-aos-duration="350"
-        data-aos-offset="250" 
-        id="articles">
-          <!-- Articles go here, seems kinda -->
-        </section>
-
-        <div class="articles-button">
-          <button title="Go to W3Schools HTML section" onclick="document. location='/content/blog/index.html'">View All Articles</button>
-        </div>
-      </div>
-</section>
-</main>
-
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://unpkg.com/split-type"></script>
-<script src="gsap.min.js"></script>
-
-    <script>
-    AOS.init();
-    </script>
-
-    <script src="/index.js"></script>
 
     <script src="https://unpkg.com/split-type"></script>
+    <script src="gsap.min.js"></script> 
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-      const tagLinks = document.querySelectorAll('.tag-link');
-      const items = document.querySelectorAll('.item');
-
-      tagLinks.forEach(link => {
-          link.addEventListener('click', (e) => {
-              e.preventDefault();
-              const selectedTag = link.dataset.tag;
-
-              // Update active state of tag links
-              tagLinks.forEach(tl => {
-                  tl.classList.remove('active');
-                  tl.removeAttribute('aria-current');
-              });
-              link.classList.add('active');
-              link.setAttribute('aria-current', 'true');
-
-              // Filter items
-              items.forEach(item => {
-                  const itemTags = item.dataset.tags.split(',');
-                  const shouldShow = selectedTag === 'all' || itemTags.includes(selectedTag);
-                  
-                  if (shouldShow) {
-                      item.classList.remove('hidden');
-                      // Reset animation
-                      item.style.opacity = '0';
-                      // Force reflow
-                      void item.offsetWidth;
-                      // Trigger animation
-                      item.style.opacity = '1';
-                  } else {
-                      item.classList.add('hidden');
-                  }
-              });
-          });
-      });
-  });
-</script>
-
-
-
-  <!-- Include SplitType and GSAP from CDNs -->
-  <script src="https://unpkg.com/split-type"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-
+    
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize SplitType
@@ -251,12 +61,12 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
   
         if (isInViewport(target)) {
           console.log('Animating text');
-              gsap.set(text.chars, { opacity: 0, y: 20 }); // Set initial state
+              gsap.set(text.chars, { opacity: 0, y: 32 }); // Set initial state
               gsap.to(text.chars, {
       opacity: 1,
-      translateY: '5px', // Avoid layout-affecting changes
-      duration: 1.5,
-      stagger: { amount: 0.50 },
+      translateY: '8px', // Avoid layout-affecting changes
+      duration: 1.7,
+      stagger: { amount: 0.80 },
 });
           window.removeEventListener('scroll', onScroll); // Remove listener after animation
         }
@@ -267,105 +77,7 @@ https://uiverse.io/WhiteNervosa/popular-ladybug-27s
       // Trigger the scroll event once to check if the element is already in view
       onScroll();
     });
-    document.addEventListener("DOMContentLoaded", () => {
-  async function loadArticles() {
-    const articlesContainer = document.getElementById('articles');
-
-    if (!articlesContainer) {
-      console.error('Articles container not found!');
-      return;
-    }
-
-    try {
-      // Fetch articles from index.json
-      const response = await fetch('/content/blog/index.json'); // Adjust the path if necessary
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      let articles = await response.json();
-
-      // Sort articles by date (most recent first)
-      articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      // Display only the last 5 articles
-      articles = articles.slice(0, 5);
-
-      // Clear the container
-      articlesContainer.innerHTML = '';
-
-      // Loop through articles and create HTML elements
-      articles.forEach(article => {
-        const articleElement = document.createElement('article');
-        articleElement.innerHTML = `
-          <h2><a href="/content/blog/posts/${article.filename.replace('.json', '/index.html')}">${article.title}</a></h2>
-          <p><strong></strong> ${new Date(article.date).toLocaleDateString()}</p>
-        `;
-        articlesContainer.appendChild(articleElement);
-      });
-    } catch (error) {
-      console.error('Error loading articles:', error);
-      articlesContainer.innerHTML = '<p>Could not load articles. Please try again later.</p>';
-    }
-  }
-
-  loadArticles();
-});
-</script>
-
-
-
-<script>
-  // Wait for the DOM to fully load
-  document.addEventListener("DOMContentLoaded", function () {
-    const cursor = document.querySelector('.custom-cursor');
+  </script>
     
-    // Check if the cursor element exists
-    if (!cursor) {
-      console.error("Custom cursor element not found!");
-      return;
-    }
-
-    // Initial mouse and cursor positions
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let cursorX = mouseX;
-    let cursorY = mouseY;
-
-    // Easing factor for smooth transition
-    const easing = 0.1;
-
-    // Update target mouse coordinates on mouse move
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    // Animation loop using requestAnimationFrame
-    function animateCursor() {
-      cursorX += (mouseX - cursorX) * easing;
-      cursorY += (mouseY - cursorY) * easing;
-
-      cursor.style.left = `${cursorX}px`;
-      cursor.style.top = `${cursorY}px`;
-
-      requestAnimationFrame(animateCursor);
-    }
-
-    // Start the animation loop
-    animateCursor();
-  });
-
-  
-
-  
-</script>
-
-
-
 </body>
-
-
-
-
 </html>

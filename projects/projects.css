@@ -114,15 +114,7 @@ main {
         width: 100%;
         }
     }
-    
-    .top-bar {
-    display: flex;
-    align-items: baseline;
-    margin:0;
-    padding: 0px 20px;
-    justify-content: flex-end;
-    }
-    
+        
     /* Header Section */
     header {
     margin-top: 30px !important;
@@ -140,12 +132,6 @@ main {
     }
 
 
-#page-header {
-padding: 1rem;
-border-radius: 0px !important;
-box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-}
-
 #project-header:hover {
 outline: 3px solid var(--accent);
 }
@@ -156,13 +142,22 @@ transform: translate(0px, -5px);
 
 .top-bar {
 display: flex;
-justify-content: flex-start;
-flex-direction: column !important;
+display: flex;
+align-items: baseline;
+justify-content: center;
+margin:0;
+padding: 5rem 20px 0px 20px; 
+
+
+h1, h2 {
+text-align: center;
+}
+
 }
 
 .back-button {
 margin: 1rem 1rem;
-text-align: left;
+text-align: center !important;
 
 a {
 font-size: 1rem;

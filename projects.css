@@ -1,0 +1,213 @@
+
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure height is managed correctly */
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    -webkit-scrollbar-width: thin;
+    }
+
+nav {
+padding: 10px 30px 0px 30px;
+}
+
+
+#Projects {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+    overflow-x: hidden;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    }
+    
+    .project-content {
+    width:clamp(67%, 65% + 48%, 100%) !important;
+    display: flex;
+    justify-content: end;
+    /* align-items: center; */
+    margin-top: 5rem;
+    }
+    
+    .projects-container {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    
+    div > h2 {
+    position: relative;
+    writing-mode: vertical-rl;
+    margin-top: 100px;
+    transform: rotate(180deg) scaleX(1);
+    margin-left: -9px;
+    font-size: clamp(2rem, 2rem + 7vw, 6rem) !important;
+    margin-left: -9px;
+    justify-content: flex-end;
+    }
+    }
+    
+
+    
+    h1 {
+        position: absolute;
+        height: 1000px;
+        left: -20px;
+        writing-mode: vertical-rl;
+        font-size: 10rem !important;
+        margin-top: 18rem !important;
+}
+
+
+#sort {
+font-family: var(--font1);
+overflow-x: hidden;
+width: 80%;
+
+    .tag-navigation {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+    .items-container {
+    justify-content: flex-end;
+    margin-right: 2rem;
+    }
+
+    h2 {
+        color: var(--text);
+        font-size: clamp(.8rem, 1rem + 1.5vw,2rem) !important;
+    }
+
+    .tag-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    }
+    
+    .tag-link:hover,
+    .tag-link:focus {
+    background-color: rgba(37, 99, 235, 0.1);
+    }
+    
+    .tag-link.active {
+    background-color: var(--accent);
+    color: var(--text);
+    }
+    
+    .tag-link:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+    }
+    
+    .items-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100% !important;
+    gap: 1rem;
+    margin-right: 30px;
+    padding: 1rem !important;
+    
+    
+    a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+    }
+    
+    }
+    
+    .item {
+    background: var(--accent);
+    padding: .4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-in, transform .7s ease-out;
+    max-width: 350px;
+    padding: 1rem !important;
+    width: 30em !important;
+    height: 15rem !important;
+    outline: 1px solid var(--text);
+    opacity: 0.77;
+    
+    }
+    
+    .item:hover {
+    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+    transform: translateY(-5px);
+    opacity: 1;
+    }
+    
+    .item.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    
+    .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    }
+    
+    .item-tag {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    }
+    
+    .tag-container {
+    display: flex;
+    flex-wrap: wrap; 
+    overflow-y: hidden;
+    }
+    
+    .items-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100% !important;
+    gap: 1rem;
+    
+    
+        a {
+        text-decoration: none;
+        }
+     }
+    }
+    
+
+
+    @media screen and (min-device-width:0px) and (max-device-width:800px) {
+
+    html {
+    overflow-y: scroll;
+    }
+
+    #Projects  {
+
+    h1 {
+        position: relative;
+        writing-mode: horizontal-tb;
+        height: 10rem;
+        font-size: clamp(2rem, 2rem + 15vw, 10rem) !important;
+        padding-left: 2rem;
+        margin-top: 10rem!important;
+        margin-bottom: 0px !important;
+  } 
+
+    .project-content {
+    align-items: center;
+    }
+
+ }
+}

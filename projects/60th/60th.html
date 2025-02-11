@@ -6,33 +6,29 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/global.css" />
   <link rel="stylesheet" href="/projects/projects.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <title>60th Anniversary Webpage</title>
-
-  <!-- External Scripts (loaded with defer) -->
-  <link rel="preload" href="/gsap.min.js" as="script">
-  <link rel="preload" href="/ScrollTrigger.js" as="script">
-  <link rel="preload" href="https://unpkg.com/split-type" as="script">
-  
-
-<script src="/gsap.min.js"></script>
-<script src="/ScrollTrigger.js"></script>
-  <script src="https://unpkg.com/split-type" defer></script>
-  <!-- <script src="/projects/projects.js" defer></script> -->
 </head>
 <body>
+
+  <nav class="nav-button-effects">
+    <a href="index.html">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/content/blog/index.html">Articles</a>
+    <a href="#">Contact</a>
+</nav>
 
   <section id="page-header">
     <div class="top-bar">
       <div class="page-titles">
-        <h1>60th Anniversary Webpage</h1>
-        <h2 style="color:white">Ocean County College</h2>
+        <h1 class="animate__animated animate__fadeInUp">60th Anniversary Webpage</h1>
+        <h2 class="animate__animated animate__fadeInUp animate__delay-1s" style="color:white">Ocean County College</h2>
       </div> 
     </div>
-    <div class="back-button">
-      <button onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
-    </div>
   </section>
-
+  <div class="back-button">
+    <button class="animate__animated animate__fadeInUp animate__delay-2s" onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
+  </div>
   <main>
     <section class="main-content">
 

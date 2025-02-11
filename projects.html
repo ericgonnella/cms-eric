@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/projects.css">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="./media-queries.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <nav class="nav-button-effects">
+        <a href="index.html">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/content/blog/index.html">Articles</a>
+        <a href="#">Contact</a>
+    </nav>
+
+
+    <section id="Projects" class="title">
+        <div class="projects-container">
+          <div data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-offset="250">
+            <h1>Projects</h1>
+          </div> 
+        
+          <div class="project-content">
+            
+           <section id="sort">
+              <nav class="tag-navigation" aria-label="Content filters">
+                  <a href="#" class="tag-link active" data-tag="all" aria-current="true">All Items</a>
+                  <!-- <a href="#" class="tag-link" data-tag="technology">HTML</a> << copy this to make more tag  -->
+              </nav>
+          
+              <div class="tag-container">
+                <div class="items-container" role="region" aria-live="polite">
+                  <a href="/projects/60th/60th.html" class="item" data-tags="technology,science">
+                      <h2>60th Anniversary</h2>
+                      <p>Test Text</p>
+                      <!-- <div class="item-tags">
+                          <span class="item-tag">technology</span>
+                          <span class="item-tag">science</span>
+                      </div> -->
+                    </a>
+          
+                  <article class="item" data-tags="nature,science">
+                      <h2>Board of Trustees</h2>
+                      <p>Test Text</p>
+                      <!-- <div class="item-tags">
+                          <span class="item-tag">nature</span>
+                          <span class="item-tag">science</span>
+                      </div> -->
+                  </article>
+          
+                  <article class="item" data-tags="art">
+                    <h2>Currents Newsletter</h2>
+                    <p>Test Text</p>
+                      <!-- <div class="item-tags">
+                          <span class="item-tag">art</span>
+                      </div> -->
+                  </article>
+          
+                  <article class="item" data-tags="technology,art">
+                    <h2>Test4</h2>
+                    <p>Test Text</p>
+                      <!-- <div class="item-tags">
+                          <span class="item-tag">technology</span>
+                          <span class="item-tag">art</span>
+                      </div> -->
+                  </article>
+          
+                  <article class="item" data-tags="nature,art">
+                    <h2>Test5</h2>
+                    <p>Test Text</p>
+                      <!-- <div class="item-tags">
+                          <span class="item-tag">nature</span>
+                          <span class="item-tag">art</span>
+                      </div> -->
+                  </article>
+                </div>
+              </div> 
+          </section>
+          </div>
+        </div>
+      </section>
+
+
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+      <script>
+        AOS.init();
+        </script>
+      
+   
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tagLinks = document.querySelectorAll('.tag-link');
+        const items = document.querySelectorAll('.item');
+  
+        tagLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedTag = link.dataset.tag;
+  
+                // Update active state of tag links
+                tagLinks.forEach(tl => {
+                    tl.classList.remove('active');
+                    tl.removeAttribute('aria-current');
+                });
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'true');
+  
+                // Filter items
+                items.forEach(item => {
+                    const itemTags = item.dataset.tags.split(',');
+                    const shouldShow = selectedTag === 'all' || itemTags.includes(selectedTag);
+                    
+                    if (shouldShow) {
+                        item.classList.remove('hidden');
+                        // Reset animation
+                        item.style.opacity = '0';
+                        // Force reflow
+                        void item.offsetWidth;
+                        // Trigger animation
+                        item.style.opacity = '1';
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    });
+  </script>
+   
+
+
+</body>
+</html>
