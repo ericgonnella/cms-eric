@@ -1,7 +1,9 @@
 html, body {
 font-size: clamp(.3rem, .3rem + 1.5vw, 1.24rem) !important;
 scrollbar-width: auto !important;
+scroll-behavior: smooth !important;
 scrollbar-color: ghosthwhite ghostwhite !important;
+overflow-x: hidden;
 }
 
 img {
@@ -115,9 +117,7 @@ main {
     margin-top: 100px;
     padding: 20px;
     
-        img {
-        width: 100%;
-        }
+
     }
         
     /* Header Section */
@@ -162,8 +162,59 @@ height: 80vh;
 h1, h2 {
 text-align: center;
 }
+}
+
+#page-header {
+
+    a {
+    text-decoration: none !important;
+    }    
+
+    a::after {
+    content: none !important;
+    }
+}
+
+
+#scroll-down {
+padding: 5px 10px;
+border-radius: 10px;
+margin-top: 9rem;
+font-size: 2rem;
+animation: scroll-down 1s infinite;
+opacity: 0.5;
+}
+
+@keyframes scroll-down {
+0% {
+transform: translate(0px, 0px);
+}
+
+25% {
+transform: translate(0px, 0px);
+}
+
+50% { 
+transform: translate(0px, 10px);
+}
+
+100% {
+transform: translate(0px, 0px);
+}
+}
+
+
+#scroll-down-flex {
+display: flex;
+flex-direction: column;
+align-items: center;
+
+div {
+font-size: .8rem;
+}
 
 }
+
 
 .back-button {
 margin: 1rem 1rem;
@@ -174,14 +225,96 @@ font-size: 1rem;
 }
 }
 
-.main-content {
+#main-content {
+padding: 5rem 0px 0px 0px;
 display: flex;
-margin: 6vh 5vh;
-justify-content: center;
+flex-direction: column;
 align-items: center;
-gap: 5rem;
+
+.main-content {
+width: 60vw !important;
+
+ }
 }
 
+.section-1 {
+display: flex;
+flex-direction: row;
+align-items: top;
+justify-content: center;
+gap: 2rem;
+
+
+.target {
+margin-top: 100px;
+font-size: 2rem;
+}
+}
+
+.screenshots {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin: 1rem 0px;
+}
+
+#highlights {
+padding: 10rem 20px;
+
+strong {
+font-size: 1.5rem;
+}
+}
+
+.features-list {
+    padding: 2rem 0px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem !important;
+    text-align: center;
+    min-width: 200px;
+
+    div {
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--accent);
+    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+    min-width: 200px;
+    text-align: center;
+    transition: transform 0.5s ease-in;
+    }
+
+    div:hover {
+    transform: translate(0px, -5px) !important;
+    transition: transform 0.5s ease-out;
+  }
+}
+
+
+
+.section-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    gap: 2rem;
+    
+    
+    .target {
+    margin-top: 80px;
+    font-size: 1.7rem;
+    }
+    
+    }
+
+
+.back-to-top {
+padding-top: 10rem;
+}
+
+/* 
 .sticky-content {
 top: 0;
 }
@@ -199,19 +332,19 @@ span {
 color: var(--accent);
 }
 
-}
+} */
 
-.right {
+/* .right {
 display: flex;
 flex-direction: column;
 scrollbar-width: thin !important;
 scrollbar-color: black ghostwhite !important;
 padding: 20px;
-gap: 30px;
+gap: 30px; */
 
 img {
 width: clamp(2rem, 2rem + 23vw, 25rem);
-height: 400px;
+height: 40rem;
 object-fit: cover;
 object-position: top;
 margin-top: 0px !important;
@@ -224,7 +357,7 @@ cursor: pointer;
 box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
 transform: translate(0px, -5px);
 }
-} 
+
 
 
 #target {
@@ -248,12 +381,23 @@ padding-bottom: 50px;
 }
 
 
+#lightbox-img {
+    border: none;
+    border-radius: 0px;
+    overflow: scroll;
+    cursor: default;
+
+&:hover {
+transform: translate(0px, 0px);
+}
+
+  }
+
 .lightbox {
 position: fixed;
 top: 0;
 left: 0;
 width: 100%;
-height: 100%;
 background: rgba(0, 0, 0, 0.8);
 display: flex;
 align-items: flex-start;
@@ -267,23 +411,25 @@ transition: opacity 0.3s ease, visibility 0.3s ease;
 opacity: 1;
 visibility: visible;
 z-index: 1;
+
 }
 .lightbox img {
-max-width: 90%;
-max-height: none;
+width: 90%;
+height: 100%;
 transition: transform 0.3s ease;
-cursor: zoom-in;
 margin-top: 20px;
-}
-.lightbox.zoomed img {
-transform: scale(1.15);
-cursor: zoom-out;
+outline: none !important;
 }
 
 
-/* media queries start  */
 
-@media only screen and (max-width:1000px) {
+/* media queries start =======================================================  */
+
+@media only screen and (max-width:1100px) {
+
+img {
+    width: 30rem;
+}
 
 main {
 margin-top: 20px;
@@ -295,66 +441,124 @@ text-align: left;
 }
 
 
-.main-content {
+#main-content {
 display: flex;
 flex-direction: column;
 margin: 5vh 0px 8vh 0px;
+
+
+.main-content {
+    width: 80vw !important;
+    text-wrap: pretty;
 }
 
-.right {
-width: 95% !important;
-display: flex;
-flex-wrap: wrap;
-} 
 
-.sticky-content {
-width: 100%;
+}
+
+.section-1{
+flex-wrap: wrap;
+
+.target {
+margin-top: 0px;
+}
+
+}
+
+
+.section-2 {
+flex-wrap: wrap-reverse;
+
+.target {
+margin-top: 0px;
 font-size: 2rem;
-margin-bottom: 5vh;
 }
 
-.right {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
-height: 90vh;
-object-fit: cover;
-object-position: top;
-width: 100% !important;
-
-img {
-width: clamp(30rem, 25rem + 25vw, 25rem);
-box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-object-fit: cover;
-object-position: top;
 }
 
-img:hover {
-cursor: pointer;
+.features-list {
+display: block;
+
+div {
+margin: 2rem 0px;
+font-size: 1.5rem;
+}
 
 }
+
 
 .back-to-top {
-margin-top: 20px !important;  
-}
+    margin-top: 20px !important;  
+    }
 
-/* end */
-}
 }
 
 
-/* MQ */
+/* MQ ========================================================================================*/
 
-@media screen and (min-device-width:0px) and (max-device-width:880px) {
-#page-header {
-border-radius:10% 0% 62% 90% / 0% 0% 98% 0% !important;
-}
-}
+@media screen and (min-device-width:0px) and (max-device-width:1100px) {
+
+    img {
+        width: 30rem;
+    }
     
-@media (min-width:0px) and (max-width:880px) {
-#page-header {
-border-radius:10% 0% 62% 90% / 0% 0% 98% 0% !important;
-}
-}
+    main {
+    margin-top: 20px;
+    }
+    
+    .back-button {
+    margin: 10px 10px;
+    text-align: left;
+    }
+    
+    
+    #main-content {
+    display: flex;
+    flex-direction: column;
+    margin: 5vh 0px 8vh 0px;
+    
+    
+    .main-content {
+        width: 80vw !important;
+        text-wrap: pretty;
+    }
+    
+    
+    }
+    
+    .section-1{
+    flex-wrap: wrap;
+    
+    .target {
+    margin-top: 0px;
+    }
+    
+    }
+    
+    
+    .section-2 {
+    flex-wrap: wrap-reverse;
+    
+    .target {
+    margin-top: 0px;
+    font-size: 2rem;
+    }
+    
+    }
+    
+    .features-list {
+    display: block;
+    
+    div {
+    margin: 2rem 0px;
+    font-size: 1.5rem;
+    }
+    
+    }
+    
+    
+    .back-to-top {
+        margin-top: 20px !important;  
+        }
+    
+    }
+    

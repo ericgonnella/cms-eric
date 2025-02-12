@@ -3,25 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="/global.css" />
   <link rel="stylesheet" href="/projects/projects.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <title>60th Anniversary Webpage</title>
+  <!-- Inline styles for the lightbox modal -->
+  <style>
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .lightbox.open {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  </style>
 </head>
 <body>
 
   <div class="nav-button-effects">
 
     <div class="back-button">
-      <button  onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
+      <button onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
     </div>
 
     <nav>
-    <a href="index.html">Home</a>
-    <a href="/projects.html">Projects</a>
-    <a href="/content/blog/index.html">Articles</a>
-    <a href="#">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/content/blog/index.html">Articles</a>
+      <a href="#">Contact</a>
     </nav>
 
   </div>
@@ -31,90 +67,128 @@
       <div class="page-titles">
         <h1 class="animate__animated animate__fadeInUp">60th Anniversary Webpage</h1>
         <h2 class="animate__animated animate__fadeInUp animate__delay-1s" style="color:white">Ocean County College</h2>
-      </div> 
+      </div>
 
-      <div class="back-button">
-        <button class="animate__animated animate__fadeInUp animate__delay-2s" onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
+      <a href="#main-content" id="scroll-down">
+        <div id="scroll-down-flex" class="animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="animate__animated animate__fadeInUp animate__slow" >Check it out!</div>
+          <strong>▼</strong>
+        </div>
+      </a>
+    </div>
+  </section>
+  
+  <main>
+    <section id="main-content">
+      <div class="main-content">
+
+      
+
+  <div class="section-1">
+    <div class="screenshots">
+      <div class="60th-desktop">
+        <h2>Desktop</h2>
+        <div class="gallery">
+          <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
+        </div>
+      </div>
+    </div>
+    
+    <div class="target">
+        As the College was entering its <strong>60th year</strong> of operation it was decided that an official anniversary page was needed.
+
+         <br><br>
+        The result was a page that provided a fun interactive overview for the visitors while also giving a sense of the college's history.        
+    </div>
+  </div>
+
+
+  <section id="highlights">
+    <strong>Some highlighted features include:</strong>
+
+    <!-- Updated features-list: items will animate when in view -->
+    <section class="features-list">
+      <div class="feature-item animate__delay-1s ">Then-Now Slider</div>
+      <div class="feature-item animate__delay-2s">Image Gallery</div>
+      <div class="feature-item animate__delay-3s">Interactive timeline</div>
+      <div class="feature-item animate__delay-4s">Form input</div>
+    </section>
+
+  </section>
+
+ 
+
+  <section class="section-2">
+
+    <div class="target">
+      For the mobile site we ensured that the main slider functionality was carried over from the desktop to provide micro-interactions for users to engage with the webpage.
+      <br><br>
+      The idea for utilizing a slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page.
+      <br><br>
+      Utilizing section separators provided a new and fresh appearance for each of the users to ensure they would know that content is still available as they continued to scroll.
+    </div>
+
+    <div class="60th-mobile">
+      <h2>Mobile</h2>
+       <div class="gallery">
+        <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Mobile.webp" alt="Sample Image" onclick="openLightbox(this)">
       </div>
     </div>
   </section>
-  <main>
-    <section class="main-content">
 
+  </main>
 
-      <div class="sticky-content">
-        <div class="left">
-          <div class="target">
-            <br>
-            As the College was entering its 60th year of operation it was decided that a 60th anniversary page was needed. <br><br>
-            The result was a page that provided a fun interactive overview for the visitors while also giving a sense of the college's history. <br><br>
-            Some highlighted features include: 
-            <ul>
-              <li>Then-Now Slider</li>
-              <li>Image Gallery</li>
-              <li>Interactive timeline</li>
-              <li>and form input.</li>
-            </ul>
-            For the mobile site we ensured that the main slider functionality was carried over from the desktop to provide micro-interactions for users to engage with the webpage. <br><br>
-            The idea for utilizing a slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page. <br><br>
-            Utilizing section separators provided a new and fresh appearance for each of the users to ensure they would know that content is still available as they continued to scroll.
-          </div>
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="60th-desktop">
-          <h2>Desktop</h2>
-          <div class="gallery">
-            <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
-          </div>
-        </div>
-        <div class="60th-mobile">
-          <h2>Mobile</h2>
-          <div class="gallery">
-            <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Mobile.webp" alt="Sample Image" onclick="openLightbox(this)">
-          </div>
-        </div>
-      </div>
-
-      
-  </section>
-</main>
-
-  <div class="lightbox" onclick="toggleZoom()">
-    <img src="" alt="" id="lightbox-img">
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <img loading="lazy" src="" alt="Enlarged Image" id="lightbox-img">
   </div>
 
   <div class="back-to-top">
     <a href="#">↑ Back to Top</a>
   </div>
 
+
+  <!-- Include external libraries if not already loaded -->
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdn.jsdelivr.net/npm/splittype@0.3.3/dist/splittype.min.js"></script>
+  <script src="/gsap.min.js"></script>
+  <script src="/scrollTrigger.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+  </script>
+
   <!-- Inline Scripts -->
   <script>
     // Lightbox functionality
-    let isZoomed = false;
-    const lightbox = document.querySelector('.lightbox');
+    const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
 
-    function openLightbox(img) {
-      lightboxImg.src = img.src;
+    function openLightbox(imgElement) {
+      lightboxImg.src = imgElement.src;
       lightbox.classList.add('open');
-      lightbox.scrollTop = 0; // Scroll to top when opened
+      lightbox.scrollTop = 0; // Ensure modal scrolls to top on open
     }
 
-    function toggleZoom() {
-      isZoomed = !isZoomed;
-      if (isZoomed) {
-        lightbox.classList.add('zoomed');
-      } else {
-        lightbox.classList.remove('zoomed');
-      }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
     }
 
-    lightbox.addEventListener('click', function (e) {
+    // Close lightbox on click of close button
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', function(e) {
       if (e.target === lightbox) {
-        lightbox.classList.remove('open', 'zoomed');
-        isZoomed = false;
+        closeLightbox();
+      }
+    });
+
+    // Close lightbox on 'Escape' key press
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
       }
     });
   </script>
@@ -127,24 +201,44 @@
         // Initialize SplitType for the target element once
         const splitInstance = new SplitType(target, { types: 'words, chars' });
         // Set initial state: characters start hidden with an offset
-        gsap.set(splitInstance.chars, { opacity: 0, y: 20 });
+        gsap.set(splitInstance.chars, { opacity: 0, y: 10 });
         // Animate characters into view as the element enters the viewport
         gsap.to(splitInstance.chars, {
           opacity: 1,
-      translateY: '5px', // Avoid layout-affecting changes
-      duration: 0.02,          // Faster animation
-      ease: "power2.out",
-      stagger: 0.01,           // Minimal stagger for fluidity
-      scrollTrigger: {
-        trigger: target,
-        start: "top 80%",
-        toggleActions: "play pause resume reset",
-        once: true,
-      }
-    });
+          duration: .001,    // Faster animation
+          ease: "power2.out",
+          stagger: 0.01,     // Minimal stagger for fluidity
+          scrollTrigger: {
+            trigger: target,
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true,
+          }
+        });
       });
     });
   </script>
 
+
+  <script>
+    // IntersectionObserver to animate feature items when they come into the viewport
+    document.addEventListener('DOMContentLoaded', () => {
+      const featureItems = document.querySelectorAll('.features-list .feature-item');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__flipInX');
+            obs.unobserve(entry.target); // Remove observer once animation has been triggered
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      featureItems.forEach(item => {
+        observer.observe(item);
+      });
+    });
+  </script>
+
+  
 </body>
 </html>
