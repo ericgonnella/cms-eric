@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Doto:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
+}
+
+@font-face {
+  font-family: Inter Tight;
+  src: url('/fonts/Inter_Tight/InterTight-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: Open Sans;
+  src: url('/fonts/Open_Sans/OpenSans-VariableFont_wght.ttf');
+}
 
 :root {
 --font1: 'Doto', sans-serif;
@@ -131,6 +144,7 @@ padding: 10px 20px;
 
 
 button {
+  font-weight: bold !important;
     font-family: var(--font2);
     display: inline-block;
     height: 2.6em;
