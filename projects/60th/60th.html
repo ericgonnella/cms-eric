@@ -6,60 +6,88 @@
   <link rel="stylesheet" href="/global.css" />
   <link rel="stylesheet" href="/projects/projects.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>60th Anniversary Webpage</title>
-  <!-- Inline styles for the lightbox modal -->
+
   <style>
-    .lightbox {
+   .lightbox {
+      display: none; /* Hidden by default */
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      overflow: auto;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
       z-index: 1000;
-      padding: 20px;
+      overflow: auto; /* Allow scrolling if needed */
+      border-radius: none !important;
     }
-    .lightbox.open {
-      display: flex;
-    }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
+    /* Show lightbox when active */
+    .lightbox.active {
       display: block;
+    }
+
+    /* ===== Lightbox Content ===== */
+    .lightbox-content {
+      position: relative;
+      margin: 5vh auto; /* Vertically centered with a little top/bottom margin */
+      max-height: 90vh; /* Container is 90% of viewport height */
+      overflow-y: auto; /* Enable vertical scroll if content (image) is taller */
+      padding: 10px;
+      box-sizing: border-box;
+
+
+      img {
+      max-height: none;
+      border-radius: 0px;
+      width: clamp(10rem, 20rem + 30vw, 30rem);
+      }
+    }
+
+
+    .lightbox-content img {
+      display: block;
+      width: auto !important;
+      max-width: 100%;
+      margin: 0 auto !important;
+    }
+
+
+    .lightbox-mobile {
       margin: 0 auto;
     }
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      color: #fff;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
+
+    #lightbox-2 {
+      padding-top: 2rem;
     }
+
+    /* ===== Close Button ===== */
+    .lightbox-close {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px 10px;
+      line-height: 1;
+      z-index: 10;
+    }
+
   </style>
 </head>
 <body>
 
   <div class="nav-button-effects">
-
     <div class="back-button">
       <button onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
     </div>
-
     <nav>
       <a href="/index.html">Home</a>
       <a href="/projects.html">Projects</a>
       <a href="/content/blog/index.html">Articles</a>
       <a href="#">Contact</a>
     </nav>
-
   </div>
 
   <section id="page-header">
@@ -68,10 +96,9 @@
         <h1 class="animate__animated animate__fadeInUp">60th Anniversary Webpage</h1>
         <h2 class="animate__animated animate__fadeInUp animate__delay-1s" style="color:white">Ocean County College</h2>
       </div>
-
       <a href="#main-content" id="scroll-down">
         <div id="scroll-down-flex" class="animate__fadeInUp animate__delay-2s">
-          <div class="animate__fadeInUp animate__slow" >Check it out!</div>
+          <div class="animate__fadeInUp animate__slow">Check it out!</div>
           <strong>▼</strong>
         </div>
       </a>
@@ -81,61 +108,86 @@
   <main>
     <section id="main-content">
       <div class="main-content">
+        <div id="section-1" class="section-1">
+          <div class="screenshots">
+            <div class="desktop">
 
-      
+  <!-- ===== Trigger Elements ===== -->
+  <a href="#" class="lightbox-trigger" data-lightbox="lightbox-1">
+    <img data-aos="fade-up"
+    data-aos-anchor="#section-1"
+    data-aos-anchor-placement="top"   
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000" 
+    src="/projects/60th/60th-Desktop.webp" alt="Thumbnail 1" style="width:200px;" />
+  </a>
 
-  <div class="section-1">
-    <div class="screenshots">
-      <div class="60th-desktop">
-        <h2>Desktop</h2>
-        <div class="gallery">
-          <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Desktop.webp" alt="Sample Image" onclick="openLightbox(this)">
-        </div>
+    <!-- Lightbox 1 -->
+    <div class="lightbox" id="lightbox-1">
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <img src="/projects/60th/60th-Desktop.webp" alt="Image 1" />
       </div>
     </div>
-    
-    <div class="target">
-        As the College was entering its <strong>60th year</strong> of operation it was decided that an official anniversary page was needed.
+  </div>
+</div>
+          
+    <div class="project-description">
+      <h2 id="desktop">Desktop</h2>
+      <div class="project-text">
+        As the College was entering its <span>60th year</span> of operation it was decided that an official anniversary page was needed.
+        <br><br>
+        The result was a page that provided a fun interactive overview for the visitors while also giving a sense of the college's history.
+      </div>
+    </div>
+  </div>
 
-         <br><br>
-        The result was a page that provided a fun interactive overview for the visitors while also giving a sense of the college's history.        
+        <section id="highlights">
+          <strong>Some highlighted features include:</strong>
+          <!-- Updated features-list: each item now has the class "feature-item" -->
+          <section class="features-list">
+            <div class="feature-item">Then-Now Slider</div>
+            <div class="feature-item">Image Gallery</div>
+            <div class="feature-item">Interactive timeline</div>
+            <div class="feature-item">Form input</div>
+          </section>
+        </section>
+
+        <section class="section-2">
+          <h2>Mobile</h2>
+          <div class="project-description">
+            For the mobile site we ensured that the main slider functionality was carried over from the desktop to provide micro-interactions for users to engage with the webpage.
+          </div>
+          <div class="project-description">
+            The idea for utilizing a slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page.
+          </div>
+          <div class="project-description">
+            Utilizing section separators provided a new and fresh appearance for each of the users to ensure they would know that content is still available as they continued to scroll.
+          </div>
+          <div class="mobile">
+        
+  <a href="#" class="lightbox-trigger" data-lightbox="lightbox-2">
+    <img  data-aos="fade-up"
+    data-aos-anchor="#section-1"
+    data-aos-anchor-placement="top"   
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000" 
+    src="/projects/60th/60th-Mobile.webp" alt="Thumbnail 2" style="width:200px;" />
+  </a>
+
+            <!-- Lightbox 2 -->
+  <div class="lightbox" id="lightbox-2">
+    <div class="lightbox-content lightbox-mobile">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <img src="/projects/60th/60th-Mobile.webp" alt="Image 2" />
     </div>
   </div>
 
 
-  <section id="highlights">
-    <strong class="target">Some highlighted features include:</strong>
-
-    <!-- Updated features-list: items will animate when in view -->
-    <section class="features-list">
-      <div>Then-Now Slider</div>
-      <div>Image Gallery</div>
-      <div>Interactive timeline</div>
-      <div>Form input</div>
-    </section>
-
-  </section>
-
- 
-
-  <section class="section-2">
-
-    <div class="target">
-      For the mobile site we ensured that the main slider functionality was carried over from the desktop to provide micro-interactions for users to engage with the webpage.
-      <br><br>
-      The idea for utilizing a slideshow was considered for the images, but we wanted users to scroll and see the full resolution to increase the impact of the page.
-      <br><br>
-      Utilizing section separators provided a new and fresh appearance for each of the users to ensure they would know that content is still available as they continued to scroll.
-    </div>
-
-    <div class="60th-mobile">
-      <h2>Mobile</h2>
-       <div class="gallery">
-        <img loading="lazy" src="https://eric-cms.netlify.app/projects/60th/60th-Mobile.webp" alt="Sample Image" onclick="openLightbox(this)">
+          </div>
+        </section>
       </div>
-    </div>
-  </section>
-
+    </section>
   </main>
 
   <!-- Lightbox Modal -->
@@ -148,86 +200,120 @@
     <a href="#">↑ Back to Top</a>
   </div>
 
-
-  <!-- Include external libraries if not already loaded -->
-  <script src="https://unpkg.com/split-type"></script>
-  <script src="https://cdn.jsdelivr.net/npm/splittype@0.3.3/dist/splittype.min.js"></script>
-  <script src="/gsap.min.js"></script>
-  <script src="/scrollTrigger.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-  </script>
-
   <!-- Inline Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Lightbox functionality
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
-
-    function openLightbox(imgElement) {
-      lightboxImg.src = imgElement.src;
-      lightbox.classList.add('open');
-      lightbox.scrollTop = 0; // Ensure modal scrolls to top on open
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-    }
-
-    // Close lightbox on click of close button
-    lightboxClose.addEventListener('click', closeLightbox);
-
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    // Close lightbox on 'Escape' key press
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
-        closeLightbox();
-      }
-    });
+    AOS.init();
   </script>
 
-  <script>
-    // Combined and optimized SplitType & GSAP animation using ScrollTrigger
-    document.addEventListener('DOMContentLoaded', () => {
-      const targets = document.querySelectorAll('.target');
-      targets.forEach(target => {
-        // Initialize SplitType for the target element once
-        const splitInstance = new SplitType(target, { types: 'words, chars' });
-        // Set initial state: characters start hidden with an offset
-        gsap.set(splitInstance.chars, { opacity: 0, y: 10 });
-        // Animate characters into view as the element enters the viewport
-        gsap.to(splitInstance.chars, {
-          opacity: 1,
-          duration: .001,    // Faster animation
-          ease: "power2.out",
-          stagger: 0.01,     // Minimal stagger for fluidity
-          scrollTrigger: {
-            trigger: target,
-            start: "top 80%",
-            toggleActions: "play none none none",
-            once: true,
-          }
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Function to open the lightbox with a zoomIn animation
+    function openLightbox(lightboxId) {
+      const lightbox = document.getElementById(lightboxId);
+      if (lightbox) {
+        lightbox.classList.add('active');
+        const content = lightbox.querySelector('.lightbox-content');
+        if (content) {
+          // Remove any existing exit animation class
+          content.classList.remove('animate__zoomOut');
+          // Trigger reflow to restart animation (optional)
+          void content.offsetWidth;
+          // Add Animate.css classes for zoomIn
+          content.classList.add('animate__animated', 'animate__zoomIn', 'animate__faster');
+          // Once the animation ends, clean up the animation classes
+          content.addEventListener('animationend', function handleAnimationEnd() {
+            content.classList.remove('animate__animated', 'animate__zoomIn', 'animate__faster');
+            content.removeEventListener('animationend', handleAnimationEnd);
+          });
+          // Ensure the content is scrolled to the top
+          content.scrollTop = 0;
+        }
+      }
+    }
+
+    // Function to close the lightbox with a zoomOut animation
+    function closeLightbox(lightbox) {
+      if (lightbox) {
+        const content = lightbox.querySelector('.lightbox-content');
+        if (content) {
+          // Remove any entrance animation class if present
+          content.classList.remove('animate__zoomIn');
+          // Add Animate.css classes for zoomOut
+          content.classList.add('animate__animated', 'animate__zoomOut', 'animate__faster');
+          // After the exit animation finishes, remove the active class to hide the lightbox
+          content.addEventListener('animationend', function handleAnimationEnd() {
+            lightbox.classList.remove('active');
+            content.classList.remove('animate__animated', 'animate__zoomOut', 'animate__faster');
+            content.removeEventListener('animationend', handleAnimationEnd);
+          });
+        } else {
+          // Fallback in case content is not found
+          lightbox.classList.remove('active');
+        }
+      }
+    }
+
+    // Attach click events to each trigger to open the corresponding lightbox
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        const lightboxId = this.getAttribute('data-lightbox');
+        openLightbox(lightboxId);
+      });
+
+      triggers.forEach(trigger => {
+  trigger.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log("Lightbox trigger clicked:", this);
+    const lightboxId = this.getAttribute('data-lightbox');
+    console.log("Opening lightbox with id:", lightboxId);
+    openLightbox(lightboxId);
+  });
+});
+    });
+
+    // For each lightbox, add handlers to close the lightbox via the close button or clicking outside
+    const lightboxes = document.querySelectorAll('.lightbox');
+    lightboxes.forEach(lightbox => {
+      // Close when clicking the close button
+      const closeBtn = lightbox.querySelector('.lightbox-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeLightbox(lightbox);
         });
+      }
+      // Close when clicking outside the content area
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+          closeLightbox(lightbox);
+        }
       });
     });
-  </script>
 
+    // Listen for the Escape key to close any active lightbox
+    document.addEventListener('keydown', function (e) {
+      if (e.key === "Escape") {
+        lightboxes.forEach(lightbox => {
+          if (lightbox.classList.contains('active')) {
+            closeLightbox(lightbox);
+          }
+        });
+      }
+    });
+  });
+</script>
 
   <script>
-    // IntersectionObserver to animate feature items when they come into the viewport
+    // IntersectionObserver to animate feature items under highlights with FlipX
     document.addEventListener('DOMContentLoaded', () => {
       const featureItems = document.querySelectorAll('.features-list .feature-item');
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate__animated', 'animate__flipInX');
+            entry.target.classList.add('animate__animated', 'animate__pulse');
             obs.unobserve(entry.target); // Remove observer once animation has been triggered
           }
         });
@@ -239,6 +325,5 @@
     });
   </script>
 
-  
 </body>
 </html>

@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: Inter;
   src: url('/fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
 }
@@ -11,7 +11,7 @@
 @font-face {
   font-family: Open Sans;
   src: url('/fonts/Open_Sans/OpenSans-VariableFont_wght.ttf');
-}
+} */
 
 :root {
 --font1: 'Doto', sans-serif;

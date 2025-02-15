@@ -3,15 +3,27 @@ html{
     margin: 0;
     padding: 0;
     height: 100%; /* Ensure height is managed correctly */
-    overflow: hidden;
     scroll-behavior: smooth;
     scrollbar-width: thin;
+    overflow: hidden;
     -webkit-scrollbar-width: thin;
     }
 
 nav {
 padding: 10px 30px 0px 30px;
+
 }
+
+
+h1 {
+    position: absolute;
+    height: 1000px;
+    left: -20px;
+    writing-mode: vertical-rl;
+    font-size: 10rem !important;
+    margin-top: 32dvh;
+    }
+    
 
 
 #Projects {
@@ -47,18 +59,6 @@ padding: 10px 30px 0px 30px;
     justify-content: flex-end;
     }
     }
-    
-
-    
-h1 {
-position: absolute;
-height: 1000px;
-left: -20px;
-writing-mode: vertical-rl;
-font-size: 10rem !important;
-margin-top: 19rem !important;
-}
-
 
 #sort {
 font-family: var(--font1);

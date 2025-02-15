@@ -9,9 +9,9 @@ margin: .5rem 0px;
 }
 
 nav  {
-justify-content: center !important;
-align-items: center !important;
-padding: 10px 0px !important;
+justify-content: right;
+align-items: center;
+padding: 10px 0px;
 }
 
 header {

@@ -1,5 +1,4 @@
 html, body {
-font-size: clamp(.3rem, .3rem + 1.5vw, 1.24rem) !important;
 scrollbar-width: auto !important;
 scroll-behavior: smooth !important;
 scrollbar-color: ghosthwhite ghostwhite !important;
@@ -10,15 +9,6 @@ img {
     margin: 20px 0px !important;
     }
 
-
-main  {
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-width: 90% !important;
-max-width: none !important;
-margin-top: 6vh !important;
-}
 
 
 ol, ul {
@@ -67,7 +57,6 @@ a {
         position: absolute;
         width: 0%;
         height: 2px;
-        background-color: #6441a5;
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-duration: 400ms;
         transition-property: width, left;
@@ -116,9 +105,8 @@ main {
     margin: 0 auto;
     margin-top: 100px;
     padding: 20px;
-    
-
     }
+
         
     /* Header Section */
     header {
@@ -139,6 +127,8 @@ main {
 .nav-button-effects {
 display: flex; 
 justify-content: space-between;
+font-size: 1.3rem;
+align-items: flex-start !important;
 }
 
 
@@ -228,28 +218,34 @@ font-size: 1rem;
 #main-content {
 padding: 5rem 0px 0px 0px;
 display: flex;
-flex-direction: column;
-align-items: center;
+justify-content: center;
 
 .main-content {
 width: 60vw !important;
-
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
  }
 }
 
 .section-1 {
 display: flex;
-flex-direction: row;
+flex-direction: column-reverse;
 align-items: top;
 justify-content: center;
-gap: 2rem;
+gap: 5rem;
 
+div {
+padding: 20px 0px;
+text-wrap: pretty;
+ }
+}
 
-.target {
-margin-top: 100px;
-font-size: 2rem;
-}
-}
+.project-description {
+font-size: clamp(1.5rem, 2rem + 1vw, 1rem);
+opacity: 0.8;
+ }    
 
 .screenshots {
 display: flex;
@@ -295,69 +291,44 @@ font-size: 1.5rem;
 
 
 .section-2 {
-    display: flex;
-    flex-direction: row;
-    align-items: top;
-    justify-content: center;
-    gap: 2rem;
-    
-    
-    .target {
-    margin-top: 80px;
-    font-size: 1.7rem;
-    }
-    
-    }
+display: flex;
+flex-direction: column;
+gap: 2rem;
 
+.project-text {
+padding: 0px 30px;
+}
+
+
+
+}
+
+.mobile {
+margin-top: 10rem;
+display: flex;
+justify-content: center;
+}
 
 .back-to-top {
 padding-top: 10rem;
 }
 
-/* 
-.sticky-content {
-top: 0;
-}
-
-.left {
-flex-grow: 3;
-width: 100%;
-
-p {
-position: sticky;
-top: 0;
-}
-
-span {
-color: var(--accent);
-}
-
-} */
-
-/* .right {
-display: flex;
-flex-direction: column;
-scrollbar-width: thin !important;
-scrollbar-color: black ghostwhite !important;
-padding: 20px;
-gap: 30px; */
 
 img {
-width: clamp(2rem, 2rem + 23vw, 25rem);
-height: 40rem;
+width: clamp(2rem,90vw, 70rem) !important;
+max-height: 40rem;
 object-fit: cover;
 object-position: top;
+overflow: scroll;
 margin-top: 0px !important;
 border-radius: 20px;
-border: 5px solid var(--accent);
+transition: transform 0.5s ease-in;
 }
 
 img:hover {
-cursor: pointer;
-box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-transform: translate(0px, -5px);
+    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
+    transition: transform 0.5s ease-out;
 }
-
 
 
 #target {
@@ -378,47 +349,6 @@ display: flex;
 padding-left: 10vh;
 margin-top: 50px;
 padding-bottom: 50px;
-}
-
-
-#lightbox-img {
-    border: none;
-    border-radius: 0px;
-    overflow: scroll;
-    cursor: default;
-
-&:hover {
-transform: translate(0px, 0px);
-}
-
-  }
-
-.lightbox {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background: rgba(0, 0, 0, 0.8);
-display: flex;
-align-items: flex-start;
-justify-content: center;
-overflow-y: auto;
-opacity: 0;
-visibility: hidden;
-transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.lightbox.open {
-opacity: 1;
-visibility: visible;
-z-index: 1;
-
-}
-.lightbox img {
-width: 90%;
-height: 100%;
-transition: transform 0.3s ease;
-margin-top: 20px;
-outline: none !important;
 }
 
 
@@ -443,7 +373,6 @@ text-align: left;
 
 #main-content {
 display: flex;
-flex-direction: column;
 margin: 5vh 0px 8vh 0px;
 
 
