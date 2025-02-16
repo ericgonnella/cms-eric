@@ -78,17 +78,27 @@
 </head>
 <body>
 
-  <div class="nav-button-effects">
-    <div class="back-button">
-      <button onclick="window.location.href='/index.html#Projects'">◄ Back to Projects</button>
-    </div>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/content/blog/index.html">Articles</a>
-      <a href="#">Contact</a>
-    </nav>
-  </div>
+  <nav id="navdesktop" class="nav-button-effects">
+    <a href="index.html">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/content/blog/index.html">Articles</a>
+    <a href="/contact.html">Contact</a>
+</nav>
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/index.html">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/content/blog/index.html">Articles</a>
+  <a href="/contact.html">Contact</a>
+</div>
+
+
+<div class="openbtn">
+  <svg onclick="openNav()" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 24 24" fill="none" stroke="var(--text)" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu" id="Menu--Streamline-Feather"><desc>Menu Streamline Icon: https://streamlinehq.com</desc><path d="m2.875 11.5 17.25 0" stroke-width="1"></path><path d="m2.875 5.75 17.25 0" stroke-width="1"></path><path d="m2.875 17.25 17.25 0" stroke-width="1"></path></svg>
+</div>
 
   <section id="page-header">
     <div class="top-bar">
@@ -201,6 +211,23 @@
   </div>
 
   <!-- Inline Scripts -->
+
+
+  <script>
+
+    /* Open the sidenav */
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+    }
+    
+    /* Close/hide the sidenav */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    } 
+    
+    </script>
+
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();

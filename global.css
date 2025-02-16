@@ -24,17 +24,36 @@
 --screen-padding: 40vh 3vw 40vh 3vw;
 }
 
+
 html, body {
-font-family: var(--font4);
-color: var(--text);
-padding: 0;
-margin: 0;
-position: relative;
-scroll-behavior: smooth;
-scrollbar-color: white black;
-scrollbar-width: thin;
-overscroll-behavior: none;
-}
+  background-size: 400% 400%;
+  animation: gradient 50s ease infinite;
+  height: auto;
+  background: linear-gradient(15deg,#1a1a1a,#1e1e1e,var(--accent));
+  background-size: 180% 180%;
+  animation: gradient-animation 15s ease-in-out infinite;
+  font-family: var(--font4);
+  color: var(--text);
+  padding: 0;
+  margin: 0;
+  position: relative;
+  scroll-behavior: smooth;
+  scrollbar-color: white black;
+  scrollbar-width: thin;
+  overscroll-behavior: none !important;
+  }
+  
+  @keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+  }
 
 h1 {
 font-size:5rem;
@@ -61,8 +80,8 @@ font-family: var(--font2);
 }
 
 nav {
-display: flex;
-justify-content: flex-end;
+display: flex !important;
+justify-content: flex-end !important;
 align-items: center;
 font-size: 1.3rem;
 gap: 1rem;
@@ -116,27 +135,6 @@ transition-duration: 400ms;
 transition-property: width, left;
 }
 
-html, body {
-/* background: linear-gradient(132deg, rgba(30,30,46,1) 6%, rgba(27,27,29,1) 54%, rgba(36,41,46,1) 91%); */
-background-size: 400% 400%;
-animation: gradient 50s ease infinite;
-height: auto;
-background: linear-gradient(15deg,#1a1a1a,#1e1e1e,var(--accent));
-background-size: 180% 180%;
-animation: gradient-animation 15s ease-in-out infinite;
-}
-
-@keyframes gradient-animation {
-0% {
-  background-position: 0% 50%;
-}
-50% {
-  background-position: 100% 50%;
-}
-100% {
-  background-position: 0% 50%;
-}
-}
 
 .screen-padding {
 padding: 10px 20px;
@@ -195,3 +193,151 @@ button {
     background: var(--accent);
     transition: background 0s;
     }
+
+
+/* Mobile Nav */
+
+
+@media screen and (min-width: 50rem) {
+
+  #mySidenav {
+      display: none !important;
+  }
+  
+  .openbtn {
+      display: none;
+  }
+  
+  }
+  
+  
+  
+  @media screen and (min-width: 0px) and (max-width: 50rem) {
+
+  .openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text);
+  padding: 10px 15px;
+  border: none;
+  
+  svg {
+  width: 3rem;
+  }
+
+}
+  #checkbox {
+    display: none;
+  }
+  
+  .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+  }
+  
+  .bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(176, 92, 255);
+    border-radius: 4px;
+  }
+  
+  #bar2 {
+    transition-duration: .8s;
+  }
+  
+  #bar1,#bar3 {
+    width: 70%;
+  }
+  
+  #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+  }
+
+  #navdesktop {
+  display: none !important;
+  } 
+  
+   /* The side navigation menu */
+   .sidenav {
+      height: 100%;
+      width: 0; 
+      position: fixed;
+      z-index: 999;
+      top: 0; 
+      left: 0;
+      background-color: #663399;
+      color: var(--text);
+      overflow-x: hidden;
+      overflow-y: hidden;
+      overscroll-behavior: none;
+      padding-top: 10rem;
+      transition: 0.5s; 
+      display: flex;
+      flex-direction: column;
+   
+    }
+    
+    /* The navigation menu links */
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      display: block;
+      transition: 0.3s;
+      font-size: 3.5rem;
+      color: var(--text) !important;
+    }
+    
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+    
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      left: -4rem;
+      font-size: 3rem;
+      margin-left: 50px;
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    } 
+  
+  }
+  

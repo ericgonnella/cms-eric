@@ -2,8 +2,10 @@
 @media (min-device-width:0px) and (max-device-width:800px) {
 
 html, body {
-overflow-x: hidden !important;
+overflow: hidden !important;
 background-color: #1a1a1a !important;
+overscroll-behavior: none !important;
+height: 100vh !important;
 }
 
 h1 {
@@ -19,5 +21,6 @@ margin: 4rem 0px !important;
 .blog-header {
 flex-direction: column;
 padding: 0px 20px; 
+overflow: hidden !important;
 }
 }

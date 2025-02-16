@@ -1,7 +1,8 @@
 body, html {
-overflow-x: hidden !important;
-overflow-y: hidden !important;
-background-color: #1a1a1a !;
+background-color: #1a1a1a;
+overflow: hidden !important;
+height: 100vh !important;
+overflow: hidden !important;
 }
 
 .blog-header {
@@ -10,6 +11,7 @@ justify-content: space-evenly;
 height: 100vh !important;
 padding-right: 30px;
 margin-top: 40px;
+overflow: hidden !important;
 }
 
 #all-blogs {
@@ -31,22 +33,27 @@ margin-top: 12rem !important;
 }
 
 article {
+  min-height: 100dvh;
+  overflow: none !important;
 
 h2 {
 margin-bottom: 0px !important;
 text-align: right !important;
+overflow: hidden !important;
 }
 
 p {
 margin: 0px !important;
 font-weight: bold;
 text-align: right !important;
+overflow: hidden !important;
 }
 
 a {
 text-align: right !important;
 font-size: clamp(.7rem, .7rem + 3vw, 5rem) !important;
 transition: 112ms ease-in-out all;
+overflow: hidden !important;
  }
 
 a:hover {
