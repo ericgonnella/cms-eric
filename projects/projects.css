@@ -75,7 +75,7 @@ font-size: clamp(2rem, 2rem + 2vw, 4rem) !important;
 }
 
 h2 {
-font-size: clamp(1.5rem, 1.5rem + 2vw, 2.6rem) !important;
+font-size: clamp(1.5rem, 1.5rem + 2.5vw, 4rem) !important;
 color: var(--accent) !important;
 }
 
@@ -252,6 +252,7 @@ justify-content: center;
 align-items: center;
 width: 100%;
 margin: 1rem 0px;
+
 }
 
 #highlights {
@@ -261,6 +262,16 @@ strong {
 font-size: 1.5rem;
 }
 }
+
+
+.lightbox-trigger img:hover {
+outline: 5px solid var(--accent);
+}
+
+.lightbox-close {
+margin-left: 50%;
+}
+
 
 .features-list {
     padding: 2rem 0px;
@@ -320,14 +331,7 @@ object-position: top;
 overflow: scroll;
 margin-top: 0px !important;
 border-radius: 20px;
-transition: transform 0.5s ease-in;
 }
-
-img:hover {
-    box-shadow: 0 20px 25px -5px #000, 0 8px 10px -6px #000;
-    transition: transform 0.5s ease-out;
-}
-
 
 #target {
 text-wrap: balanced;

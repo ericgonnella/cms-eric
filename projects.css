@@ -3,7 +3,7 @@ html{
     margin: 0;
     padding: 0;
     height: 100%; /* Ensure height is managed correctly */
-    overflow: hidden;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     -webkit-scrollbar-width: thin;
@@ -52,11 +52,10 @@ padding: 10px 30px 0px 30px;
     
 h1 {
 position: absolute;
-height: 1000px;
 left: -20px;
 writing-mode: vertical-rl;
 font-size: 10rem !important;
-margin-top: 19rem !important;
+margin-top: 16rem !important;
 }
 
 
@@ -64,6 +63,7 @@ margin-top: 19rem !important;
 font-family: var(--font1);
 overflow-x: hidden;
 width: 80%;
+height: 48rem;
 
     .tag-navigation {
     margin-bottom: 2rem;

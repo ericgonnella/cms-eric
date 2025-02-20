@@ -50,7 +50,7 @@ flex-direction: column;
   }
   
   
-  .projects-container h2 {
+  .projects-container h1 {
   writing-mode: horizontal-tb;
   transform: rotate(0deg) scaleX(1);
   padding: 0px 25px;
@@ -59,15 +59,18 @@ flex-direction: column;
   
   .project-content {
     width: 100%;
-  display: flex;
-  flex-direction: column;
-flex-wrap: wrap;
-box-sizing: border-box;   
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;  
+    margin-top: 0px; 
 }
   }
 
 #sort {
 justify-content: center !important;
+margin-top: 1rem !important;
+height: auto;
 
 .item {
   height: 150px !important;
@@ -108,7 +111,7 @@ padding-top: 40px;
 display: flex;
 flex-direction: column !important;
 
-h2 {
+h1 {
 writing-mode: horizontal-tb;
 transform: rotate(0deg) scaleX(1);
 margin: 0px !important;
@@ -201,16 +204,22 @@ height: auto !important;
     margin-left: 0;
     }
 
-    .projects-container h2 {
+    .projects-container h1 {
       writing-mode: horizontal-tb;
       transform: rotate(0deg) scaleX(1);
       margin-top: 30px !important;
       margin-left: 0 !important;
+      padding: 0px 2rem;
+      font-size: 5rem !important;
     }
 
     .project-content {
     width: 100%;
     height: auto !important;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    margin-top: 0px; 
     }                                             
 }
     
@@ -250,7 +259,7 @@ height: 40vh;
 overflow-x: hidden !important;
 overflow-y: hidden !important;
 
-    h2 {
+    h1{
     writing-mode: horizontal-tb;
     transform: rotate(0deg) scaleX(1);
     margin: 0px !important;
@@ -283,7 +292,10 @@ justify-content: center;
 
  #sort {
   justify-content: center !important;
-  
+  margin-top: 1rem !important;
+  width: 100% !important;
+  height: auto;
+
   .item {
     width: 100% !important;
   }
