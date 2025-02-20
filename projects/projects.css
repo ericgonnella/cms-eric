@@ -325,10 +325,10 @@ padding-top: 10rem;
 
 img {
 width: clamp(2rem,90vw, 70rem) !important;
+height: 100%;
 max-height: 40rem;
 object-fit: cover;
 object-position: top;
-overflow: scroll;
 margin-top: 0px !important;
 border-radius: 20px;
 }
